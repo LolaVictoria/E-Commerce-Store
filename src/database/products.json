@@ -1,0 +1,337 @@
+
+[
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Apple Cider Vinnegar",
+      "price": 3000,
+      "color": "blue",
+      "category": "Health & Beauty",
+      "id": 1
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-4.png",
+      "title": "Pears Baby Oil",
+      "price": 3000,
+      "color": "blue",
+      "category": "Baby Products",
+      "id": 2
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Oraimo Cord",
+      "price": 3000,
+      "color": "blue",
+      "category": "Appliances",
+      "id": 3
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Health & Beauty",
+      "id": 4
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Appliances",
+      "id": 5
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Health & Beauty",
+      "id": 6
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Appliances",
+      "id": 7
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Baby Products",
+      "id": 8
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Health & Beauty",
+      "id": 9
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Baby Products",
+      "id": 10
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Health & Beauty",
+      "id": 11
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Baby Products",
+      "id": 12
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Baby Products",
+      "id": 13
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Appliances",
+      "id": 14
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Clothes",
+      "id": 15
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Clothes",
+      "id": 16
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Clothes",
+      "id": 17
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Clothes",
+      "id": 18
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Computing",
+      "id": 19
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Computing",
+      "id": 20
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-4.png",
+      "title": "13 inches Monitor",
+      "price": 3000,
+      "color": "blue",
+      "category": "Computing",
+      "id": 21
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Computing",
+      "id": 22
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Electronics",
+      "id": 23
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Electronics",
+      "id": 24
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Electronics",
+      "id": 25
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-4.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Home & Offices",
+      "id": 26
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-5.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Home & Offices",
+      "id": 27
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Home & Offices",
+      "id": 28
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Egornomic Table",
+      "price": 3000,
+      "color": "blue",
+      "category": "Home & Offices",
+      "id": 29
+    },
+
+    {
+      "img":"/src/assets/img/carousel/carousel-4.png",
+      "title": "Iphone 13 pro Max",
+      "price": 3000,
+      "color": "blue",
+      "category": "Phones & Tablets",
+      "id": 30
+    },
+
+    {
+      "img":"/src/assets/img/carousel/carousel-3.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Phones & Tablets",
+      "id": 31
+    },
+
+    {
+      "img":"/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Health & Beauty",
+      "id": 32
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Health & Beauty",
+      "id": 33
+    },
+
+    {
+      "img":"/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Health & Beauty",
+      "id": 34
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Health & Beauty",
+      "id": 35
+    },
+
+    {
+      "img":"/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Health & Beauty",
+      "id": 36
+    },
+
+    {
+      "img": "/src/assets/img/carousel/carousel-1.png",
+      "title": "Cooking Pot",
+      "price": 3000,
+      "color": "blue",
+      "category": "Health & Beauty",
+      "id": 37
+    }
+  ]
+
+
