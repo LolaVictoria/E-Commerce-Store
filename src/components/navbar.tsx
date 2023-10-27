@@ -1,5 +1,5 @@
 
-//import Logo from ".alaba-market-logo.png"
+import Logo from "/src/assets/img/alaba-market-logo.png"
 import {BiSolidDownArrow} from "react-icons/bi"
 import {AiOutlineSearch} from "react-icons/ai";
 import {FiGlobe} from "react-icons/fi";
@@ -23,7 +23,7 @@ const Navbar = () => {
     return (
         <nav className="bg-[#181818] w-[100%] h-24 flex justify-between items-center px-8">
             <div className="flex flex-row items-center text-xl font-bold tracking-[-1.296px]">
-                <img src="src/assets/img/alaba-market-logo.png" className="mr-3"/>
+                <img src={Logo} className="mr-3"/>
                 <div>
                     <span className="text-[#2ECF5A]">Alaba </span><span className="text-[#fff]">Market</span>
                 </div>

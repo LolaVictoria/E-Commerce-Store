@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom"
 import { formatCurrency } from "../utilities/formatCurrency"
 type productObj = {
-    img: string
-    title: string
-    price: number
-    id: number
-    category: string
+    id: number;
+  title: string;
+  price: number;
+  img: string;
+  ratings?: number 
+  category: string
 }
 
-const Products = ({ img, title, price,  id, category }:productObj) => {
+const Products: React.FC<productObj> =({img, title, category, price, ratings, id}) => {
     return (
         
                 <div className="relative bg-[#2ECF5A] w-60 h-auto rounded-lg">
@@ -18,6 +19,8 @@ const Products = ({ img, title, price,  id, category }:productObj) => {
                     <p className="text-[#FFF] text-lg font-normal">{title}</p>
                          <p className="text-[#FFF] text-lg font-normal">{category}</p>
                         <p className="text-[#FFF] text-lg font-normal">{formatCurrency(price)}</p>
+                        <p className="text-[#FFF] text-lg font-normal">{ratings}</p>
+
                         <Link to={`/productdetails/${id}`}>
                         <a
                             href={`/product/${id}`}

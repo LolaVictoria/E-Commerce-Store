@@ -12,6 +12,7 @@ type Product = {
   title: string;
   price: number;
   img: string;
+  ratings: number
   category: string
   // Add other properties as needed
 };

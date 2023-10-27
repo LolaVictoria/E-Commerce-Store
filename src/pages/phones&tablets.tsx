@@ -13,6 +13,7 @@ type Product = {
   price: number;
   img: string;
   category: string
+  ratings: number
   // Add other properties as needed
 };
 
