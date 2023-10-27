@@ -15,7 +15,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Baby Products",
-      "id": 2
+      "id": 2,
+      "ratings": 2.8
     },
 
     {
@@ -24,7 +25,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Appliances",
-      "id": 3
+      "id": 3,
+      "ratings": 4.3
     },
 
     {
@@ -33,7 +35,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Health & Beauty",
-      "id": 4
+      "id": 4,
+      "ratings": 2.3
     },
 
     {
@@ -42,7 +45,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Appliances",
-      "id": 5
+      "id": 5,
+      "ratings": 2.9
     },
 
     {
@@ -51,7 +55,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Health & Beauty",
-      "id": 6
+      "id": 6,
+      "ratings": 4.2
     },
 
     {
@@ -60,7 +65,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Appliances",
-      "id": 7
+      "id": 7,
+      "ratings": 3.9
     },
 
     {
@@ -69,7 +75,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Baby Products",
-      "id": 8
+      "id": 8,
+      "ratings": 4.7
     },
 
     {
@@ -78,7 +85,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Health & Beauty",
-      "id": 9
+      "id": 9,
+      "ratings": 3.4
     },
 
     {
@@ -87,7 +95,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Baby Products",
-      "id": 10
+      "id": 10,
+      "ratings": 2.6
     },
 
     {
@@ -96,7 +105,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Health & Beauty",
-      "id": 11
+      "id": 11,
+      "ratings": 2.3
     },
 
     {
@@ -105,7 +115,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Baby Products",
-      "id": 12
+      "id": 12,
+      "ratings": 2.3
     },
 
     {
@@ -114,7 +125,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Baby Products",
-      "id": 13
+      "id": 13,
+      "ratings": 2.5
     },
 
     {
@@ -123,7 +135,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Appliances",
-      "id": 14
+      "id": 14,
+      "ratings": 2.7
     },
 
     {
@@ -141,7 +154,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Clothes",
-      "id": 16
+      "id": 16,
+      "ratings": 2.2
     },
 
     {
@@ -150,7 +164,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Clothes",
-      "id": 17
+      "id": 17,
+      "ratings": 2.6
     },
 
     {
@@ -159,7 +174,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Clothes",
-      "id": 18
+      "id": 18,
+      "ratings": 2.3
     },
 
     {
@@ -168,7 +184,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Computing",
-      "id": 19
+      "id": 19,
+      "ratings": 2.4
     },
 
     {
@@ -177,7 +194,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Computing",
-      "id": 20
+      "id": 20,
+      "ratings": 2.9
     },
 
     {
@@ -186,7 +204,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Computing",
-      "id": 21
+      "id": 21,
+      "ratings": 3.1
     },
 
     {
@@ -195,7 +214,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Computing",
-      "id": 22
+      "id": 22,
+      "ratings": 4.1
     },
 
     {
@@ -204,7 +224,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Electronics",
-      "id": 23
+      "id": 23,
+      "ratings": 2.0
     },
 
     {
@@ -213,7 +234,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Electronics",
-      "id": 24
+      "id": 24,
+      "ratings": 2.3
     },
 
     {
@@ -222,7 +244,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Electronics",
-      "id": 25
+      "id": 25,
+      "ratings": 2.6
     },
 
     {
@@ -231,7 +254,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Home & Offices",
-      "id": 26
+      "id": 26,
+      "ratings": 2.2
     },
 
     {
@@ -240,7 +264,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Home & Offices",
-      "id": 27
+      "id": 27,
+      "ratings": 2.1
     },
 
     {
@@ -249,7 +274,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Home & Offices",
-      "id": 28
+      "id": 28,
+      "ratings": 2.2
     },
 
     {
@@ -258,7 +284,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Home & Offices",
-      "id": 29
+      "id": 29,
+      "ratings": 2.3
     },
 
     {
@@ -267,7 +294,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Phones & Tablets",
-      "id": 30
+      "id": 30,
+      "ratings": 2.1
     },
 
     {
@@ -276,7 +304,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Phones & Tablets",
-      "id": 31
+      "id": 31,
+      "ratings": 2.4
     },
 
     {
@@ -285,7 +314,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Health & Beauty",
-      "id": 32
+      "id": 32,
+      "ratings": 3.4
     },
 
     {
@@ -294,7 +324,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Health & Beauty",
-      "id": 33
+      "id": 33,
+      "ratings": 2.0
     },
 
     {
@@ -303,7 +334,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Health & Beauty",
-      "id": 34
+      "id": 34,
+      "ratings": 2.6
     },
 
     {
@@ -312,7 +344,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Health & Beauty",
-      "id": 35
+      "id": 35,
+      "ratings": 2.5
     },
 
     {
@@ -321,7 +354,8 @@
       "price": 3000,
       "color": "blue",
       "category": "Health & Beauty",
-      "id": 36
+      "id": 36,
+      "ratings": 2.5
     },
 
     {
@@ -330,8 +364,10 @@
       "price": 3000,
       "color": "blue",
       "category": "Health & Beauty",
-      "id": 37
+      "id": 37,
+      "ratings": 2.3
     }
   ]
+
 
 

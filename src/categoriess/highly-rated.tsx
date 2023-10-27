@@ -1,24 +1,38 @@
-import HighlyRatedProducts from "../components/highyRatedProducts";
-// import Product1 from "src/assets/img/HighlyRatedProducts/product-1.png"
-// import {Product2} from "src/assets/img/HighlyRatedProducts/product-2.png"
-// import {Product3} from "src/assets/img/HighlyRatedProducts/product-3.png"
-// import {Product4} from "src/assets/img/HighlyRatedProducts/product-4.png"
-// import {Product5} from "src/assets/img/HighlyRatedProducts/product-5.png"
-// import {Product6} from "src/assets/img/HighlyRatedProducts/product-6.png"
+import Products from "../components/products";
+import storeItems from "../database/products.json"
 
-const HighlyRated = () => {
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  img: string;
+  ratings: number
+  category: string
+  // Add other properties as needed
+};
+
+type HighlyRatedType = {
+  highlyRatedItems: Product[];
+};
+
+
+const HighlyRated: React.FC<HighlyRatedType> = () => {
+    // Filter highly-rated items before rendering
+    const highlyRatedItems = storeItems.filter((item) => (item.ratings || 0) >= 3.5);
+
     return (
         <div className="px-8 pt-6">
             <h3 className="text-[#000] text-3xl font-semibold mb-8">Highly Rated Products</h3>
 
-            <div className="grid grid-cols-5 ">
-                <HighlyRatedProducts productImage= "src/assets/img/products/product-1.png" productName= "Shining Pot"  productPrice= "5000"/>
-                <HighlyRatedProducts productImage= "src/assets/img/products/product-2.png" productName= "Shining Pot"  productPrice= "5000"/>
-                <HighlyRatedProducts productImage= "src/assets/img/products/product-3.png" productName= "Shining Pot"  productPrice= "5000"/>
-                <HighlyRatedProducts productImage= "src/assets/img/products/product-4.png" productName= "Shining Pot"  productPrice= "5000"/>
-                <HighlyRatedProducts productImage= "src/assets/img/products/product-5.png" productName= "Shining Pot"  productPrice= "5000"/>
-                {/*<Products productImage= "src/assets/img/products/product-6.png" productName= "Shining Pot"  productPrice= "5000"/>*/}
-            </div>
+            
+            <div className="grid grid-cols-4 gap-y-14 place-items-center gap-x-4 my-24">
+            {highlyRatedItems.map((item) => (
+          <div key={item.id} className="">
+            <Products {...item} />
+          </div>
+        ))}
+          </div>
+            
 
         </div>
     );
