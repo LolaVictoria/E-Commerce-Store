@@ -13,12 +13,13 @@ type ProductDetails = {
     price: number;
     img: string;
     category: string
+    quantity: number
     // Add other properties as needed
   };
 
   type ProductDetailsProps = {
-    products: ProductDetails[] | null;
-    quantity: number
+    products?: ProductDetails[] | null;
+    
   };
 const ProductDetails: React.FC<ProductDetailsProps> = () => {
     
