@@ -12,7 +12,7 @@ type Product = {
 };
 
 type HighlyRatedType = {
-  highlyRatedItems: Product[];
+  highlyRatedItems?: Product[];
 };
 
 
