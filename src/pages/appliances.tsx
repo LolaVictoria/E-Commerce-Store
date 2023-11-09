@@ -17,7 +17,7 @@ type Product = {
 };
 
 type ProductDisplayProps = {
-  products: Product[];
+  products?: Product[];
 };
 
 const Appliances: React.FC<ProductDisplayProps> = () => {
