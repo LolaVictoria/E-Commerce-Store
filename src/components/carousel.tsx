@@ -1,6 +1,13 @@
 import CarouselComponent from "./carouselComponent";
 import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import 'react-multi-carousel/lib/styles.css'
+import Carousel1 from "src/assets/img/carousel/carousel-1.png"
+import Carousel2 from "src/assets/img/carousel/carousel-2.png"
+import Carousel3 from "src/assets/img/carousel/carousel-3.png"
+import Carousel4 from "src/assets/img/carousel/carousel-4.png"
+import Carousel5 from "src/assets/img/carousel/carousel-1.png"
+
+
 
 
 const CarouselSlide = () => {
@@ -45,27 +52,27 @@ const CarouselSlide = () => {
               >
                
                 <CarouselComponent  
-                  dealsAdImage="src/assets/img/carousel/carousel-1.png"
+                  dealsAdImage={Carousel1}
                   dealsOffer="LIMITED EDITION"
                   dealsAd="Most popular electronic gadgets"/>
 
                 <CarouselComponent  
-                  dealsAdImage="src/assets/img/carousel/carousel-2.png"
+                  dealsAdImage={Carousel2}
                   dealsOffer="Up to 50% Off"             
                   dealsAd="Fashion Forward, Budget Friendly!"/>
 
                 <CarouselComponent  
-                  dealsAdImage="src/assets/img/carousel/carousel-3.png"
+                  dealsAdImage={Carousel3}
                   dealsOffer="Up to 50% Off" 
                   dealsAd="It’s your time to shine"/>
 
                 <CarouselComponent  
-                  dealsAdImage="src/assets/img/carousel/carousel-4.png"
+                  dealsAdImage={Carousel4}
                   dealsOffer="LIMITED EDITION"
                   dealsAd="Cook in Style, Save with Our Kitchen Deals"/>
 
                 <CarouselComponent  
-                  dealsAdImage="src/assets/img/carousel/carousel-5.png"
+                  dealsAdImage={Carousel5}
                   dealsOffer="LIMITED EDITION"
                   dealsAd="Stock Up on Food and Save Big!"/>
           </Carousel>   
