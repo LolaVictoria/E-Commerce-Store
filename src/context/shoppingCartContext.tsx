@@ -30,6 +30,7 @@ export const ShoppingCartProvider: React.FC< {children: ReactNode} > = ({childre
         (quantity, item) => item.quantity + quantity, 0
     )
      
+    
     const openCart= () => { 
         console.log("cart is opened")
         setIsClose(!isClose) }
