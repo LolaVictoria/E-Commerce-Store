@@ -1,5 +1,5 @@
 
-import Logo from "/src/assets/img/alaba-market-logo.png"
+import Logo from "/public/assets/img/alaba-market-logo.png"
 import {BiSolidDownArrow} from "react-icons/bi"
 import {AiOutlineSearch} from "react-icons/ai";
 import {FiGlobe} from "react-icons/fi";

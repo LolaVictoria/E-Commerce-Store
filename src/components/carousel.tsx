@@ -1,11 +1,11 @@
 import CarouselComponent from "./carouselComponent";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css'
-import Carousel1 from "/src/assets/img/carousel/carousel-1.png"
-import Carousel2 from "/src/assets/img/carousel/carousel-2.png"
-import Carousel3 from "/src/assets/img/carousel/carousel-3.png"
-import Carousel4 from "/src/assets/img/carousel/carousel-4.png"
-import Carousel5 from "/src/assets/img/carousel/carousel-1.png"
+import Carousel1 from "/public/assets/img/carousel/carousel-1.png"
+import Carousel2 from "/public/assets/img/carousel/carousel-2.png"
+import Carousel3 from "/public/assets/img/carousel/carousel-3.png"
+import Carousel4 from "/public/assets/img/carousel/carousel-4.png"
+import Carousel5 from "/public/assets/img/carousel/carousel-1.png"
 
 
 

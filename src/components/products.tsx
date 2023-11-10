@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { formatCurrency } from "../utilities/formatCurrency"
+import FavoriteIcon from "/public/assets/img/icons/favorite-icon.png"
 type productObj = {
     id: number;
   title: string;
@@ -14,7 +15,7 @@ const Products: React.FC<productObj> =({img, title, category, price, ratings, id
         
                 <div className="relative bg-[#2ECF5A] w-60 h-auto rounded-lg">
                     <img src={img} alt={title} className="w-60 h-[75%] rounded-t-lg" />
-                    <img src="src/assets/img/icons/favorite-icon.png" alt="Favorite" className="absolute top-5 right-5" />
+                    <img src={FavoriteIcon} alt="Favorite" className="absolute top-5 right-5" />
                     <div className="flex flex-col justify-center items-center my-3">
                     <p className="text-[#FFF] text-lg font-normal">{title}</p>
                          <p className="text-[#FFF] text-lg font-normal">{category}</p>
