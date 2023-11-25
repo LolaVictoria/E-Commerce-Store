@@ -4,18 +4,22 @@ import { formatCurrency  } from "../utilities/formatCurrency"
 import storeItems from "../database/products.json"
 
 import { AiOutlineCloseSquare } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+
+
 const ShoppingCart = () => {
-  const  { closeCart,  isClose, cartItems} = useShoppingCart()
+  const  { cartItems} = useShoppingCart()
+  const navigate = useNavigate()
+
   
     return (
-     <div className={
-        isClose
-          ? "bg-white fixed right-0 top-0 h-full w-full ease-in duration-500 py-6 px-5 overflow-hidden"
-          : "fixed top-[-100%] "
-        }>
-    
+      <div 
+        className="">
        <div className="">
-          <div onClick={closeCart}>
+          <div
+            onClick={(e) => {
+              e.preventDefault()
+              navigate(-1)}}>
             <AiOutlineCloseSquare 
               size={40} 
               />

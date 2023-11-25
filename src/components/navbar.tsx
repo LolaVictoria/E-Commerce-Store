@@ -1,5 +1,5 @@
 
-import Logo from "/public/assets/img/alaba-market-logo.png"
+import Logo from "/assets/img/alaba-market-logo.png"
 import {BiSolidDownArrow} from "react-icons/bi"
 import {AiOutlineSearch} from "react-icons/ai";
 import {FiGlobe} from "react-icons/fi";
@@ -8,6 +8,7 @@ import {BsPersonCircle} from "react-icons/bs"
 //import { Link } from "react-router-dom";
 import { useShoppingCart } from "../context/shoppingCartContext";
 import ShoppingCart from "./shoppingcart";
+import { Link } from "react-router-dom";
 // import {BsFillHeartFill}  from "react-icons/bs"
 // import {RiHome2Line} from "react-icons/ri"
 // import {BsPhone} from "react-icons/bs"
@@ -19,7 +20,7 @@ import ShoppingCart from "./shoppingcart";
 
 
 const Navbar = () => {
-    const {openCart, cartQuantity} = useShoppingCart()
+    const { cartQuantity} = useShoppingCart()
     return (
         <nav className="bg-[#181818] w-[100%] h-24 flex justify-between items-center px-8">
             <div className="flex flex-row items-center text-xl font-bold tracking-[-1.296px]">
@@ -35,7 +36,7 @@ const Navbar = () => {
                     <BiSolidDownArrow size={10}/>
                 </div>
 
-                <input type="text" placeholder="Search Alaba Market" className="bg-[#fff] w-full px-3"/>
+                <input type="text" placeholder="Search Alaba Market" className="bg-[#fff] w-full px-3 focus:outline-none"/>
 
                 <div className="bg-[#2ECF5A] w-16 h-10 flex items-center justify-center rounded-br-md rounded-tr-md">
                    <AiOutlineSearch size={20}/>
@@ -51,10 +52,10 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="flex flex-row justify-between items-center mr-3">
-                        {
-                           <button 
-                              onClick={openCart}
-                              className="relative  p-2">                  
+                        
+                            <Link to="/shoppingcart">  
+                           <button                     
+                              className="relative  p-2">
                               <HiShoppingCart size={30} />
                               <div className="bg-[#2ECF5A] rounded-full w-4 h-4 flex items-center justify-center absolute top-1 right-1">
                                  <p className="text-xs text-[#181818]">
@@ -62,7 +63,8 @@ const Navbar = () => {
                                  </p>
                               </div>
                             </button>
-                            }
+                              </Link>                
+                            
                 </div>
               
                 <ShoppingCart/>

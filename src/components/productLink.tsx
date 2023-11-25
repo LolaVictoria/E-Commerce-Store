@@ -1,13 +1,13 @@
 import ProductLinkComponent from "./productLinkComponent";
 import { Link } from "react-router-dom";
-import HealthAndBeauty from "/public/assets/img/icons/health&beauty-icon.png"
-import HomeAndOffice from "/public/assets/img/icons/home-icon.png"
-import ApplianceIcon from "/public/assets/img/icons/appliance-icon.png"
-import PhoneIcon from "/public/assets/img/icons/phone-icon.png" 
-import ComputerIcon from "/public/assets/img/icons/computer-icon.png"
-import TelevisionIcon from "/public/assets/img/icons/television-icon.png"
-import ClothesIcon from "/public/assets/img/icons/clothes-icon.png"
-import BabyIcon from "/public/assets/img/icons/baby-icon.png"
+import HealthAndBeauty from "/assets/img/icons/health&beauty-icon.png"
+import HomeAndOffice from "/assets/img/icons/home-icon.png"
+import ApplianceIcon from "/assets/img/icons/appliance-icon.png"
+import PhoneIcon from "/assets/img/icons/phone-icon.png" 
+import ComputerIcon from "/assets/img/icons/computer-icon.png"
+import TelevisionIcon from "/assets/img/icons/television-icon.png"
+import ClothesIcon from "/assets/img/icons/clothes-icon.png"
+import BabyIcon from "/assets/img/icons/baby-icon.png"
 
 const ProductLink = () => {
   return (

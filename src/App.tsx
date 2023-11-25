@@ -17,8 +17,8 @@ import ShoppingCart from "./components/shoppingcart";
 
 const App = () => {
   return ( 
-    <ShoppingCartProvider>
     <Router>
+      <ShoppingCartProvider>
       <div>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -31,11 +31,12 @@ const App = () => {
           <Route path="/clothes" element={<Clothes/> } />
         <Route path="/babyproduct" element={<BabyProduct/> } />
           <Route path="/productdetails/:id" element={<ProductDetails/> } /> 
+         
           <Route path="/shoppingcart" element={<ShoppingCart/>}/>
         </Routes>
       </div>
-    </Router>
     </ShoppingCartProvider>
+    </Router>
   );
 };
 
