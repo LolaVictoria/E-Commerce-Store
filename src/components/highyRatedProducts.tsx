@@ -1,12 +1,11 @@
 import favoriteIcon from "src/assets/img/icons/favorite-icon.png"
+
+
 type ProductProps = {
     productImage: string;
     productName: string;
     productPrice: string;
-   
-
 }
-
 
 const HighlyRatedProducts: React.FC<ProductProps> = ({productImage, productName, productPrice}) => {
    

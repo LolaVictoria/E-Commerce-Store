@@ -7,7 +7,6 @@ import {HiShoppingCart} from "react-icons/hi"
 import {BsPersonCircle} from "react-icons/bs"
 //import { Link } from "react-router-dom";
 import { useShoppingCart } from "../context/shoppingCartContext";
-import ShoppingCart from "./shoppingcart";
 import { Link } from "react-router-dom";
 // import {BsFillHeartFill}  from "react-icons/bs"
 // import {RiHome2Line} from "react-icons/ri"
@@ -36,7 +35,7 @@ const Navbar = () => {
                     <BiSolidDownArrow size={10}/>
                 </div>
 
-                <input type="text" placeholder="Search Alaba Market" className="bg-[#fff] w-full px-3 focus:outline-none"/>
+                <input type="text" placeholder="Search Alaba Market" className="bg-[#fff] w-2/4 lg:w-full px-3 focus:outline-none"/>
 
                 <div className="bg-[#2ECF5A] w-16 h-10 flex items-center justify-center rounded-br-md rounded-tr-md">
                    <AiOutlineSearch size={20}/>
@@ -53,21 +52,21 @@ const Navbar = () => {
                 </div>
                 <div className="flex flex-row justify-between items-center mr-3">
                         
-                            <Link to="/shoppingcart">  
-                           <button                     
-                              className="relative  p-2">
-                              <HiShoppingCart size={30} />
-                              <div className="bg-[#2ECF5A] rounded-full w-4 h-4 flex items-center justify-center absolute top-1 right-1">
-                                 <p className="text-xs text-[#181818]">
+                    <Link to="/shoppingcart">  
+                        <button                     
+                            className="relative  p-2">
+                            <HiShoppingCart size={30} />
+                            <div className="bg-[#2ECF5A] rounded-full w-4 h-4 flex items-center justify-center absolute top-1 right-1">
+                                <p className="text-xs text-[#181818]">
                                    {cartQuantity}
-                                 </p>
-                              </div>
-                            </button>
-                              </Link>                
+                                </p>
+                            </div>
+                        </button>
+                    </Link>                
                             
                 </div>
               
-                <ShoppingCart/>
+    
                 <div className="flex flex-row items-center">
                     <BsPersonCircle size={30} className="mr-2"/>
                     <div className="flex flex-row justify-between items-center w-12 h-10 text-white">
