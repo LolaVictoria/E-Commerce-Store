@@ -15,9 +15,6 @@ const ProductImgDisplay= () => {
 if (!product) {
   return <div>Product Not Found</div>;
 }
-
-    
-    
       
 
     return (

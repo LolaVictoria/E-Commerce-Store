@@ -1,12 +1,15 @@
-import { useParams } from "react-router-dom"
-import ProductImgDispaly from "../components/productimgcarousel";
+import { useNavigate, useParams } from "react-router-dom"
+//import ProductImgDispaly from "../components/productimgcarousel";
 import {useShoppingCart} from "../context/shoppingCartContext";
 import storeItems from "../database/products.json"
-
-//import {ShoppingCartProvider} from "../context/shoppingCartContext";
-
+import { formatCurrency } from "../utilities/formatCurrency"
+import FavoriteIcon from "/public/assets/img/icons/favorite-icon.png"
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+import { AiOutlineCloseSquare } from "react-icons/ai";
+
+
 type ProductDetails = {
     id: number;
     title: string;
@@ -22,8 +25,8 @@ type ProductDetails = {
     
   };
 const ProductDetails: React.FC<ProductDetailsProps> = () => {
-    
-    const {id} = useParams()
+  const navigate = useNavigate()  
+  const {id} = useParams()
    
 const {
   getItemQuantity,
@@ -43,44 +46,53 @@ if (!product) {
     return (
     <div>
        <Navbar/>
+        <div
+          className="ml-12 pt-5"
+            onClick={(e) => {
+              e.preventDefault()
+              navigate(-1)
+            }}>
+            <AiOutlineCloseSquare size={40} />
+          </div>
         
-      <div className="mt-5 grid grid-cols-1 place-items-center">
-        <h1 className="font-bold text-xl">Product Details - {id}</h1>
+      <div className="my-16 grid grid-cols-1 lg:grid-cols-2 gap-x-9 gap-y-7 px-10 lg:px-40">
+        {/* <h1 className="font-bold text-xl">Product Details - {id}</h1> */}
 
           <div className="">
-            <ProductImgDispaly/>
+          <img src={product.img} alt={product.title} className="w-full h-full object-fit" />
           </div>
 
           
 
-          <div className="w-96 46">
-            <div className="flex justify-between">
-              <p>Category:</p> 
-              <p>{product.category}</p>
-            </div>
+          <div className="px-3 grid-cols-1 ">
+              <div className="flex justify-between items-center mb-4 ">
+              <p
+                className="font-bold text-2xl">
+                {product.title}
+              </p>
 
-              <div className="flex justify-between">
-                <p>Title:</p> 
-                <p>{product.title}</p>
+              <img src={FavoriteIcon} alt="Favorite" className="w-6 h-6" />
+
               </div>
 
-              
-            </div>
-            
-          
+              <div className="flex justify-between items-center mb-4">
+                <p className="text-md font-semibold mr-3">{product.category}</p>
+                <p className="text-md font-semibold ml-3">{product.ratings}</p>
+              </div>
+              <div>
+                <p className="text-md font-semibold">{formatCurrency(product.price)}</p>
 
-            <div className="bg-[#181818] p-6 w-full mt-24 flex justify-center items-center fixed bottom-0">
-                
-                <div className="w-96 flex justify-between items-center">
-                  <button className="bg-[#2ECF5A] w-40 text-center py-2 flex items-center justify-center rounded-lg">Add to favorites</button>
-                
-                    {quantity === 0 ? (
+              </div>
+
+            <div className="flex justify-center items-center mb-4">
+              {quantity === 0 ? (
                     <button 
                       onClick={() => increaseCartQuantity(Number(id))}
-                      className="bg-[#2ECF5A] w-40 text-center py-2 flex items-center justify-center rounded-lg">
-                      Add to Cart <HiOutlineShoppingCart size={20}/>
+                      className="bg-[#2ECF5A] lg:w-2/4 mt-14 font-semibold text-center py-2 px-6 flex items-center justify-center rounded-lg">
+                        <span className="mr-2">Add to Cart</span>
+                       <HiOutlineShoppingCart size={20} />
                     </button>) :
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center mt-14">
                       <div className="flex w-40 py-1">
                        <button 
                           onClick={() => decreaseCartQuantity(Number(id))}
@@ -98,10 +110,11 @@ if (!product) {
                     </div>
                   
                     }
-                
               </div>
+              
             </div>
-      </div>
+         </div>
+         <Footer />
       </div>
     );
 }

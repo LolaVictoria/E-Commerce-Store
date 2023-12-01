@@ -38,7 +38,7 @@ const Appliances: React.FC<ProductDisplayProps> = () => {
             <AiOutlineCloseSquare size={40} />
           </div>
 
-          <div className="grid grid-cols-4 gap-y-14 place-items-center gap-x-4 mt-7 mb-24">
+          <div className="grid lg:grid-cols-4 gap-y-14 place-items-center gap-x-4 mt-7 mb-24">
             {storeItems.filter(item => item.category === "Appliances").map(item =>  
 
               <div key={item.id} className="">

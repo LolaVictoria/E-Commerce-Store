@@ -6,9 +6,9 @@ type ProductLinksProps = {
 
 const ProductLinkComponent: React.FC<ProductLinksProps> = ({productIcon, productType}) => {
     return (
-        <div className="flex items-center justify-center">
+        <div className="flex items-center lg:justify-center">
             <img src={productIcon} className="mr-1"/>
-            <a href="#" className="font-normal text-sm">{productType}</a>
+            <p className="font-normal text-sm ">{productType}</p>
         </div>
     );
 }
