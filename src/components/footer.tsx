@@ -24,15 +24,15 @@ const Footer = () => {
                   </ul>
                </div>
 
-               <div className="col-span-2 lg:col-span-1">
+               <div className="col-span-2 lg:col-span-1 ">
                   <h3 className="font-semibold mb-7">Stay Updated</h3>
                   <p className="text-md font-normal">Subscribe to our newsletter to get latest update about us</p>
                  <div className="mt-5">
                   <input 
                     type="text"
-                    className="py-3 px-2 rounded-l-lg text-[#181818] focus:outline-none"  />
+                    className="py-3 px-1 lg:px-2 rounded-l-lg text-[#181818] focus:outline-none"  />
                    <button
-                      className="bg-[#2ECF5A] py-3 px-2 rounded-r-lg font-semibold text-[#181818]">Subscribe</button>
+                      className="bg-[#2ECF5A] py-3 px-1 lg:px-2 rounded-r-lg font-semibold text-[#181818]">Subscribe</button>
                  </div>
                </div>
         </footer>

@@ -6,7 +6,7 @@ type dealsProp = {
 
 const CarouselComponent: React.FC<dealsProp> = ({dealsAdImage, dealsAd, dealsOffer}) => {
     return (
-        <div className="relative  h-72 w-[555px]">
+        <div className="relative  h-72  w-auto lg:w-[555px]">
             <img src={dealsAdImage} alt=""  className="h-full w-full"  style = {{objectFit: "cover" }}/>
             <div className="absolute top-4 left-10">
                 <p className="text-[#BCBEBE] text-xs font-semibold">{dealsOffer}</p>

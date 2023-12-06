@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, ReactNode } from "react";
-import ShoppingCart from "../components/shoppingcart";
 //import { useLocalStorage } from "../hooks/useLocalStorage";
 
 
@@ -87,7 +86,6 @@ export const ShoppingCartProvider: React.FC< {children: ReactNode} > = ({childre
     return (
     <ShoppingCartContext.Provider value={{ isClose, cartQuantity,openCart, closeCart, cartItems, getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart}}>
         {children}
-        <ShoppingCart/>
     </ShoppingCartContext.Provider>
     )
 }

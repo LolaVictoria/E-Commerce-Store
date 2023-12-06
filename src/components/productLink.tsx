@@ -11,7 +11,7 @@ import BabyIcon from "/assets/img/icons/baby-icon.png"
 
 const ProductLink = () => {
   return (
-    <ul className="px-5 md:px-8 my-2 grid grid-cols-2 lg:grid-cols-8 gap-x-2 md:gap-x-0 gap-y-4">
+    <ul className="px-5 lg:px-8 my-2 grid grid-cols-2 lg:grid-cols-8 gap-y-4">
       <li>
         <Link to="/health_&_beauty">
           <ProductLinkComponent productIcon={HealthAndBeauty}  productType="Health & Beauty" />

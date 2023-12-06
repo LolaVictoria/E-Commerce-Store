@@ -98,7 +98,7 @@ if (!product) {
                           onClick={() => decreaseCartQuantity(Number(id))}
                           className="bg-[#fff] w-[20%] rounded-l-lg">-</button> 
                        <div className="bg-[#2ECF5A] w-[60%] text-center py-1 flex items-center justify-center">
-                          <span>{quantity}</span> in cart
+                          <span className="mr-1 ">{quantity } </span> <span> in cart</span>
                        </div>
                        <button 
                        onClick={() => increaseCartQuantity(Number(id))}

@@ -8,12 +8,7 @@ import {BsPersonCircle} from "react-icons/bs"
 import { useShoppingCart } from "../context/shoppingCartContext";
 import { Link} from "react-router-dom";
 import { useState } from "react"
-// import {BsFillHeartFill}  from "react-icons/bs"
-// import {RiHome2Line} from "react-icons/ri"
-// import {BsPhone} from "react-icons/bs"
-// import {MdComputer} from "react-icons/md"
-// import {PiTelevisionSimple} from "react-icons/pi"
-// import {LuBaby} from "react-icons/lu"
+
 
 
 
@@ -26,7 +21,7 @@ const Navbar = () => {
         setNav(!nav);
       };
     return (
-        <nav className="lg:bg-[#181818] w-[100%] lg:h-24 flex justify-between items-center  lg:px-8">
+        <nav className="lg:bg-[#181818] w-full lg:h-24 flex justify-between items-center  lg:px-8">
         <div className="grid grid-cols-1">
             <div className="bg-[#181818] flex justify-between px-4 lg:px-0 py-4">
             <div className="flex  items-center text-xl font-bold tracking-[-1.296px]">
