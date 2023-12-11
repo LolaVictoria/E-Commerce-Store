@@ -12,7 +12,6 @@ const Footer = () => {
                     <li  className="mb-2">Track Order</li>
                     <li  className="mb-2">Contact Us</li>
                     <li  className="">FAQs</li>
-
                   </ul>
                </div>
 
@@ -32,7 +31,7 @@ const Footer = () => {
                     type="text"
                     className="py-3 px-1 lg:px-2 rounded-l-lg text-[#181818] focus:outline-none"  />
                    <button
-                      className="bg-[#2ECF5A] py-3 px-1 lg:px-2 rounded-r-lg font-semibold text-[#181818]">Subscribe</button>
+                      className="bg-[#2ECF5A] py-3 px-1 lg:px-2 rounded-r-lg font-semibold text-[#fff]">Subscribe</button>
                  </div>
                </div>
         </footer>

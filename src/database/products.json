@@ -5,7 +5,7 @@
       "title": "Apple Cider Vinnegar",
       "price": 3000,
       "color": "blue",
-      "category": "Health & Beauty",
+      "category": "health_&_beauty",
       "id": 1
     },
 
@@ -14,7 +14,7 @@
       "title": "Pears Baby Oil",
       "price": 3000,
       "color": "blue",
-      "category": "Baby Products",
+      "category": "babyproduct",
       "id": 2,
       "ratings": 2.8
     },
@@ -24,7 +24,7 @@
       "title": "Oraimo Cord",
       "price": 3000,
       "color": "blue",
-      "category": "Appliances",
+      "category": "appliances",
       "id": 3,
       "ratings": 4.3
     },
@@ -34,7 +34,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Health & Beauty",
+      "category": "health_&_beauty",
       "id": 4,
       "ratings": 2.3
     },
@@ -44,7 +44,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Appliances",
+      "category": "appliances",
       "id": 5,
       "ratings": 2.9
     },
@@ -54,7 +54,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Health & Beauty",
+      "category": "health_&_beauty",
       "id": 6,
       "ratings": 4.2
     },
@@ -64,7 +64,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Appliances",
+      "category": "appliances",
       "id": 7,
       "ratings": 3.9
     },
@@ -74,7 +74,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Baby Products",
+      "category": "babyproduct",
       "id": 8,
       "ratings": 4.7
     },
@@ -84,7 +84,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Health & Beauty",
+      "category": "health_&_beauty",
       "id": 9,
       "ratings": 3.4
     },
@@ -94,7 +94,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Baby Products",
+      "category": "babyproduct",
       "id": 10,
       "ratings": 2.6
     },
@@ -104,7 +104,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Health & Beauty",
+      "category": "health_&_beauty",
       "id": 11,
       "ratings": 2.3
     },
@@ -114,7 +114,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Baby Products",
+      "category": "babyproduct",
       "id": 12,
       "ratings": 2.3
     },
@@ -124,7 +124,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Baby Products",
+      "category": "babyproduct",
       "id": 13,
       "ratings": 2.5
     },
@@ -134,7 +134,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Appliances",
+      "category": "appliances",
       "id": 14,
       "ratings": 2.7
     },
@@ -144,7 +144,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Clothes",
+      "category": "clothes",
       "id": 15
     },
 
@@ -153,7 +153,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Clothes",
+      "category": "clothes",
       "id": 16,
       "ratings": 2.2
     },
@@ -163,7 +163,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Clothes",
+      "category": "clothes",
       "id": 17,
       "ratings": 2.6
     },
@@ -173,7 +173,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Clothes",
+      "category": "clothes",
       "id": 18,
       "ratings": 2.3
     },
@@ -183,7 +183,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Computing",
+      "category": "computing",
       "id": 19,
       "ratings": 2.4
     },
@@ -193,7 +193,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Computing",
+      "category": "computing",
       "id": 20,
       "ratings": 2.9
     },
@@ -203,7 +203,7 @@
       "title": "13 inches Monitor",
       "price": 3000,
       "color": "blue",
-      "category": "Computing",
+      "category": "computing",
       "id": 21,
       "ratings": 3.1
     },
@@ -213,7 +213,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Computing",
+      "category": "computing",
       "id": 22,
       "ratings": 4.1
     },
@@ -223,7 +223,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Electronics",
+      "category": "electronics",
       "id": 23,
       "ratings": 2.0
     },
@@ -233,7 +233,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Electronics",
+      "category": "electronics",
       "id": 24,
       "ratings": 2.3
     },
@@ -243,7 +243,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Electronics",
+      "category": "electronics",
       "id": 25,
       "ratings": 2.6
     },
@@ -253,7 +253,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Home & Offices",
+      "category": "home_&_office",
       "id": 26,
       "ratings": 2.2
     },
@@ -263,7 +263,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Home & Offices",
+      "category": "home_&_office",
       "id": 27,
       "ratings": 2.1
     },
@@ -273,7 +273,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Home & Offices",
+      "category": "home_&_office",
       "id": 28,
       "ratings": 2.2
     },
@@ -283,7 +283,7 @@
       "title": "Egornomic Table",
       "price": 3000,
       "color": "blue",
-      "category": "Home & Offices",
+      "category": "home_&_office",
       "id": 29,
       "ratings": 2.3
     },
@@ -293,7 +293,7 @@
       "title": "Iphone 13 pro Max",
       "price": 3000,
       "color": "blue",
-      "category": "Phones & Tablets",
+      "category": "phones_&_tablets",
       "id": 30,
       "ratings": 2.1
     },
@@ -303,7 +303,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Phones & Tablets",
+      "category": "phones_&_tablets",
       "id": 31,
       "ratings": 2.4
     },
@@ -313,7 +313,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Health & Beauty",
+      "category": "health_&_beauty",
       "id": 32,
       "ratings": 3.4
     },
@@ -323,7 +323,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Health & Beauty",
+      "category": "health_&_beauty",
       "id": 33,
       "ratings": 2.0
     },
@@ -333,7 +333,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Health & Beauty",
+      "category": "health_&_beauty",
       "id": 34,
       "ratings": 2.6
     },
@@ -343,7 +343,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Health & Beauty",
+      "category": "health_&_beauty",
       "id": 35,
       "ratings": 2.5
     },
@@ -353,7 +353,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Health & Beauty",
+      "category": "health_&_beauty",
       "id": 36,
       "ratings": 2.5
     },
@@ -363,7 +363,7 @@
       "title": "Cooking Pot",
       "price": 3000,
       "color": "blue",
-      "category": "Health & Beauty",
+      "category": "health_&_beauty",
       "id": 37,
       "ratings": 2.3
     }

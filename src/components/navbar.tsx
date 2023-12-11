@@ -8,6 +8,7 @@ import {BsPersonCircle} from "react-icons/bs"
 import { useShoppingCart } from "../context/shoppingCartContext";
 import { Link} from "react-router-dom";
 import { useState } from "react"
+//import storeItems from "../database/products.json"
 
 
 
@@ -16,10 +17,30 @@ import { useState } from "react"
 const Navbar = () => {
     const { cartQuantity} = useShoppingCart()
     const [nav, setNav] = useState(false);
+    //const [input, setInput] = useState("")
 
     const handleNav = () => {
         setNav(!nav);
       };
+
+    //   function countOccurrences(text, pattern) {
+    //     const regex = new RegExp(pattern, 'g');
+    //     const matches = text.match(regex);
+        
+    //     matches ? matches.length : 0;
+
+    //     return true
+    //     //return matches ? matches.length : 0;
+    //   }
+    //   //countOccurrences("lolol", "lol");
+
+    //   const searchKeyword =  storeItems.map(item => item.category)
+
+    //   const handleSearch = (e) => {
+    //       setInput(e.target.value)
+    //       countOccurrences(searchKeyword, input)    
+     // }
+
     return (
         <nav className="lg:bg-[#181818] w-full lg:h-24 flex justify-between items-center  lg:px-8">
         <div className="grid grid-cols-1">
@@ -38,14 +59,14 @@ const Navbar = () => {
            </div>
           </div>
            <div className="col-span-2 flex lg:hidden mt-10 px-4 lg:px-0">
-                <div className="bg-[#F3F3F3] border-2 border-[#F3F3F3] flex justify-center items-center w-14 h-10 rounded-bl-md rounded-tl-md">
+                <div className="bg-[#F3F3F3] border-2 border-t-[#F3F3F3] border-b-[#F3F3F3] border-r-transparent flex justify-center items-center w-14 h-10 rounded-bl-md rounded-tl-md">
                     
                     <BiSolidDownArrow size={10}/>
                 </div>
 
-                <input type="text" placeholder="Search Alaba Market" className="bg-[#fff] border border-t-[#181818] border-b-[#181818] w-full px-3 focus:outline-none"/>
+                <input type="text" placeholder="Search Alaba Market" className="bg-[#fff] border-2 border-t-[#181818] border-b-[#181818] w-full px-3 focus:outline-none"/>
 
-                <div className="bg-[#2ECF5A] w-16 h-10 flex items-center justify-center rounded-br-md rounded-tr-md">
+                <div className="bg-[#2ECF5A] border-2 border-b-[#2ECF5A] border-t-[#2ECF5A] border-l-transparent w-16 h-10 flex items-center justify-center rounded-br-md rounded-tr-md">
                    <AiOutlineSearch size={20}/>
                 </div>
             </div>
@@ -128,11 +149,19 @@ const Navbar = () => {
                     <BiSolidDownArrow size={10}/>
                 </div>
 
-                <input type="text" placeholder="Search Alaba Market" className="bg-[#fff] w-2/4 lg:w-full px-3 focus:outline-none"/>
+                <input
+                //    value={input}
+                //    onChange={handleSearch} 
+                   type="text" placeholder="Search Alaba Market" className="bg-[#fff] w-2/4 lg:w-full px-3 focus:outline-none"/>
+                
+                <Link to="/`${searchKeyword}`">
 
-                <div className="bg-[#2ECF5A] w-16 h-10 flex items-center justify-center rounded-br-md rounded-tr-md">
+                <div 
+                //    onClick={() => console.log(searchKeyword)}
+                  className="bg-[#2ECF5A] w-16 h-10 flex items-center justify-center rounded-br-md rounded-tr-md">
                    <AiOutlineSearch size={20}/>
                 </div>
+                </Link>
             </div>
 
             <div className="hidden lg:flex text-white flex flex-row justify-between items-center mr-5">

@@ -7,7 +7,7 @@ import FavoriteIcon from "/public/assets/img/icons/favorite-icon.png"
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import { AiOutlineCloseSquare } from "react-icons/ai";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 
 type ProductDetails = {
@@ -46,14 +46,14 @@ if (!product) {
     return (
     <div>
        <Navbar/>
-        <div
-          className="ml-12 pt-5"
+       <p 
+          className="flex items-center ml-6 lg:ml-12 pt-5 underline hover:text-[#2ECF5A]"
             onClick={(e) => {
-              e.preventDefault()
-              navigate(-1)
-            }}>
-            <AiOutlineCloseSquare size={40} />
-          </div>
+                e.preventDefault()
+                navigate(-1)}}>
+                    <FaArrowLeftLong size={15}/>
+                  <span className="ml-3">Back</span>
+          </p>
         
       <div className="my-16 grid grid-cols-1 lg:grid-cols-2 gap-x-9 gap-y-7 px-10 lg:px-40">
         {/* <h1 className="font-bold text-xl">Product Details - {id}</h1> */}

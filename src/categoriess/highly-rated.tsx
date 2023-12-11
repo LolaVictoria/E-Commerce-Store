@@ -21,8 +21,8 @@ const HighlyRated: React.FC<HighlyRatedType> = () => {
     const highlyRatedItems = storeItems.filter((item) => (item.ratings || 0) >= 3.5);
 
     return (
-        <div className="px-12 pt-9">
-            <h3 className="text-[#000] text-3xl font-semibold mb-8">Highly Rated Products</h3>
+        <div className="px-6 lg:px-12 pt-9">
+            <h3 className="text-[#000] text-2xl text-left lg:text-3xl font-semibold mb-8">Highly Rated Products</h3>
 
             
             <div className="grid grid-cols-4 gap-y-14 place-items-center gap-x-4 my-14">
