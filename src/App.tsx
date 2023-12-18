@@ -3,7 +3,6 @@ import HealthAndBeauty from "./pages/health&beauty";
 import HomeAndOffice from "./pages/home&offices";
 import Appliances from "./pages/appliances";
 import HomePage from "./pages/home-page";
-//import ShoppingCart from "./components/shoppingcart"
 import PhoneAndtablets from "./pages/phones&tablets";
 import Computing from "./pages/computing";
 import Electronics from "./pages/electronics";

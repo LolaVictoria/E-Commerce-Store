@@ -18,10 +18,10 @@ const CartItem =({id, quantity} : CartItemProps) => {
   if (item === undefined) return null
 
   return (
-    <div className="grid grid-cols-3 ">
+    <div className="grid grid-cols-1 lg:grid-cols-3 ">
       <img src={item.img} className="w-auto h-36" alt={item.title} />
       
-      <div className="flex justify-between items-center">
+      <div className="lg:flex  justify-between items-center">
          <div className="">
             <div className="flex items-end">
               <p className="font-medium text-2xl mr-1">{item.title}{' '}</p>

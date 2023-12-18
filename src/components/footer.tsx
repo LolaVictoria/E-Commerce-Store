@@ -16,7 +16,7 @@ const Footer = () => {
                </div>
 
                <div>
-                  <h3 className="font-semibold mb-7">Privacy & Legal</h3>
+                  <h3 className="font-semibold mb-2 lg:mb-7">Privacy & Legal</h3>
                   <ul className="text-gray-200 text-sm">
                     <li  className="mb-2">Privacy Policy</li>
                     <li>Terms & Conditions</li>
@@ -29,9 +29,9 @@ const Footer = () => {
                  <div className="mt-5">
                   <input 
                     type="text"
-                    className="py-3 px-1 lg:px-2 rounded-l-lg text-[#181818] focus:outline-none"  />
+                    className="py-3 px-1 w-auto lg:px-2 rounded-l-lg text-[#181818] focus:outline-none"  />
                    <button
-                      className="bg-[#2ECF5A] py-3 px-1 lg:px-2 rounded-r-lg font-semibold text-[#fff]">Subscribe</button>
+                      className="bg-[#2ECF5A] py-3 px-0.5 lg:px-2 rounded-r-lg font-semibold text-[#fff]">Subscribe</button>
                  </div>
                </div>
         </footer>
