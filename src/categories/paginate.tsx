@@ -1,7 +1,15 @@
-const Paginate = ({totalPosts, postPerPage, setCurrentPage, currentPage}) => {
-  const pages = []
+interface PaginateProps {
+  totalPosts: number;
+  postPerPage: number;
+  setCurrentPage: (page: number) => void;
+  currentPage: number;
+}
 
+const Paginate: React.FC<PaginateProps> = ({totalPosts, postPerPage, setCurrentPage, currentPage}) => {
+  //const pages = []
+  
   const numOfPages = Math.ceil( totalPosts/postPerPage)
+  const pages = Array.from({ length: numOfPages }, (_, index) => index + 1);
 
   for (let i= 1; i <= numOfPages; i++) {
        pages.push(i)
