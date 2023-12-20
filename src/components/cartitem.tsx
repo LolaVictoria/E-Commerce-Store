@@ -34,7 +34,7 @@ const CartItem =({id, quantity} : CartItemProps) => {
      </div>
       <FaTrashAlt
         size={25}
-        className="ml-4 mt-5 border border-gray p-1"
+        className="lg:ml-4 mt-5 border border-gray p-1"
         onClick={() => removeFromCart(id)}
       />
     </div>

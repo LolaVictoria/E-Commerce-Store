@@ -30,7 +30,7 @@ const ShoppingCart = () => {
           </h3>
         </div>
 
-        <div className="w-auto grid gap-y-6">
+        <div className="w-auto grid gap-y-10 lg:gap-y-6">
          {cartItems.length === 0 
          ? <p className="mt-5 text-lg">You have not added any item to cart</p> 
          : <p className="text-center">You added {cartItems.length} to cart</p>}
