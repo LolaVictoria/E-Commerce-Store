@@ -10,8 +10,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-4.png",
-      "title": "Pears Baby Oil",
+      "img": "/assets/img/baby-products/baby-covered-hat.jpg",
+      "title": "Baby's Hat",
       "price": 3000,
       "color": "blue",
       "category": "babyproduct",
@@ -20,8 +20,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Oraimo Cord",
+      "img": "/assets/img/appliances/appliance-blender.jpg",
+      "title": "Blender",
       "price": 3000,
       "color": "blue",
       "category": "appliances",
@@ -40,8 +40,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/appliances/appliance-bread-machine.jpg",
+      "title": "Bread Toast",
       "price": 3000,
       "color": "blue",
       "category": "appliances",
@@ -60,8 +60,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/appliances/appliance-desk-lamp.webp",
+      "title": "Desk Lamp",
       "price": 3000,
       "color": "blue",
       "category": "appliances",
@@ -70,8 +70,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/baby-products/baby-crotchet-cap.jpg",
+      "title": "Baby Crotchet Cap",
       "price": 3000,
       "color": "blue",
       "category": "babyproduct",
@@ -90,8 +90,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/baby-products/baby-dungarees.jpg",
+      "title": "Baby Dungarees",
       "price": 3000,
       "color": "blue",
       "category": "babyproduct",
@@ -110,8 +110,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/baby-products/baby-fancy-red-socks.jpg",
+      "title": "Baby Fancy Red Socks",
       "price": 3000,
       "color": "blue",
       "category": "babyproduct",
@@ -120,8 +120,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/baby-products/baby-full-christmas-outfit.jpg",
+      "title": "Baby Full Christmas Outfit",
       "price": 3000,
       "color": "blue",
       "category": "babyproduct",
@@ -130,8 +130,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/appliances/appliance-fan.jpg",
+      "title": "Standing Fan",
       "price": 3000,
       "color": "blue",
       "category": "appliances",
@@ -179,8 +179,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/computing/computer-16inch-macbook-pro.jpg",
+      "title": "Apple MacBook Pro(16-inch)",
       "price": 3000,
       "color": "blue",
       "category": "computing",
@@ -189,8 +189,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/computing/computer-acer-aspire-3.jpg",
+      "title": "Acer Aspire 3 Spin 14",
       "price": 3000,
       "color": "blue",
       "category": "computing",
@@ -199,8 +199,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-4.png",
-      "title": "13 inches Monitor",
+      "img": "/assets/img/computing/computer-aorus-15.jpg",
+      "title": "Gigabyte Aorus 15",
       "price": 3000,
       "color": "blue",
       "category": "computing",
@@ -209,8 +209,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/computing/computer-apple-macbook-air-m2.webp",
+      "title": "Apple Macbook Air(M2, 2022, 13-inch)",
       "price": 3000,
       "color": "blue",
       "category": "computing",
@@ -219,11 +219,11 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/computing/computer-asus-zenbook-14.jpg",
+      "title": "Asus Zenbook(14-inch) OLED",
       "price": 3000,
       "color": "blue",
-      "category": "electronics",
+      "category": "computing",
       "id": 23,
       "ratings": 2.0
     },
@@ -249,8 +249,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-4.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/home-and-office/home-bedside-lamp.jpg",
+      "title": "Bedside Lamp",
       "price": 3000,
       "color": "blue",
       "category": "home_&_office",
@@ -259,18 +259,18 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-5.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/computing/computer-dell-xps.jpg",
+      "title": "Dell XPS 15",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "computing",
       "id": 27,
       "ratings": 2.1
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/home-and-office/home-art-wallframe.jpg",
+      "title": "Art Wallframe",
       "price": 3000,
       "color": "blue",
       "category": "home_&_office",
@@ -279,8 +279,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Egornomic Table",
+      "img": "/assets/img/home-and-office/home-baby-crib.jpg",
+      "title": "Baby Crib",
       "price": 3000,
       "color": "blue",
       "category": "home_&_office",
@@ -289,8 +289,8 @@
     },
 
     {
-      "img":"/assets/img/carousel/carousel-4.png",
-      "title": "Iphone 13 pro Max",
+      "img":"/assets/img/phones-and-tablets/iphone-6.jpg",
+      "title": "Iphone 6",
       "price": 3000,
       "color": "blue",
       "category": "phones_&_tablets",
@@ -299,8 +299,8 @@
     },
 
     {
-      "img":"/assets/img/carousel/carousel-3.png",
-      "title": "Cooking Pot",
+      "img":"/assets/img/phones-and-tablets/phone-Asus_ROG_Phone_7_Ultimate.jpg",
+      "title": "Asus ROG Phone 7 Ultimate",
       "price": 3000,
       "color": "blue",
       "category": "phones_&_tablets",
@@ -366,6 +366,483 @@
       "category": "health_&_beauty",
       "id": 37,
       "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/baby-products/blue-crochet-socks.jpg",
+      "title": "Blue Crotchet Socks",
+      "price": 3000,
+      "color": "blue",
+      "category": "babyproduct",
+      "id": 38,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/baby-products/cute-baby-socks.jpg",
+      "title": "Cute Baby Socks",
+      "price": 3000,
+      "color": "blue",
+      "category": "babyproduct",
+      "id": 39,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/baby-products/grey-baby-overall.jpg",
+      "title": "Grey Baby Overall",
+      "price": 3000,
+      "color": "blue",
+      "category": "babyproduct",
+      "id": 40,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/baby-products/multicolored-baby-socks.jpg",
+      "title": "Multicolored Baby Socks",
+      "price": 3000,
+      "color": "blue",
+      "category": "babyproduct",
+      "id": 41,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/baby-products/pink-baby-clothes.jpg",
+      "title": "Pink Baby Clothes",
+      "price": 3000,
+      "color": "blue",
+      "category": "babyproduct",
+      "id": 42,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/baby-products/twopiece-baby-overall-and-hat.jpg",
+      "title": "Two Piece Baby Overall and Hat",
+      "price": 3000,
+      "color": "blue",
+      "category": "babyproduct",
+      "id": 43,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/baby-products/white-baby-headband.jpg",
+      "title": "Baby White Headband",
+      "price": 3000,
+      "color": "blue",
+      "category": "babyproduct",
+      "id": 44,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/computing/computer-framework-laptop-13.jpg",
+      "title": "Framework Laptop 13(Intel)",
+      "price": 3000,
+      "color": "blue",
+      "category": "computing",
+      "id": 45,
+      "ratings": 2.1
+    },
+    {
+      "img": "/assets/img/computing/computer-hp-elite-book.jpg",
+      "title": "HP EliteBook 840 G9",
+      "price": 3000,
+      "color": "blue",
+      "category": "computing",
+      "id": 46,
+      "ratings": 2.1
+    },
+    {
+      "img": "/assets/img/computing/computer-lenovo-chromebook.webp",
+      "title": "Lenove IdeaPad Flex 5i",
+      "price": 3000,
+      "color": "blue",
+      "category": "computing",
+      "id": 47,
+      "ratings": 2.1
+    },
+    {
+      "img": "/assets/img/appliances/appliance-hairdryer.jpg",
+      "title": "Hair Dryer",
+      "price": 3000,
+      "color": "blue",
+      "category": "appliances",
+      "id": 48,
+      "ratings": 2.7
+    },
+    {
+      "img": "/assets/img/appliances/appliance-handheld-mixer.jpg",
+      "title": "Handheld Mixer",
+      "price": 3000,
+      "color": "blue",
+      "category": "appliances",
+      "id": 49,
+      "ratings": 2.7
+    },
+    {
+      "img": "/assets/img/appliances/appliance-kitchen-scale.jpg",
+      "title": "Kitchen Scale",
+      "price": 3000,
+      "color": "blue",
+      "category": "appliances",
+      "id": 50,
+      "ratings": 2.7
+    },
+    {
+      "img": "/assets/img/appliances/appliance-lemon-squeezer.jpg",
+      "title": "Lemon Squeezer",
+      "price": 3000,
+      "color": "blue",
+      "category": "appliances",
+      "id": 51,
+      "ratings": 2.7
+    },
+    {
+      "img": "/assets/img/appliances/appliance-portable-blender.jpg",
+      "title": "Portable Blender",
+      "price": 3000,
+      "color": "blue",
+      "category": "appliances",
+      "id": 52,
+      "ratings": 2.7
+    },
+    {
+      "img": "/assets/img/appliances/appliance-pressing-iron-2.jpg",
+      "title": "Pressing Iron",
+      "price": 3000,
+      "color": "blue",
+      "category": "appliances",
+      "id": 53,
+      "ratings": 2.7
+    },
+    {
+      "img": "/assets/img/appliances/appliance-pressing-iron.jpg",
+      "title": "Pressing Iron",
+      "price": 3000,
+      "color": "blue",
+      "category": "appliances",
+      "id": 54,
+      "ratings": 2.7
+    },
+    {
+      "img": "/assets/img/appliances/appliance-shaver.jpg",
+      "title": "Shaver",
+      "price": 3000,
+      "color": "blue",
+      "category": "appliances",
+      "id": 55,
+      "ratings": 2.7
+    },
+    {
+      "img": "/assets/img/appliances/appliance-table-fan.jpg",
+      "title": "Table Fan",
+      "price": 3000,
+      "color": "blue",
+      "category": "appliances",
+      "id": 56,
+      "ratings": 2.7
+    },
+    {
+      "img": "/assets/img/appliances/appliance-toaster.jpg",
+      "title": "Toaster",
+      "price": 3000,
+      "color": "blue",
+      "category": "appliances",
+      "id": 57,
+      "ratings": 2.7
+    },
+    {
+      "img": "/assets/img/appliances/appliance-vacuum-cleaner.jpg",
+      "title": "Vacuum Cleaner",
+      "price": 3000,
+      "color": "blue",
+      "category": "appliances",
+      "id": 58,
+      "ratings": 2.7
+    },
+    {
+      "img": "/assets/img/appliances/appliance-washing-machine-2.jpg",
+      "title": "Washing Machine",
+      "price": 3000,
+      "color": "blue",
+      "category": "appliances",
+      "id": 59,
+      "ratings": 2.7
+    },
+    {
+      "img": "/assets/img/appliances/appliance-washing-machine-dryer.jpg",
+      "title": "Washing Machine With Dryer",
+      "price": 3000,
+      "color": "blue",
+      "category": "appliances",
+      "id": 60,
+      "ratings": 2.7
+    },
+    {
+      "img": "/assets/img/home-and-office/home-book-basket.jpg",
+      "title": "Book Basket",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 61,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/home-and-office/home-book-props.jpg",
+      "title": "Book Props",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 62,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/home-and-office/home-custom-wallframe.jpg",
+      "title": "Custom Wallframe",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 63,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/home-and-office/home-curvy-table.jpg",
+      "title": "Curvy Table",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 64,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/home-and-office/home-daffodililis-flower.jpg",
+      "title": "Dafodililis Flower Vase",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 65,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/home-and-office/home-dining-set-8.jpg",
+      "title": "Dining Set(8 Chair)",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 66,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/home-and-office/home-flower-vase.jpg",
+      "title": "Flower Vase",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 67,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/home-and-office/home-fully-furnished-set.jpg",
+      "title": "Fully Furnished Furniture",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 68,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/home-and-office/home-indoor-plant.jpg",
+      "title": "Indoor Plant",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 69,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/home-and-office/home-office-desk.jpg",
+      "title": "Office Desk",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 70,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/home-and-office/home-office-table.jpg",
+      "title": "Office Table",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 71,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/home-and-office/home-one-piece-sofa.jpg",
+      "title": "One Piece Sofa",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 72,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/home-and-office/home-round-table.jpg",
+      "title": "Round Table",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 73,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/home-and-office/home-small-round-table.jpg",
+      "title": "Small Round Table",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 74,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/home-and-office/home-wood-chair.jpg",
+      "title": "Wooden Chair",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 75,
+      "ratings": 2.3
+    },
+    {
+      "img": "/assets/img/home-and-office/tulips-red-flower-vase.jpg",
+      "title": "Baby Crib",
+      "price": 3000,
+      "color": "blue",
+      "category": "home_&_office",
+      "id": 76,
+      "ratings": 2.3
+    },
+    {
+      "img":"/assets/img/phones-and-tablets/phone-Huawei_Mate_50_Pro.jpg",
+      "title": "Huawei Mate 50 Pro",
+      "price": 3000,
+      "color": "blue",
+      "category": "phones_&_tablets",
+      "id": 77,
+      "ratings": 2.4
+    },
+    {
+      "img":"/assets/img/phones-and-tablets/phone-ipad-10.9-2022.webp",
+      "title": "iPad 10.9(2022)",
+      "price": 3000,
+      "color": "blue",
+      "category": "phones_&_tablets",
+      "id": 78,
+      "ratings": 2.4
+    },
+    {
+      "img":"/assets/img/phones-and-tablets/phone-ipad-pro-11-2021.webp",
+      "title": "iPad Pro 11 (2021)",
+      "price": 3000,
+      "color": "blue",
+      "category": "phones_&_tablets",
+      "id": 79,
+      "ratings": 2.4
+    },
+    {
+      "img":"/assets/img/phones-and-tablets/phone-ipad-pro-12.9.webp",
+      "title": "iPad Pro 12.9",
+      "price": 3000,
+      "color": "blue",
+      "category": "phones_&_tablets",
+      "id": 80,
+      "ratings": 2.4
+    },
+    {
+      "img":"/assets/img/phones-and-tablets/phone-lenovo-yoga-tab-13.webp",
+      "title": "Lenovo Yoga Tab 13",
+      "price": 3000,
+      "color": "blue",
+      "category": "phones_&_tablets",
+      "id": 81,
+      "ratings": 2.4
+    },
+    {
+      "img":"/assets/img/phones-and-tablets/phone-Motorola_Edge_40.jpg",
+      "title": "Motorola Edge 40",
+      "price": 3000,
+      "color": "blue",
+      "category": "phones_&_tablets",
+      "id": 82,
+      "ratings": 2.4
+    },
+    {
+      "img":"/assets/img/phones-and-tablets/phone-Motorola_Moto_G200_5G.jpg",
+      "title": "Motorola Moto G200 5G",
+      "price": 3000,
+      "color": "blue",
+      "category": "phones_&_tablets",
+      "id": 83,
+      "ratings": 2.4
+    },
+    {
+      "img":"/assets/img/phones-and-tablets/phone-Motorola_Moto_X40.jpg",
+      "title": "Motorola Moto X40",
+      "price": 3000,
+      "color": "blue",
+      "category": "phones_&_tablets",
+      "id": 84,
+      "ratings": 2.4
+    },
+    {
+      "img":"/assets/img/phones-and-tablets/phone-OnePlus_Ace_2_Pro.jpg",
+      "title": "OnePlus Ace Pro Pad",
+      "price": 3000,
+      "color": "blue",
+      "category": "phones_&_tablets",
+      "id": 85,
+      "ratings": 2.4
+    },
+    {
+      "img":"/assets/img/phones-and-tablets/phone-Oppo_Find_X6_Pro.jpg",
+      "title": "Oppo X6 Pro",
+      "price": 3000,
+      "color": "blue",
+      "category": "phones_&_tablets",
+      "id": 86,
+      "ratings": 2.4
+    },
+    {
+      "img":"/assets/img/phones-and-tablets/phone-Samsung_Galaxy_Z_Fold5.jpg",
+      "title": "Samsung Galaxy Z Fold 5",
+      "price": 3000,
+      "color": "blue",
+      "category": "phones_&_tablets",
+      "id": 87,
+      "ratings": 2.4
+    },
+    {
+      "img":"/assets/img/phones-and-tablets/phone-samsung-galaxy-tab-s9-ultra.webp",
+      "title": "Samsung Galaxy Tab S9 Ultra",
+      "price": 3000,
+      "color": "blue",
+      "category": "phones_&_tablets",
+      "id": 88,
+      "ratings": 2.4
+    },
+    {
+      "img":"/assets/img/phones-and-tablets/phone-Vivo_iQOO_11_Pro.jpg",
+      "title": "Vivo iQOO 11 Pro",
+      "price": 3000,
+      "color": "blue",
+      "category": "phones_&_tablets",
+      "id": 89,
+      "ratings": 2.4
+    },
+    {
+      "img":"/assets/img/phones-and-tablets/phone-Xiaomi_Redmi_Note12_Turbo.jpg",
+      "title": "Xiaomi Redmi Note 12 Turbo",
+      "price": 3000,
+      "color": "blue",
+      "category": "phones_&_tablets",
+      "id": 90,
+      "ratings": 2.4
     }
   ]
 
