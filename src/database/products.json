@@ -140,8 +140,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/thrift/chic-black-gown.jpg",
+      "title": "Chic Black Gown",
       "price": 3000,
       "color": "blue",
       "category": "clothes",
@@ -149,8 +149,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/thrift/black-sleeveless-top.png",
+      "title": "Black Sleeveless Top",
       "price": 3000,
       "color": "blue",
       "category": "clothes",
@@ -159,8 +159,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/thrift/jean.jpg",
+      "title": "Jean",
       "price": 3000,
       "color": "blue",
       "category": "clothes",
@@ -169,8 +169,8 @@
     },
 
     {
-      "img": "/assets/img/carousel/carousel-1.png",
-      "title": "Cooking Pot",
+      "img": "/assets/img/thrift/thrift-baby-boot.jpg",
+      "title": "Thrift Baby Boot",
       "price": 3000,
       "color": "blue",
       "category": "clothes",
@@ -843,6 +843,156 @@
       "category": "phones_&_tablets",
       "id": 90,
       "ratings": 2.4
+    },
+
+    {
+      "img": "/assets/img/thrift/thrift-bag.jpg",
+      "title": "Thrift Bag",
+      "price": 3000,
+      "color": "blue",
+      "category": "clothes",
+      "id": 91,
+      "ratings": 2.3
+    },
+
+    {
+      "img": "/assets/img/thrift/thrift-boots.jpg",
+      "title": "Thrift Boots",
+      "price": 3000,
+      "color": "blue",
+      "category": "clothes",
+      "id": 92,
+      "ratings": 2.3
+    },
+
+    {
+      "img": "/assets/img/thrift/thrift-bumshort.jpg",
+      "title": "Thrift Bumshort",
+      "price": 3000,
+      "color": "blue",
+      "category": "clothes",
+      "id": 93,
+      "ratings": 2.3
+    },
+
+    {
+      "img": "/assets/img/thrift/thrift-chic-top.jpg",
+      "title": "Thrift Chic Top",
+      "price": 3000,
+      "color": "blue",
+      "category": "clothes",
+      "id": 94,
+      "ratings": 2.3
+    },
+
+    {
+      "img": "/assets/img/thrift/thrift-colored-shirt.jpg",
+      "title": "Thrift Variety Shirt",
+      "price": 3000,
+      "color": "blue",
+      "category": "clothes",
+      "id": 95,
+      "ratings": 2.3
+    },
+
+    {
+      "img": "/assets/img/thrift/thrift-crotchet-jacket.jpg",
+      "title": "Thrift Crotchet Jacket",
+      "price": 3000,
+      "color": "blue",
+      "category": "clothes",
+      "id": 96,
+      "ratings": 2.3
+    },
+
+    {
+      "img": "/assets/img/thrift/thrift-fur-jacket.jpg",
+      "title": "Thrift Fur Jacket",
+      "price": 3000,
+      "color": "blue",
+      "category": "clothes",
+      "id": 97,
+      "ratings": 2.3
+    },
+
+    {
+      "img": "/assets/img/thrift/thrift-jacket.jpg",
+      "title": "Thrift Jacket",
+      "price": 3000,
+      "color": "blue",
+      "category": "clothes",
+      "id": 98,
+      "ratings": 2.3
+    },
+
+    {
+      "img": "/assets/img/thrift/thrift-jean.jpg",
+      "title": "Thrift Jean",
+      "price": 3000,
+      "color": "blue",
+      "category": "clothes",
+      "id": 99,
+      "ratings": 2.3
+    },
+
+    {
+      "img": "/assets/img/thrift/thrift-red-top.jpg",
+      "title": "Thrift Red Top",
+      "price": 3000,
+      "color": "blue",
+      "category": "clothes",
+      "id": 100,
+      "ratings": 2.3
+    },
+
+    {
+      "img": "/assets/img/thrift/thrift-shirt-1.jpg",
+      "title": "Thrift Shirt",
+      "price": 3000,
+      "color": "blue",
+      "category": "clothes",
+      "id": 101,
+      "ratings": 2.3
+    },
+
+    {
+      "img": "/assets/img/thrift/thrift-shirt-2.jpg",
+      "title": "Thrift Shirt",
+      "price": 3000,
+      "color": "blue",
+      "category": "clothes",
+      "id": 102,
+      "ratings": 2.3
+    },
+
+    {
+      "img": "/assets/img/thrift/thrift-shortsleeve-top.jpg",
+      "title": "Thrift Shortsleeve Top",
+      "price": 3000,
+      "color": "blue",
+      "category": "clothes",
+      "id": 103,
+      "ratings": 2.3
+    },
+
+    {
+      "img": "/assets/img/thrift/thrift-tank-top.jpg",
+      "title": "Thrift Tank Top",
+      "price": 3000,
+      "color": "blue",
+      "category": "clothes",
+      "id": 104,
+      "ratings": 2.3
+    },
+
+    {
+      "img": "/assets/img/thrift/thrift-thick-jacket.jpg",
+      "title": "Thrift Thick Jacket",
+      "price": 3000,
+      "color": "blue",
+      "category": "clothes",
+      "id": 105,
+      "ratings": 2.3
     }
   ]
 
