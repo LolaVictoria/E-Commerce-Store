@@ -14,7 +14,7 @@
       "title": "Baby's Hat",
       "price": 3000,
       "color": "blue",
-      "category": "babyproduct",
+      "category": "Baby Product",
       "id": 2,
       "ratings": 2.8
     },
@@ -24,7 +24,7 @@
       "title": "Blender",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 3,
       "ratings": 4.3
     },
@@ -44,7 +44,7 @@
       "title": "Bread Toast",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 5,
       "ratings": 2.9
     },
@@ -64,7 +64,7 @@
       "title": "Desk Lamp",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 7,
       "ratings": 3.9
     },
@@ -74,7 +74,7 @@
       "title": "Baby Crotchet Cap",
       "price": 3000,
       "color": "blue",
-      "category": "babyproduct",
+      "category": "Baby Product",
       "id": 8,
       "ratings": 4.7
     },
@@ -94,7 +94,7 @@
       "title": "Baby Dungarees",
       "price": 3000,
       "color": "blue",
-      "category": "babyproduct",
+      "category": "Baby Product",
       "id": 10,
       "ratings": 2.6
     },
@@ -114,7 +114,7 @@
       "title": "Baby Fancy Red Socks",
       "price": 3000,
       "color": "blue",
-      "category": "babyproduct",
+      "category": "Baby Product",
       "id": 12,
       "ratings": 2.3
     },
@@ -124,7 +124,7 @@
       "title": "Baby Full Christmas Outfit",
       "price": 3000,
       "color": "blue",
-      "category": "babyproduct",
+      "category": "Baby Product",
       "id": 13,
       "ratings": 2.5
     },
@@ -134,7 +134,7 @@
       "title": "Standing Fan",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 14,
       "ratings": 2.7
     },
@@ -144,7 +144,7 @@
       "title": "Chic Black Gown",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 15
     },
 
@@ -153,7 +153,7 @@
       "title": "Black Sleeveless Top",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 16,
       "ratings": 2.2
     },
@@ -163,7 +163,7 @@
       "title": "Jean",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 17,
       "ratings": 2.6
     },
@@ -173,7 +173,7 @@
       "title": "Thrift Baby Boot",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 18,
       "ratings": 2.3
     },
@@ -183,7 +183,7 @@
       "title": "Apple MacBook Pro(16-inch)",
       "price": 3000,
       "color": "blue",
-      "category": "computing",
+      "category":"Computing",
       "id": 19,
       "ratings": 2.4
     },
@@ -193,7 +193,7 @@
       "title": "Acer Aspire 3 Spin 14",
       "price": 3000,
       "color": "blue",
-      "category": "computing",
+      "category":"Computing",
       "id": 20,
       "ratings": 2.9
     },
@@ -203,7 +203,7 @@
       "title": "Gigabyte Aorus 15",
       "price": 3000,
       "color": "blue",
-      "category": "computing",
+      "category":"Computing",
       "id": 21,
       "ratings": 3.1
     },
@@ -213,7 +213,7 @@
       "title": "Apple Macbook Air(M2, 2022, 13-inch)",
       "price": 3000,
       "color": "blue",
-      "category": "computing",
+      "category":"Computing",
       "id": 22,
       "ratings": 4.1
     },
@@ -223,7 +223,7 @@
       "title": "Asus Zenbook(14-inch) OLED",
       "price": 3000,
       "color": "blue",
-      "category": "computing",
+      "category":"Computing",
       "id": 23,
       "ratings": 2.0
     },
@@ -253,7 +253,7 @@
       "title": "Bedside Lamp",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 26,
       "ratings": 2.2
     },
@@ -263,7 +263,7 @@
       "title": "Dell XPS 15",
       "price": 3000,
       "color": "blue",
-      "category": "computing",
+      "category":"Computing",
       "id": 27,
       "ratings": 2.1
     },
@@ -273,7 +273,7 @@
       "title": "Art Wallframe",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 28,
       "ratings": 2.2
     },
@@ -283,7 +283,7 @@
       "title": "Baby Crib",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 29,
       "ratings": 2.3
     },
@@ -293,7 +293,7 @@
       "title": "Iphone 6",
       "price": 3000,
       "color": "blue",
-      "category": "phones_&_tablets",
+      "category": "Phones & Tablets",
       "id": 30,
       "ratings": 2.1
     },
@@ -372,7 +372,7 @@
       "title": "Blue Crotchet Socks",
       "price": 3000,
       "color": "blue",
-      "category": "babyproduct",
+      "category": "Baby Product",
       "id": 38,
       "ratings": 2.3
     },
@@ -381,7 +381,7 @@
       "title": "Cute Baby Socks",
       "price": 3000,
       "color": "blue",
-      "category": "babyproduct",
+      "category": "Baby Product",
       "id": 39,
       "ratings": 2.3
     },
@@ -390,7 +390,7 @@
       "title": "Grey Baby Overall",
       "price": 3000,
       "color": "blue",
-      "category": "babyproduct",
+      "category": "Baby Product",
       "id": 40,
       "ratings": 2.3
     },
@@ -399,7 +399,7 @@
       "title": "Multicolored Baby Socks",
       "price": 3000,
       "color": "blue",
-      "category": "babyproduct",
+      "category": "Baby Product",
       "id": 41,
       "ratings": 2.3
     },
@@ -408,7 +408,7 @@
       "title": "Pink Baby Clothes",
       "price": 3000,
       "color": "blue",
-      "category": "babyproduct",
+      "category": "Baby Product",
       "id": 42,
       "ratings": 2.3
     },
@@ -417,7 +417,7 @@
       "title": "Two Piece Baby Overall and Hat",
       "price": 3000,
       "color": "blue",
-      "category": "babyproduct",
+      "category": "Baby Product",
       "id": 43,
       "ratings": 2.3
     },
@@ -426,7 +426,7 @@
       "title": "Baby White Headband",
       "price": 3000,
       "color": "blue",
-      "category": "babyproduct",
+      "category": "Baby Product",
       "id": 44,
       "ratings": 2.3
     },
@@ -435,7 +435,7 @@
       "title": "Framework Laptop 13(Intel)",
       "price": 3000,
       "color": "blue",
-      "category": "computing",
+      "category":"Computing",
       "id": 45,
       "ratings": 2.1
     },
@@ -444,7 +444,7 @@
       "title": "HP EliteBook 840 G9",
       "price": 3000,
       "color": "blue",
-      "category": "computing",
+      "category":"Computing",
       "id": 46,
       "ratings": 2.1
     },
@@ -453,7 +453,7 @@
       "title": "Lenove IdeaPad Flex 5i",
       "price": 3000,
       "color": "blue",
-      "category": "computing",
+      "category":"Computing",
       "id": 47,
       "ratings": 2.1
     },
@@ -462,7 +462,7 @@
       "title": "Hair Dryer",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 48,
       "ratings": 2.7
     },
@@ -471,7 +471,7 @@
       "title": "Handheld Mixer",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 49,
       "ratings": 2.7
     },
@@ -480,7 +480,7 @@
       "title": "Kitchen Scale",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 50,
       "ratings": 2.7
     },
@@ -489,7 +489,7 @@
       "title": "Lemon Squeezer",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 51,
       "ratings": 2.7
     },
@@ -498,7 +498,7 @@
       "title": "Portable Blender",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 52,
       "ratings": 2.7
     },
@@ -507,7 +507,7 @@
       "title": "Pressing Iron",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 53,
       "ratings": 2.7
     },
@@ -516,7 +516,7 @@
       "title": "Pressing Iron",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 54,
       "ratings": 2.7
     },
@@ -525,7 +525,7 @@
       "title": "Shaver",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 55,
       "ratings": 2.7
     },
@@ -534,7 +534,7 @@
       "title": "Table Fan",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 56,
       "ratings": 2.7
     },
@@ -543,7 +543,7 @@
       "title": "Toaster",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 57,
       "ratings": 2.7
     },
@@ -552,7 +552,7 @@
       "title": "Vacuum Cleaner",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 58,
       "ratings": 2.7
     },
@@ -561,7 +561,7 @@
       "title": "Washing Machine",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 59,
       "ratings": 2.7
     },
@@ -570,7 +570,7 @@
       "title": "Washing Machine With Dryer",
       "price": 3000,
       "color": "blue",
-      "category": "appliances",
+      "category": "Appliances",
       "id": 60,
       "ratings": 2.7
     },
@@ -579,7 +579,7 @@
       "title": "Book Basket",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 61,
       "ratings": 2.3
     },
@@ -588,7 +588,7 @@
       "title": "Book Props",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 62,
       "ratings": 2.3
     },
@@ -597,7 +597,7 @@
       "title": "Custom Wallframe",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 63,
       "ratings": 2.3
     },
@@ -606,7 +606,7 @@
       "title": "Curvy Table",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 64,
       "ratings": 2.3
     },
@@ -615,7 +615,7 @@
       "title": "Dafodililis Flower Vase",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 65,
       "ratings": 2.3
     },
@@ -624,7 +624,7 @@
       "title": "Dining Set(8 Chair)",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 66,
       "ratings": 2.3
     },
@@ -633,7 +633,7 @@
       "title": "Flower Vase",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 67,
       "ratings": 2.3
     },
@@ -642,7 +642,7 @@
       "title": "Fully Furnished Furniture",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 68,
       "ratings": 2.3
     },
@@ -651,7 +651,7 @@
       "title": "Indoor Plant",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 69,
       "ratings": 2.3
     },
@@ -660,7 +660,7 @@
       "title": "Office Desk",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 70,
       "ratings": 2.3
     },
@@ -669,7 +669,7 @@
       "title": "Office Table",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 71,
       "ratings": 2.3
     },
@@ -678,7 +678,7 @@
       "title": "One Piece Sofa",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 72,
       "ratings": 2.3
     },
@@ -687,7 +687,7 @@
       "title": "Round Table",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 73,
       "ratings": 2.3
     },
@@ -696,7 +696,7 @@
       "title": "Small Round Table",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 74,
       "ratings": 2.3
     },
@@ -705,7 +705,7 @@
       "title": "Wooden Chair",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 75,
       "ratings": 2.3
     },
@@ -714,7 +714,7 @@
       "title": "Baby Crib",
       "price": 3000,
       "color": "blue",
-      "category": "home_&_office",
+      "category": "Home & Office",
       "id": 76,
       "ratings": 2.3
     },
@@ -850,7 +850,7 @@
       "title": "Thrift Bag",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 91,
       "ratings": 2.3
     },
@@ -860,7 +860,7 @@
       "title": "Thrift Boots",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 92,
       "ratings": 2.3
     },
@@ -870,7 +870,7 @@
       "title": "Thrift Bumshort",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 93,
       "ratings": 2.3
     },
@@ -880,7 +880,7 @@
       "title": "Thrift Chic Top",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 94,
       "ratings": 2.3
     },
@@ -890,7 +890,7 @@
       "title": "Thrift Variety Shirt",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 95,
       "ratings": 2.3
     },
@@ -900,7 +900,7 @@
       "title": "Thrift Crotchet Jacket",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 96,
       "ratings": 2.3
     },
@@ -910,7 +910,7 @@
       "title": "Thrift Fur Jacket",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 97,
       "ratings": 2.3
     },
@@ -920,7 +920,7 @@
       "title": "Thrift Jacket",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 98,
       "ratings": 2.3
     },
@@ -930,7 +930,7 @@
       "title": "Thrift Jean",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 99,
       "ratings": 2.3
     },
@@ -940,7 +940,7 @@
       "title": "Thrift Red Top",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 100,
       "ratings": 2.3
     },
@@ -950,7 +950,7 @@
       "title": "Thrift Shirt",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 101,
       "ratings": 2.3
     },
@@ -960,7 +960,7 @@
       "title": "Thrift Shirt",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 102,
       "ratings": 2.3
     },
@@ -970,7 +970,7 @@
       "title": "Thrift Shortsleeve Top",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 103,
       "ratings": 2.3
     },
@@ -980,7 +980,7 @@
       "title": "Thrift Tank Top",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 104,
       "ratings": 2.3
     },
@@ -990,7 +990,7 @@
       "title": "Thrift Thick Jacket",
       "price": 3000,
       "color": "blue",
-      "category": "clothes",
+      "category": "Thrift",
       "id": 105,
       "ratings": 2.3
     }

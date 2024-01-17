@@ -39,7 +39,7 @@ const Clothes: React.FC<ProductDisplayProps> = () => {
                   <span className="ml-3">Back</span>
           </p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-14 place-items-center gap-x-3 lg:gap-x-4 mt-7 mb-24">
-            {storeItems.filter(item => item.category === "clothes").map(item =>  
+            {storeItems.filter(item => item.category === "thrift").map(item =>  
 
               <div key={item.id} className="">
                 
