@@ -10,7 +10,7 @@ type CartItemProps = {
 }
 
 const CartItem =({id, quantity} : CartItemProps) => {
-  const { removeFromCart } = useShoppingCart(); // Replace with the actual function from your shopping cart library
+  const { removeItemFromCart } = useShoppingCart(); // Replace with the actual function from your shopping cart library
 
   const item = storeItems.find(i => i.id === id) 
   if (item === undefined) return null
@@ -35,7 +35,7 @@ const CartItem =({id, quantity} : CartItemProps) => {
       <FaTrashAlt
         size={25}
         className="lg:ml-4 mt-5 border border-gray p-1"
-        onClick={() => removeFromCart(id)}
+        onClick={() => removeItemFromCart(id)}
       />
     </div>
   );

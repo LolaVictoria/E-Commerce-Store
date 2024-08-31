@@ -12,14 +12,27 @@ import ProductDetails from "./pages/productdetails";
 import { ShoppingCartProvider } from "./context/shoppingCartContext"
 import "./index.css"
 import ShoppingCart from "./components/shoppingcart";
+import SignUp from "./pages/auth/signUp";
+import Login from "./pages/auth/login";
+import { AuthProvider } from "./context/authContext";
+import CompleteProfile from "./pages/auth/completeProfile";
+import SellerDashboard from "./pages/sellerDashoard";
+import { ProductProvider } from "./context/productContext";
+import SellersProduct from "./pages/sellersProduct";
 
 const App = () => {
   return ( 
     <Router>
+      <AuthProvider>
+      <ProductProvider>
       <ShoppingCartProvider>
       <div>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/signup" element={<SignUp/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/complete-profile" element={<CompleteProfile/>}/>
+          <Route path="/seller-dashboard" element={<SellerDashboard/>}/>
           <Route path="/shoppingcart" element={<ShoppingCart/>}/>
          <Route path="/health_&_beauty" element={<HealthAndBeauty />} />
           <Route path="/home_&_office" element={<HomeAndOffice />} /> 
@@ -30,9 +43,12 @@ const App = () => {
           <Route path="/clothes" element={<Clothes/> } />
         <Route path="/babyproduct" element={<BabyProduct/> } />
           <Route path="/productdetails/:id" element={<ProductDetails/> } />     
+          <Route path="/sellersproduct" element={<SellersProduct/> } /> 
         </Routes>
       </div>
     </ShoppingCartProvider>
+    </ProductProvider>
+      </AuthProvider>
     </Router>
   );
 };

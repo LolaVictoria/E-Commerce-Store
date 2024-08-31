@@ -1,100 +1,115 @@
-import { createContext, useContext, useState, ReactNode } from "react";
-//import { useLocalStorage } from "../hooks/useLocalStorage";
+import { createContext, useContext, useState, useEffect } from "react";
+import { db } from "../firebase"; // Import your Firebase instance
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { useAuth } from "./authContext"; // Assuming you have an AuthContext to get the user
 
+type CartItemType = {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+};
 
-type CartItem = {
-    id: number 
-    quantity: number
-}
-type ShoppingCartContext = {
-    isClose: boolean
-    openCart: () => void
-    closeCart: () => void
-    cartQuantity: number
-    cartItems: CartItem[]
-    getItemQuantity: (id: number) => number
-    increaseCartQuantity: (id: number) => void
-    decreaseCartQuantity: (id: number) => void
-    removeFromCart: (id: number) => void
-    
-}
+type ShoppingCartContextType = {
+  cartItems: CartItemType[];
+  increaseCartQuantity: (item: CartItemType) => void;
+  decreaseCartQuantity: (id: number) => void;
+  removeItemFromCart: (id: number) => void;
+  clearCart: () => void;
+  getItemQuantity: (id: number) => number;
+};
 
-const ShoppingCartContext = createContext<ShoppingCartContext| undefined>(undefined)
-
-export const ShoppingCartProvider: React.FC< {children: ReactNode} > = ({children}) => {
-    const [cartItems, setCartItems] = useState<CartItem[]>( []);
-    const [isClose, setIsClose] = useState(false)
-
-    const cartQuantity = cartItems.reduce(
-        (quantity, item) => item.quantity + quantity, 0
-    )
-     
-    
-    const openCart= () => { 
-        console.log("cart is opened")
-        setIsClose(!isClose) }
-    const closeCart = () => {
-        console.log("cart is closed")
-        setIsClose(!isClose)}
-
-        
-    function getItemQuantity(id: number ) {
-        return cartItems.find(item => item.id === id) ?.quantity || 0
-    }  
-    {/*if the item returns to something, get the quantity item else return 0 if we have nothing*/}
-
-    function increaseCartQuantity(id: number) {
-        setCartItems(currItems => {
-            if (currItems.find(item => item.id === id) == null) {
-                return [...currItems, {id, quantity: 1}]
-            } else {
-                return currItems.map(item => {
-                    if(item.id === id) {
-                        return {...item, quantity: item.quantity + 1}
-                    } else {
-                        return item
-                    }
-                })
-            }
-        })
-    }
-
-    function decreaseCartQuantity(id: number) {
-        setCartItems(currItems => {
-            if (currItems.find(item => item.id === id)?.quantity === 1) {
-                return currItems.filter(item => item.id !== id)
-            } else {
-                return currItems.map(item => {
-                    if(item.id === id) {
-                        return {...item, quantity: item.quantity - 1}
-                    } else {
-                        return item
-                    }
-                })
-            }
-        })
-    }
-
-    function removeFromCart(id: number) {
-        setCartItems((currItems) => currItems.filter(item => item.id !== id))
-    } 
-
-    
-
-
-
-    return (
-    <ShoppingCartContext.Provider value={{ isClose, cartQuantity,openCart, closeCart, cartItems, getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart}}>
-        {children}
-    </ShoppingCartContext.Provider>
-    )
-}
+const ShoppingCartContext = createContext({} as ShoppingCartContextType);
 
 export const useShoppingCart = () => {
-    const context = useContext(ShoppingCartContext);
-    if(!context) {
-        throw new Error("useShoppingCart must be used within a ShoppingCartProvider")
-    }
-    return context
-}
+  return useContext(ShoppingCartContext);
+};
 
+export const ShoppingCartProvider = ({ children }: { children: React.ReactNode }) => {
+  const { currentEmail } = useAuth(); // Get the current user from AuthContext
+  const [cartItems, setCartItems] = useState<CartItemType[]>([]);
+  const [loading, setLoading] = useState(true); // Add loading state
+
+  const getItemQuantity = (id: number): number => {
+    const item = cartItems.find(item => item.id === id);
+    return item ? item.quantity : 0;
+  };
+
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      if (currentEmail) {
+        const cartDocRef = doc(db, "carts", currentEmail);
+        const cartDoc = await getDoc(cartDocRef);
+        if (cartDoc.exists()) {
+          setCartItems(cartDoc.data().items || []);
+        }
+      }
+      setLoading(false); // Set loading to false after fetching
+    };
+
+    fetchCartItems();
+  }, [currentEmail]);
+
+  const saveCartItems = async (items: CartItemType[]) => {
+    if (currentEmail) {
+      const cartDocRef = doc(db, "carts", currentEmail);
+      await setDoc(cartDocRef, { items });
+    }
+  };
+
+  // Save cart items to Firestore whenever cartItems change
+  useEffect(() => {
+    if (!loading) {
+      saveCartItems(cartItems);
+    }
+  }, [cartItems, currentEmail, loading]);
+
+  const increaseCartQuantity = (item: CartItemType) => {
+    const existingItem = cartItems.find((i) => i.id === item.id);
+    let newCartItems;
+    if (existingItem) {
+      newCartItems = cartItems.map((i) =>
+        i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+      );
+    } else {
+      newCartItems = [...cartItems, { ...item, quantity: 1 }];
+    }
+    setCartItems(newCartItems);
+  };
+
+  const decreaseCartQuantity = (id: number) => {
+    const existingItem = cartItems.find((i) => i.id === id);
+    if (existingItem && existingItem.quantity > 1) {
+      const newCartItems = cartItems.map((i) =>
+        i.id === id ? { ...i, quantity: i.quantity - 1 } : i
+      );
+      setCartItems(newCartItems);
+    } else {
+      removeItemFromCart(id);
+    }
+  };
+
+  const removeItemFromCart = (id: number) => {
+    const newCartItems = cartItems.filter((item) => item.id !== id);
+    setCartItems(newCartItems);
+  };
+
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
+  return (
+    <ShoppingCartContext.Provider
+      value={{
+        cartItems,
+        increaseCartQuantity,
+        decreaseCartQuantity,
+        removeItemFromCart,
+        clearCart,
+        getItemQuantity,
+      }}
+    >
+      {children}
+    </ShoppingCartContext.Provider>
+  );
+};

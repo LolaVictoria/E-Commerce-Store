@@ -5,6 +5,8 @@ import ProductLink from "../components/productLink";
 import Footer from "../components/footer";
 
 const HomePage = () => {
+
+ 
   return (
     <div>
       <Navbar />
