@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
+import { FaGoogle } from "react-icons/fa6";
 
 interface SignUpFormValues {
   firstName: string;
@@ -124,7 +125,7 @@ const SignUp = () => {
       .min(6, "Password should be at least 6 characters")
       .required("Password is required"),
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"), undefined], "Passwords must match") // Replaced null with undefined
+      .oneOf([Yup.ref("password"), undefined], "Passwords must match") 
       .required("Confirm password is required"),
   });
 
@@ -226,17 +227,28 @@ const SignUp = () => {
             </Form>
           )}
         </Formik>
-        <div className="mt-6 flex flex-col items-center">
-          <span className="text-gray-700 mb-2">Or</span>
+
+        <div className="flex items-center my-4">
+          <hr className="w-full"/>
+               <p className="text-[#2ecf5a] text-base mx-1.5">or</p>
+               <hr className="w-full"/> 
+          </div>
+
+        <div className="flex flex-col">
+          
           <button
             type="button"
             onClick={handleGoogleSignIn}
             disabled={isProcessing}
-            className={`px-4 py-2 rounded-lg text-white ${
+            className={`px-4 py-2 rounded-lg text-white flex items-center justify-center ${
               isProcessing ? "bg-gray-400" : "bg-[#2ECF5A]"
             }`}
           >
+             <FaGoogle size={15}/>
+             <span className="ml-2">
+
             {isProcessing ? "Processing..." : "Sign Up With Google"}
+             </span>
           </button>
         </div>
         <div className="text-center mt-4">

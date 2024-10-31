@@ -78,7 +78,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
           <div className="flex justify-center items-center mb-4">
             {quantity === 0 ? (
               <button
-                onClick={() => increaseCartQuantity({ id: product.id, name: product.title, price: product.price, quantity: 1 })}
+                onClick={() => increaseCartQuantity({ id: product.id, name: product.title, price: product.price, quantity: 1, img: product.img, category: product.category })}
                 className="bg-[#2ECF5A] lg:w-2/4 mt-14 font-semibold text-center py-2 px-6 flex items-center justify-center rounded-lg"
               >
                 <span className="mr-2">Add to Cart</span>
@@ -97,7 +97,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
                     <span className="mr-1 ">{quantity} </span> <span> in cart</span>
                   </div>
                   <button
-                    onClick={() => increaseCartQuantity({ id: product.id, name: product.title, price: product.price, quantity: quantity + 1 })}
+                    onClick={() => increaseCartQuantity({ id: product.id, name: product.title, price: product.price, quantity: quantity + 1,  img: product.img, category: product.category })}
                     className="bg-[#fff] w-[20%] rounded-r-lg"
                   >
                     +

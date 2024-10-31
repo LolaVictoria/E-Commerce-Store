@@ -19,6 +19,8 @@ import CompleteProfile from "./pages/auth/completeProfile";
 import SellerDashboard from "./pages/sellerDashoard";
 import { ProductProvider } from "./context/productContext";
 import SellersProduct from "./pages/sellersProduct";
+import ForgotPassword from "./pages/ForgotPassword/forgotPassword";
+import ResetPassword from "./pages/ForgotPassword/resetPassword";
 
 const App = () => {
   return ( 
@@ -44,6 +46,8 @@ const App = () => {
         <Route path="/babyproduct" element={<BabyProduct/> } />
           <Route path="/productdetails/:id" element={<ProductDetails/> } />     
           <Route path="/sellersproduct" element={<SellersProduct/> } /> 
+          <Route path="/forgot-password" element={<ForgotPassword/> } /> 
+          <Route path="/reset-password" element={<ResetPassword/> } /> 
         </Routes>
       </div>
     </ShoppingCartProvider>

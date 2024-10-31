@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { doc, getDoc } from "firebase/firestore";
 import { useAuth } from "../../context/authContext";
+import { FaGoogle } from "react-icons/fa";
 
 interface FormValues {
     email: string;
@@ -18,11 +19,12 @@ interface ProfileData {
     lastName: string;
     accountType: string;
     businessName?: string;
+    location: string
 }
 
 const Login = () => {
     const navigate = useNavigate();
-    const { setCurrentFirstName, setCurrentLastName, setAccountType, setBusinessName, setCurrentEmail } = useAuth();
+    const { setCurrentFirstName, setCurrentLastName, setAccountType, setBusinessName, setCurrentEmail, setLocation } = useAuth();
     const [isSigningIn, setIsSigningIn] = useState<boolean>(false);
     const [errorMessage, setErrorMessage] = useState<string>("");
     const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -75,16 +77,12 @@ const Login = () => {
         email: Yup.string().email('Invalid email address').required('Email is required'),
         password: Yup.string().required('Password is required'),
     });
-
-    const fetchUserProfile = async (email: string): Promise<ProfileData> => {
+    const fetchUserProfile = async (email: string): Promise<ProfileData | null> => {
         const userDocRef = doc(db, "users", email);
         const userDoc = await getDoc(userDocRef);
-        if (userDoc.exists()) {
-            return userDoc.data() as ProfileData;
-        } else {
-            throw new Error("User profile not found.");
-        }
+        return userDoc.exists() ? (userDoc.data() as ProfileData) : null;
     };
+    
 
     const onSubmit = async (
         values: FormValues,
@@ -98,25 +96,35 @@ const Login = () => {
     
             const profileData = await fetchUserProfile(user.email as string);
     
-            setCurrentFirstName(profileData.firstName);
-            setCurrentLastName(profileData.lastName);
-            setAccountType(profileData.accountType);
-            setBusinessName(profileData.businessName || "");
-            setCurrentEmail(user.email as string);
+            if (profileData) {
+               
+                setCurrentFirstName(profileData.firstName);
+                setCurrentLastName(profileData.lastName);
+                setAccountType(profileData.accountType);
+                setBusinessName(profileData.businessName || "");
+                setLocation(profileData.location);
     
-            if (["buyer", "seller"].includes(profileData.accountType)) {
-                navigate("/");
+                setCurrentEmail(user.email as string);
+                if (["buyer", "seller"].includes(profileData.accountType)) {
+                    navigate("/");
+                } else {
+                    navigate('/signup');
+                }
             } else {
-                navigate('/complete-profile');
+               
+                setCurrentEmail(user.email as string);
+                navigate('/signup');
             }
         } catch (error: any) {
             console.error("Error during sign-in:", error);
-            console.error("Error code:", error.code);
             setErrorMessage(getErrorMessage(error.code));
+        } finally {
             setSubmitting(false);
             setIsSigningIn(false);
         }
     };
+    
+    
     
     const onGoogleSignIn = async (e: MouseEvent<HTMLButtonElement>): Promise<void> => {
         e.preventDefault();
@@ -124,26 +132,34 @@ const Login = () => {
         try {
             const result = await doSignInWithGoogle();
             const user = result.user;
-
-            let profileData: ProfileData;
+    
+            let profileData: ProfileData | null;
             try {
                 profileData = await fetchUserProfile(user.email as string);
+                console.log("Fetched Profile Data:", profileData);
             } catch (error) {
                 console.log("User profile not found, redirecting to profile completion.");
                 setCurrentEmail(user.email as string);
-                navigate('/signup');
+                navigate('/complete-profile');  // Navigate to profile completion instead of signup
                 return;
             }
-
-            setCurrentFirstName(profileData.firstName);
-            setCurrentLastName(profileData.lastName);
-            setAccountType(profileData.accountType);
-            setBusinessName(profileData.businessName || "");
-            setCurrentEmail(user.email as string);
-
-            if (["buyer", "seller"].includes(profileData.accountType)) {
-                navigate("/");
+    
+            if (profileData) {
+                setCurrentFirstName(profileData.firstName);
+                setCurrentLastName(profileData.lastName);
+                setAccountType(profileData.accountType);
+                setBusinessName(profileData.businessName || "");
+                setCurrentEmail(user.email as string);
+                console.log(profileData);
+                
+    
+                if (["buyer", "seller"].includes(profileData.accountType)) {
+                    navigate("/");
+                } else {
+                    navigate('/complete-profile');
+                }
             } else {
+                // No profile data retrieved, redirect to complete profile
                 navigate('/complete-profile');
             }
         } catch (err: any) {
@@ -151,6 +167,7 @@ const Login = () => {
             setIsSigningIn(false);
         }
     };
+    
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -191,6 +208,13 @@ const Login = () => {
                                 </div>
                                 <ErrorMessage name="password" component="div" className="text-red-600 font-bold" />
                             </label>
+                            <div>
+                            <p className="text-start text-[#2ecf5a]">
+        <Link to="/forgot-password">
+          Forgot Password?
+        </Link>
+      </p>
+                            </div>
                             <button
                                 type="submit"
                                 disabled={isSubmitting || isSigningIn}
@@ -198,13 +222,22 @@ const Login = () => {
                             >
                                 {isSubmitting || isSigningIn ? "Signing In..." : 'Sign In'}
                             </button>
+                            <div className="flex items-center">
+                                <hr className="w-full"/>
+                                <p className="text-[#2ecf5a] text-base mx-1.5">or</p>
+                                <hr className="w-full"/> 
+                            </div>
                             <button
                                 type="button"
                                 disabled={isSubmitting || isSigningIn}
                                 onClick={onGoogleSignIn}
-                                className={`w-full px-4 py-2 mt-2 text-white font-medium rounded-lg ${isSubmitting || isSigningIn ? 'bg-gray-400' : 'bg-[#2ECF5A]'}`}
+                                className={`w-full px-4 py-2 mt-2 text-white font-medium rounded-lg flex items-center justify-center ${isSubmitting || isSigningIn ? 'bg-gray-400' : 'bg-[#2ECF5A]'}`}
+
                             >
+                                <FaGoogle size={15}/>
+                                <span className="ml-2">
                                 Sign In With Google
+                                </span>
                             </button>
                         </Form>
                     )}

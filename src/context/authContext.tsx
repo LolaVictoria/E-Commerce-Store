@@ -14,6 +14,8 @@ type AuthContextType = {
     setAccountType: Dispatch<SetStateAction<string>>;
     businessName: string 
     setBusinessName: Dispatch<SetStateAction<string>>;
+    location: string 
+    setLocation: Dispatch<SetStateAction<string>>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -25,6 +27,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const [currentLastName, setCurrentLastName] = useState("");
     const [accountType, setAccountType] = useState("");
     const [businessName, setBusinessName] = useState("");
+    const [location, setLocation] = useState("");
+
     useEffect(() => {
         const savedFirstName = sessionStorage.getItem("firstName");
         if (savedFirstName) setCurrentFirstName(savedFirstName);
@@ -37,23 +41,20 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     
         const savedBusinessName = sessionStorage.getItem("businessName");
         if (savedBusinessName) setBusinessName(savedBusinessName);
-    }, []);
-    
-    useEffect(() => {
+
+        const savedLocation = sessionStorage.getItem("userLocation");
+        if (savedLocation) setLocation(savedLocation);
+
+        sessionStorage.setItem("userLocation", location);
+   
         sessionStorage.setItem("firstName", currentFirstName);
-    }, [currentFirstName]);
     
-    useEffect(() => {
         sessionStorage.setItem("lastName", currentLastName);
-    }, [currentLastName]);
     
-    useEffect(() => {
         sessionStorage.setItem("accountType", accountType);
-    }, [accountType]);
-    
-    useEffect(() => {
+   
         sessionStorage.setItem("businessName", businessName);
-    }, [businessName]);
+    }, [accountType, businessName, currentFirstName, currentLastName, location]);
     
     
     return (
@@ -64,7 +65,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             currentLastName, setCurrentLastName,
             accountType, setAccountType,
             businessName, setBusinessName,
-            currentEmail, setCurrentEmail
+            currentEmail, setCurrentEmail,
+            location, setLocation
         }}>
             {children}
         </AuthContext.Provider>
