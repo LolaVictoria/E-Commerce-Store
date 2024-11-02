@@ -4,10 +4,9 @@ import { useState, MouseEvent } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { doc, getDoc } from "firebase/firestore";
 import { useAuth } from "../../context/authContext";
-import { FaGoogle } from "react-icons/fa";
 
 interface FormValues {
     email: string;
@@ -19,7 +18,7 @@ interface ProfileData {
     lastName: string;
     accountType: string;
     businessName?: string;
-    location: string
+    location: string;
 }
 
 const Login = () => {
@@ -29,34 +28,35 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState<string>("");
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
-    const togglePasswordVisibility = (): void => {
-        setShowPassword(!showPassword);
-    };
+    const togglePasswordVisibility = (): void => setShowPassword(!showPassword);
 
     const getErrorMessage = (errorCode: string): string => {
         switch (errorCode) {
-            case 'auth/invalid-email':
+            case 'auth/invalid-email': 
                 return 'Invalid email address format.';
-            case 'auth/user-disabled':
+            case 'auth/user-disabled': 
                 return 'This user account has been disabled.';
-            case 'auth/user-not-found':
+            case 'auth/user-not-found': 
                 return 'No user found with this email address.';
-            case 'auth/wrong-password':
+            case 'auth/wrong-password': 
                 return 'Incorrect password. Please try again.';
-            case 'auth/email-already-in-use':
+            case 'auth/email-already-in-use': 
                 return 'This email address is already in use.';
-            case 'auth/weak-password':
+            case 'auth/weak-password': 
                 return 'Password is too weak. Please choose a stronger password.';
-            case 'auth/popup-closed-by-user':
+            case 'auth/popup-closed-by-user': 
                 return 'The sign-in popup was closed before completing the sign-in.';
-            case 'auth/cancelled-popup-request':
+            case 'auth/cancelled-popup-request': 
                 return 'Only one popup request is allowed at a time. Please try again.';
-            case 'auth/network-request-failed':
+            case 'auth/network-request-failed': 
                 return 'Network error. Please check your internet connection and try again.';
-            default:
+            case 'INVALID_LOGIN_CREDENTIALS': 
+                return 'Invalid login credentials. Please check your email and password.';
+            default: 
                 return 'An unknown error occurred. Please try again.';
         }
     };
+    
 
     const doSignInWithEmailAndPassword = (email: string, password: string): Promise<UserCredential> => {
         return signInWithEmailAndPassword(auth, email, password);
@@ -64,25 +64,21 @@ const Login = () => {
 
     const doSignInWithGoogle = async (): Promise<UserCredential> => {
         const provider = new GoogleAuthProvider();
-        const result = await signInWithPopup(auth, provider);
-        return result;
+        return signInWithPopup(auth, provider);
     };
 
-    const initialValues: FormValues = {
-        email: '',
-        password: ''
-    };
+    const initialValues: FormValues = { email: '', password: '' };
 
     const validationSchema = Yup.object({
         email: Yup.string().email('Invalid email address').required('Email is required'),
         password: Yup.string().required('Password is required'),
     });
+
     const fetchUserProfile = async (email: string): Promise<ProfileData | null> => {
         const userDocRef = doc(db, "users", email);
         const userDoc = await getDoc(userDocRef);
         return userDoc.exists() ? (userDoc.data() as ProfileData) : null;
     };
-    
 
     const onSubmit = async (
         values: FormValues,
@@ -90,84 +86,64 @@ const Login = () => {
     ): Promise<void> => {
         const { email, password } = values;
         setIsSigningIn(true);
+        setErrorMessage(""); 
         try {
             const userCredential = await doSignInWithEmailAndPassword(email, password);
             const user = userCredential.user;
-    
+
             const profileData = await fetchUserProfile(user.email as string);
-    
+
             if (profileData) {
-               
                 setCurrentFirstName(profileData.firstName);
                 setCurrentLastName(profileData.lastName);
                 setAccountType(profileData.accountType);
                 setBusinessName(profileData.businessName || "");
                 setLocation(profileData.location);
-    
                 setCurrentEmail(user.email as string);
+                
                 if (["buyer", "seller"].includes(profileData.accountType)) {
                     navigate("/");
-                } else {
-                    navigate('/signup');
                 }
             } else {
-               
-                setCurrentEmail(user.email as string);
-                navigate('/signup');
+                setErrorMessage("You do not have an acount with Alaba Market. Click on Sign Up to create an account");
             }
         } catch (error: any) {
-            console.error("Error during sign-in:", error);
             setErrorMessage(getErrorMessage(error.code));
         } finally {
             setSubmitting(false);
             setIsSigningIn(false);
         }
     };
-    
-    
-    
+
     const onGoogleSignIn = async (e: MouseEvent<HTMLButtonElement>): Promise<void> => {
         e.preventDefault();
         setIsSigningIn(true);
+        setErrorMessage(""); 
         try {
             const result = await doSignInWithGoogle();
             const user = result.user;
-    
-            let profileData: ProfileData | null;
-            try {
-                profileData = await fetchUserProfile(user.email as string);
-                console.log("Fetched Profile Data:", profileData);
-            } catch (error) {
-                console.log("User profile not found, redirecting to profile completion.");
-                setCurrentEmail(user.email as string);
-                navigate('/complete-profile');  // Navigate to profile completion instead of signup
-                return;
-            }
-    
+
+            const profileData = await fetchUserProfile(user.email as string);
+
             if (profileData) {
                 setCurrentFirstName(profileData.firstName);
                 setCurrentLastName(profileData.lastName);
                 setAccountType(profileData.accountType);
                 setBusinessName(profileData.businessName || "");
                 setCurrentEmail(user.email as string);
-                console.log(profileData);
-                
-    
+
                 if (["buyer", "seller"].includes(profileData.accountType)) {
                     navigate("/");
-                } else {
-                    navigate('/complete-profile');
                 }
             } else {
-                // No profile data retrieved, redirect to complete profile
-                navigate('/complete-profile');
+                setErrorMessage("You do not have an acount with Alaba Market. Click on Sign Up to create an account");
             }
         } catch (err: any) {
             setErrorMessage(getErrorMessage(err.code));
+        } finally {
             setIsSigningIn(false);
         }
     };
-    
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -208,13 +184,6 @@ const Login = () => {
                                 </div>
                                 <ErrorMessage name="password" component="div" className="text-red-600 font-bold" />
                             </label>
-                            <div>
-                            <p className="text-start text-[#2ecf5a]">
-        <Link to="/forgot-password">
-          Forgot Password?
-        </Link>
-      </p>
-                            </div>
                             <button
                                 type="submit"
                                 disabled={isSubmitting || isSigningIn}
@@ -229,22 +198,21 @@ const Login = () => {
                             </div>
                             <button
                                 type="button"
-                                disabled={isSubmitting || isSigningIn}
                                 onClick={onGoogleSignIn}
-                                className={`w-full px-4 py-2 mt-2 text-white font-medium rounded-lg flex items-center justify-center ${isSubmitting || isSigningIn ? 'bg-gray-400' : 'bg-[#2ECF5A]'}`}
-
+                                disabled={isSubmitting || isSigningIn}
+                                className={`w-full px-4 py-2 mt-2 text-white font-medium rounded-lg flex items-center justify-center ${isSigningIn ? 'bg-gray-400' : 'bg-[#2ECF5A]'}`}
                             >
                                 <FaGoogle size={15}/>
-                                <span className="ml-2">
-                                Sign In With Google
-                                </span>
+                                <span className="ml-2">Sign In With Google</span>
                             </button>
                         </Form>
                     )}
                 </Formik>
                 <div className="mt-4 text-center">
-                    <span className="text-gray-700">Don't have an account yet? </span>
-                    <Link to="/signup" className="text-[#2ECF5A] font-bold">Sign up</Link>
+                    <span className="text-sm text-gray-600">
+                        Don't have an account?{" "}
+                        <Link to="/signup" className="text-[#2ECF5A] font-bold">Sign up</Link>
+                    </span>
                 </div>
             </div>
         </div>

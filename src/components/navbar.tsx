@@ -29,6 +29,7 @@ const Navbar: React.FC = () => {
         <nav className="bg-[#181818] w-full h-20 lg:h-24 flex justify-between items-center px-1.5 sm:px-8">
             {/* Logo and Mobile Menu Toggle */}
             <div className="flex items-center justify-between w-full lg:w-auto px-4 lg:px-0 py-4">
+           <Link to="/">
                 <div className="flex items-center text-xl font-bold">
                     <img src={Logo} className="mr-3 w-10 h-10" alt="Alaba Market Logo" />
                     <div>
@@ -36,6 +37,7 @@ const Navbar: React.FC = () => {
                         <span className="text-[#fff]">Market</span>
                     </div>
                 </div>
+            </Link>
                 {/* <div onClick={handleNav} className="flex lg:hidden text-[#FFF] cursor-pointer">
                     {!nav ? <AiOutlineMenu size={30} /> : <AiOutlineClose size={30} />}
                 </div> */}

@@ -64,6 +64,7 @@ const SellerDashboard = () => {
 
         <div className="">
             <div className='bg-[#181818] py-4 lg:py-7 px-6 text-[#fff] lg:grid lg:grid-cols-3 '>
+            <Link to="/">
             <div className="flex items-center justify-center text-xl font-bold lg:col-span-1">
                     <img src={Logo} className="mr-3 w-10 h-10" alt="Alaba Market Logo" />
                     <div>
@@ -71,6 +72,7 @@ const SellerDashboard = () => {
                         <span className="text-[#fff]">Market</span>
                     </div>
                 </div>    
+            </Link>
 
             <h1 className="text-2xl font-bold text-center lg:text-justify mt-3 lg:mt-0 col-span-2 ">{currentFirstName} {currentLastName} Seller's Dashboard</h1>
             </div>

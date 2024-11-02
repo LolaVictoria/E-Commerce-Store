@@ -44,20 +44,36 @@ export const ShoppingCartProvider = ({ children }: { children: React.ReactNode }
         const cartDoc = await getDoc(cartDocRef);
         if (cartDoc.exists()) {
           setCartItems(cartDoc.data().items || []);
+          //console.log(cartItems);
+          
         }
       }
-      setLoading(false); 
+      setLoading(false);
     };
 
-    fetchCartItems();
+    if (currentEmail) {
+      fetchCartItems();
+    } else {
+      setLoading(false);
+    }
   }, [currentEmail]);
 
+  
   const updateCartInFirestore = async (updatedItems: CartItemType[]) => {
     if (currentEmail) {
       const cartDocRef = doc(db, "carts", currentEmail);
       await setDoc(cartDocRef, { items: updatedItems });
+      localStorage.setItem("cartItems", JSON.stringify(updatedItems));
     }
   };
+
+  // Load cart from local storage on initialization
+  useEffect(() => {
+    const storedItems = localStorage.getItem("cartItems");
+    if (storedItems) {
+      setCartItems(JSON.parse(storedItems));
+    }
+  }, []);
 
   const increaseCartQuantity = async (item: CartItemType) => {
     const existingItem = cartItems.find((i) => i.id === item.id);
@@ -97,6 +113,7 @@ export const ShoppingCartProvider = ({ children }: { children: React.ReactNode }
     if (currentEmail) {
       const cartDocRef = doc(db, "carts", currentEmail);
       await setDoc(cartDocRef, { items: [] });
+      localStorage.removeItem("cartItems");
     }
   };
 

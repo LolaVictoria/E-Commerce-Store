@@ -5,7 +5,7 @@ import { formatCurrency } from "../utilities/formatCurrency";
 import storeItems from "../database/products.json";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
-import { ClipLoader } from "react-spinners"; // Import the spinner
+import { ClipLoader } from "react-spinners";
 
 const ShoppingCart = () => {
     const { cartItems, clearCart } = useShoppingCart();
