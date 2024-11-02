@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from "react";
 import { collection, query, where, getDocs, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useAuth } from "./authContext";
@@ -17,6 +17,7 @@ interface ProductContextProps {
     products: Product[];
     addProduct: (newProduct: Omit<Product, 'id' | 'sellerId'>) => Promise<void>;
     fetchProducts: () => Promise<void>;
+    message: string;
 }
 
 const ProductContext = createContext<ProductContextProps | undefined>(undefined);
@@ -30,15 +31,21 @@ export const useProduct = () => {
 };
 
 export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const { businessName } = useAuth();
+    const { businessName, currentEmail } = useAuth();
     const [products, setProducts] = useState<Product[]>([]);
+    const [message, setMessage] = useState("");
+    const [messageTimeout, setMessageTimeout] = useState<NodeJS.Timeout | null>(null);
 
-    const fetchProducts = async () => {
-        if (!businessName) return;
+    const fetchProducts = useCallback(async () => {
+        if (!businessName || !currentEmail) {
+            console.warn("Missing businessName or currentEmail for product fetch");
+            return;
+        }
 
         try {
+            console.log("Fetching products for seller:", `${businessName}-${currentEmail}`);
             const productsRef = collection(db, 'products');
-            const q = query(productsRef, where('sellerId', '==', businessName));
+            const q = query(productsRef, where('sellerId', '==', `${businessName}-${currentEmail}`));
             const querySnapshot = await getDocs(q);
 
             const productsList: Product[] = [];
@@ -46,40 +53,57 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
                 productsList.push({ id: doc.id, ...(doc.data() as Omit<Product, 'id'>) });
             });
 
+            console.log("Fetched products:", productsList);
             setProducts(productsList);
         } catch (error) {
             console.error("Error fetching products:", error);
         }
-    };
+    }, [businessName, currentEmail]);
 
     const addProduct = async (newProduct: Omit<Product, 'id' | 'sellerId'>) => {
-        if (!businessName) return;
+        if (!businessName || !currentEmail) {
+            console.warn("Missing businessName or currentEmail for adding product");
+            return;
+        }
 
         try {
             const productId = `${newProduct.name}-${Date.now()}`;
             const productDoc = {
                 ...newProduct,
-                sellerId: businessName,
+                sellerId: `${businessName}-${currentEmail}`,
                 createdAt: new Date(),
+                lastDateUpdated: Date.now()
             };
 
             await setDoc(doc(db, "products", productId), productDoc);
 
             setProducts((prevProducts) => [
                 ...prevProducts,
-                { id: productId, sellerId: businessName, ...newProduct }
+                { id: productId, sellerId: `${businessName}-${currentEmail}`, ...newProduct }
             ]);
+
+            setMessage("Product added successfully.");
+
+            if (messageTimeout) clearTimeout(messageTimeout);
+            const timeoutId = setTimeout(() => setMessage(""), 5000);
+            setMessageTimeout(timeoutId);
         } catch (error) {
             console.error("Error adding product:", error);
+
+            setMessage("Error adding product.");
+
+            if (messageTimeout) clearTimeout(messageTimeout);
+            const timeoutId = setTimeout(() => setMessage(""), 5000);
+            setMessageTimeout(timeoutId);
         }
     };
 
     useEffect(() => {
         fetchProducts();
-    }, [businessName]);
+    }, [businessName, fetchProducts]);
 
     return (
-        <ProductContext.Provider value={{ products, addProduct, fetchProducts }}>
+        <ProductContext.Provider value={{ products, addProduct, fetchProducts, message }}>
             {children}
         </ProductContext.Provider>
     );

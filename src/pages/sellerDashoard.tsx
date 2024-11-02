@@ -5,7 +5,7 @@ import { useAuth } from '../context/authContext';
 import Logo from "/assets/img/alaba-market-logo.png";
 
 const SellerDashboard = () => {
-    const { addProduct } = useProduct();
+    const { addProduct, message } = useProduct();
     const {  currentFirstName, currentLastName } = useAuth();
 
     const categories = [
@@ -131,9 +131,15 @@ const SellerDashboard = () => {
                         onChange={handleImageUpload}
                         className="border p-2"
                     />
+                   
+                   {message &&
+                   <div className="bg-green-800 text-white p-2 rounded-lg md:w-1/2 mx-auto">
+                    {message}
+                    </div>}
+
                     <button
                         onClick={handleAddProduct}
-                        className="bg-green-500 text-white p-2 rounded w-1/2 mx-auto"
+                        className="bg-green-500 text-white p-2 rounded md:w-1/2 mx-auto"
                     >
                         Add Product
                     </button>
