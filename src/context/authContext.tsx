@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, ReactNode, Dispatch, SetStateAction, useContext } from "react";
 import { auth } from "../firebase";
-import { onAuthStateChanged, User } from "firebase/auth";
+import { onAuthStateChanged, User, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 type AuthContextType = {
   currentEmail: string;
@@ -15,11 +16,13 @@ type AuthContextType = {
   setBusinessName: Dispatch<SetStateAction<string>>;
   location: string;
   setLocation: Dispatch<SetStateAction<string>>;
+  logout: () => void;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const navigate = useNavigate();
   const [currentEmail, setCurrentEmail] = useState<string>(sessionStorage.getItem("email") || "");
   const [currentFirstName, setCurrentFirstName] = useState<string>(sessionStorage.getItem("firstName") || "");
   const [currentLastName, setCurrentLastName] = useState<string>(sessionStorage.getItem("lastName") || "");
@@ -34,8 +37,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         setCurrentEmail(email);
         sessionStorage.setItem("email", email);
 
-        // Fetch additional user profile data from Firestore and save to context
-        // Code for fetching additional profile data goes here
       }
     });
   }, []);
@@ -47,6 +48,23 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     sessionStorage.setItem("businessName", businessName);
     sessionStorage.setItem("userLocation", location);
   }, [currentFirstName, currentLastName, accountType, businessName, location]);
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      setCurrentEmail("");
+      setCurrentFirstName("");
+      setCurrentLastName("");
+      setAccountType("");
+      setBusinessName("");
+      setLocation("");
+
+      sessionStorage.clear();
+      navigate("/");  
+    } catch (error) {
+      console.error("Error logging out: ", error);
+    }
+  };
 
   return (
     <AuthContext.Provider
@@ -63,6 +81,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         setBusinessName,
         location,
         setLocation,
+        logout
       }}
     >
       {children}

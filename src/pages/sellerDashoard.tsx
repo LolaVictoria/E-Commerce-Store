@@ -19,6 +19,7 @@ const SellerDashboard = () => {
         'Home & Offices',
         'Phones & Tablets'
     ];
+
     const [newProduct, setNewProduct] = useState({
         name: '',
         category: '',
@@ -64,87 +65,106 @@ const SellerDashboard = () => {
     };
 
     return (
-        <div>
+        <div className="min-h-screen bg-gray-100">
             <div className="bg-[#181818] py-4 lg:py-7 px-6 text-[#fff] lg:grid lg:grid-cols-3 ">
                 <Link to="/">
                     <div className="flex items-center justify-center text-xl font-bold lg:col-span-1">
                         <img src={Logo} className="mr-3 w-10 h-10" alt="Alaba Market Logo" />
-                        <div>
-                            <span className="text-[#2ECF5A]">Alaba </span>
-                            <span className="text-[#fff]">Market</span>
-                        </div>
-                    </div>    
+                        <h1 className="text-lg text-[#fff]">Alaba Market</h1>
+                    </div>
                 </Link>
-                <h1 className="text-2xl font-bold text-center lg:text-justify mt-3 lg:mt-0 col-span-2">
-                    {currentFirstName} {currentLastName} Seller's Dashboard
-                </h1>
+                <div className="flex items-center justify-center text-lg lg:col-span-1">Welcome {currentFirstName} {currentLastName}</div>
+               
             </div>
 
-            <div className="mx-auto p-4">
-                <div className="my-7">
+            <div className="py-8 px-6">
+            <div className="my-7">
                     <Link to="/sellersProduct" className="bg-blue-500 text-white p-2 rounded">
                         See my products
                     </Link>
                 </div>
-                <h2 className="text-xl font-semibold mb-2">Add New Product</h2>
-                <div className="grid grid-cols-1 gap-4 w-3/4 mx-auto">
-                    <input
-                        type="text"
-                        name="name"
-                        value={newProduct.name}
-                        onChange={handleInputChange}
-                        placeholder="Product Name"
-                        className="border p-2"
-                    />
-                    <select
-                        name="category"
-                        value={newProduct.category}
-                        onChange={handleInputChange}
-                        className="border p-2"
-                    >
-                        <option value="">Select Category</option>
-                        {categories.map((category) => (
-                            <option key={category} value={category}>
-                                {category}
-                            </option>
-                        ))}
-                    </select>
-                    <input
-                        type="number"
-                        name="price"
-                        value={newProduct.price}
-                        onChange={handleInputChange}
-                        placeholder="Price"
-                        className="border p-2"
-                    />
-                    <textarea
-                        name="description"
-                        value={newProduct.description}
-                        onChange={handleInputChange}
-                        placeholder="Product Description"
-                        className="border p-2"
-                    />
-                    <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageUpload}
-                        className="border p-2"
-                    />
 
-                    {(addProductMessage || editProductMessage) && (
-                        <Message
-                            bgColor={isError(addProductMessage || editProductMessage) ? "bg-red-800" : "bg-green-800"}
-                            message={addProductMessage || editProductMessage}
+                <h2 className="text-3xl font-bold mb-4 text-center">Add Product</h2>
+                {addProductMessage && (
+                    <Message message={addProductMessage} type={isError(addProductMessage) ? "error" : "success"} />
+                )}
+                {editProductMessage && (
+                    <Message message={editProductMessage} type={isError(editProductMessage) ? "error" : "success"} />
+                )}
+                
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    handleAddProduct();
+                }} className="bg-white p-6 rounded-lg w-2/4 mx-auto shadow-md space-y-4">
+                    <div className="flex flex-col">
+                        <label htmlFor="name" className="font-semibold">Product Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter Product Name"
+                            value={newProduct.name}
+                            onChange={handleInputChange}
+                            required
+                            className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
                         />
-                    )}
-
+                    </div>
+                    <div className="flex flex-col">
+                        <label htmlFor="category" className="font-semibold">Category</label>
+                        <select
+                            id="category"
+                            name="category"
+                            onChange={handleInputChange}
+                            required
+                            className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+                        >
+                            <option value="">Select Category</option>
+                            {categories.map((category) => (
+                                <option key={category} value={category}>{category}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="flex flex-col">
+                        <label htmlFor="price" className="font-semibold">Price</label>
+                        <input
+                            type="number"
+                            id="price"
+                            name="price"
+                            placeholder="Enter Price"
+                            value={newProduct.price}
+                            onChange={handleInputChange}
+                            required
+                            className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+                        />
+                    </div>
+                    <div className="flex flex-col">
+                        <label htmlFor="description" className="font-semibold">Description</label>
+                        <textarea
+                            id="description"
+                            name="description"
+                            placeholder="Enter Product Description"
+                            value={newProduct.description}
+                            onChange={handleInputChange}
+                            required
+                            className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+                        />
+                    </div>
+                    <div className="flex flex-col">
+                        <label htmlFor="image" className="font-semibold">Upload Image</label>
+                        <input
+                            type="file"
+                            onChange={handleImageUpload}
+                            required
+                            className="border border-gray-300 rounded-md p-2"
+                        />
+                    </div>
                     <button
-                        onClick={handleAddProduct}
-                        className="bg-green-500 text-white p-2 rounded md:w-1/2 mx-auto"
+                        type="submit"
+                        className="w-2/5 mx-auto bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
                     >
                         Add Product
                     </button>
-                </div>
+                </form>
             </div>
         </div>
     );

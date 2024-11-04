@@ -41,10 +41,15 @@ const SellersProduct = () => {
         if (currentProduct) {
             await editProduct(currentProduct.id, currentProduct);
             setCurrentProduct(null);
-            setIsEditing(false);
+            //setIsEditing(false);
             setMessage("Product edited successfully");
             setTimeout(() => setMessage(""), 3000);
         }
+    };
+
+    
+    const isError = (message: string) => {
+        return message.toLowerCase().includes("error") || message.toLowerCase().includes("failed");
     };
 
     return (
@@ -154,7 +159,7 @@ const SellersProduct = () => {
                                     <img src={currentProduct.image} alt="Product Preview" className="w-32 h-32 mt-2 object-cover" />
                                 )}
                             </div>
-                            <Message bgColor="bg-green-800" message={message} />
+                            <Message message={message} type={isError(message) ? "error" : "success"}/>
                             <div className="flex justify-end">
                                 <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">Save Changes</button>
                             </div>

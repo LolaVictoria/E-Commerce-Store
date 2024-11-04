@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from "react";
+import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from "react"; 
 import { collection, query, where, getDocs, doc, setDoc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useAuth } from "./authContext";
@@ -19,7 +19,8 @@ interface ProductContextProps {
     fetchProducts: () => Promise<void>;
     deleteProduct: (productId: string) => Promise<void>;
     editProduct: (productId: string, updatedProduct: Partial<Omit<Product, 'id' | 'sellerId'>>) => Promise<void>;
-    message: string;
+    addProductMessage: string; // Added for add product message
+    editProductMessage: string; // Added for edit product message
 }
 
 const ProductContext = createContext<ProductContextProps | undefined>(undefined);
@@ -35,7 +36,8 @@ export const useProduct = () => {
 export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const { businessName, currentEmail } = useAuth();
     const [products, setProducts] = useState<Product[]>([]);
-    const [message, setMessage] = useState("");
+    const [addProductMessage, setAddProductMessage] = useState(""); // State for add product message
+    const [editProductMessage, setEditProductMessage] = useState(""); // State for edit product message
     const [messageTimeout, setMessageTimeout] = useState<NodeJS.Timeout | null>(null);
 
     const fetchProducts = useCallback(async () => {
@@ -83,16 +85,18 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
                 { id: productId, sellerId: `${businessName}-${currentEmail}`, ...newProduct }
             ]);
 
-            setMessage("Product added successfully.");
+            setAddProductMessage("Product added successfully.");
+            setEditProductMessage(""); // Clear edit message
 
             if (messageTimeout) clearTimeout(messageTimeout);
-            const timeoutId = setTimeout(() => setMessage(""), 5000);
+            const timeoutId = setTimeout(() => setAddProductMessage(""), 5000);
             setMessageTimeout(timeoutId);
         } catch (error) {
             console.error("Error adding product:", error);
-            setMessage("Error adding product.");
+            setAddProductMessage("Error adding product.");
+            setEditProductMessage(""); // Clear edit message
             if (messageTimeout) clearTimeout(messageTimeout);
-            const timeoutId = setTimeout(() => setMessage(""), 5000);
+            const timeoutId = setTimeout(() => setAddProductMessage(""), 5000);
             setMessageTimeout(timeoutId);
         }
     };
@@ -101,16 +105,18 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
         try {
             await deleteDoc(doc(db, "products", productId));
             setProducts((prevProducts) => prevProducts.filter((product) => product.id !== productId));
-            setMessage("Product deleted successfully.");
+            setAddProductMessage(""); // Clear add message
+            setEditProductMessage("Product deleted successfully.");
 
             if (messageTimeout) clearTimeout(messageTimeout);
-            const timeoutId = setTimeout(() => setMessage(""), 5000);
+            const timeoutId = setTimeout(() => setEditProductMessage(""), 5000);
             setMessageTimeout(timeoutId);
         } catch (error) {
             console.error("Error deleting product:", error);
-            setMessage("Error deleting product.");
+            setAddProductMessage(""); // Clear add message
+            setEditProductMessage("Error deleting product.");
             if (messageTimeout) clearTimeout(messageTimeout);
-            const timeoutId = setTimeout(() => setMessage(""), 5000);
+            const timeoutId = setTimeout(() => setEditProductMessage(""), 5000);
             setMessageTimeout(timeoutId);
         }
     };
@@ -128,15 +134,17 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
                 )
             );
 
-            setMessage("Product updated successfully.");
+            setEditProductMessage("Product updated successfully.");
+            setAddProductMessage(""); // Clear add message
             if (messageTimeout) clearTimeout(messageTimeout);
-            const timeoutId = setTimeout(() => setMessage(""), 5000);
+            const timeoutId = setTimeout(() => setEditProductMessage(""), 5000);
             setMessageTimeout(timeoutId);
         } catch (error) {
             console.error("Error updating product:", error);
-            setMessage("Error updating product.");
+            setEditProductMessage("Error updating product.");
+            setAddProductMessage(""); // Clear add message
             if (messageTimeout) clearTimeout(messageTimeout);
-            const timeoutId = setTimeout(() => setMessage(""), 5000);
+            const timeoutId = setTimeout(() => setEditProductMessage(""), 5000);
             setMessageTimeout(timeoutId);
         }
     };
@@ -151,7 +159,7 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
     }, [fetchProducts]);
 
     return (
-        <ProductContext.Provider value={{ products, addProduct, fetchProducts, deleteProduct, editProduct, message }}>
+        <ProductContext.Provider value={{ products, addProduct, fetchProducts, deleteProduct, editProduct, addProductMessage, editProductMessage }}>
             {children}
         </ProductContext.Provider>
     );
