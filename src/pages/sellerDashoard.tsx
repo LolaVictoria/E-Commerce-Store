@@ -3,10 +3,11 @@ import { useProduct } from '../context/productContext';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 import Logo from "/assets/img/alaba-market-logo.png";
+import Message from '../utilities/message';
 
 const SellerDashboard = () => {
-    const { addProduct, message } = useProduct();
-    const {  currentFirstName, currentLastName } = useAuth();
+    const { addProduct, addProductMessage, editProductMessage } = useProduct();
+    const { currentFirstName, currentLastName } = useAuth();
 
     const categories = [
         'Appliances',
@@ -58,35 +59,33 @@ const SellerDashboard = () => {
         });
     };
 
+    const isError = (message: string) => {
+        return message.toLowerCase().includes("error") || message.toLowerCase().includes("failed");
+    };
+
     return (
         <div>
-        {/* <Navbar /> */}
-
-        <div className="">
-            <div className='bg-[#181818] py-4 lg:py-7 px-6 text-[#fff] lg:grid lg:grid-cols-3 '>
-            <Link to="/">
-            <div className="flex items-center justify-center text-xl font-bold lg:col-span-1">
-                    <img src={Logo} className="mr-3 w-10 h-10" alt="Alaba Market Logo" />
-                    <div>
-                        <span className="text-[#2ECF5A]">Alaba </span>
-                        <span className="text-[#fff]">Market</span>
-                    </div>
-                </div>    
-            </Link>
-
-            <h1 className="text-2xl font-bold text-center lg:text-justify mt-3 lg:mt-0 col-span-2 ">{currentFirstName} {currentLastName} Seller's Dashboard</h1>
-            </div>
-
-            <div className=" mx-auto p-4 ">
-            <div className="my-7">
-                <Link
-                    to="/sellersProduct"
-                   
-                    className="bg-blue-500 text-white p-2 rounded"
-                >
-                    See my products
+            <div className="bg-[#181818] py-4 lg:py-7 px-6 text-[#fff] lg:grid lg:grid-cols-3 ">
+                <Link to="/">
+                    <div className="flex items-center justify-center text-xl font-bold lg:col-span-1">
+                        <img src={Logo} className="mr-3 w-10 h-10" alt="Alaba Market Logo" />
+                        <div>
+                            <span className="text-[#2ECF5A]">Alaba </span>
+                            <span className="text-[#fff]">Market</span>
+                        </div>
+                    </div>    
                 </Link>
+                <h1 className="text-2xl font-bold text-center lg:text-justify mt-3 lg:mt-0 col-span-2">
+                    {currentFirstName} {currentLastName} Seller's Dashboard
+                </h1>
             </div>
+
+            <div className="mx-auto p-4">
+                <div className="my-7">
+                    <Link to="/sellersProduct" className="bg-blue-500 text-white p-2 rounded">
+                        See my products
+                    </Link>
+                </div>
                 <h2 className="text-xl font-semibold mb-2">Add New Product</h2>
                 <div className="grid grid-cols-1 gap-4 w-3/4 mx-auto">
                     <input
@@ -131,11 +130,13 @@ const SellerDashboard = () => {
                         onChange={handleImageUpload}
                         className="border p-2"
                     />
-                   
-                   {message &&
-                   <div className="bg-green-800 text-white p-2 rounded-lg md:w-1/2 mx-auto">
-                    {message}
-                    </div>}
+
+                    {(addProductMessage || editProductMessage) && (
+                        <Message
+                            bgColor={isError(addProductMessage || editProductMessage) ? "bg-red-800" : "bg-green-800"}
+                            message={addProductMessage || editProductMessage}
+                        />
+                    )}
 
                     <button
                         onClick={handleAddProduct}
@@ -145,13 +146,8 @@ const SellerDashboard = () => {
                     </button>
                 </div>
             </div>
-
-
-            
         </div>
-    </div>
-);
+    );
 };
 
 export default SellerDashboard;
-

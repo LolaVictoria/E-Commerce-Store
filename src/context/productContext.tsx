@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from "react";
-import { collection, query, where, getDocs, doc, setDoc } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, setDoc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useAuth } from "./authContext";
 
@@ -17,6 +17,8 @@ interface ProductContextProps {
     products: Product[];
     addProduct: (newProduct: Omit<Product, 'id' | 'sellerId'>) => Promise<void>;
     fetchProducts: () => Promise<void>;
+    deleteProduct: (productId: string) => Promise<void>;
+    editProduct: (productId: string, updatedProduct: Partial<Omit<Product, 'id' | 'sellerId'>>) => Promise<void>;
     message: string;
 }
 
@@ -43,7 +45,6 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
         }
 
         try {
-            console.log("Fetching products for seller:", `${businessName}-${currentEmail}`);
             const productsRef = collection(db, 'products');
             const q = query(productsRef, where('sellerId', '==', `${businessName}-${currentEmail}`));
             const querySnapshot = await getDocs(q);
@@ -53,8 +54,8 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
                 productsList.push({ id: doc.id, ...(doc.data() as Omit<Product, 'id'>) });
             });
 
-            console.log("Fetched products:", productsList);
             setProducts(productsList);
+            sessionStorage.setItem("products", JSON.stringify(productsList));
         } catch (error) {
             console.error("Error fetching products:", error);
         }
@@ -89,9 +90,51 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
             setMessageTimeout(timeoutId);
         } catch (error) {
             console.error("Error adding product:", error);
-
             setMessage("Error adding product.");
+            if (messageTimeout) clearTimeout(messageTimeout);
+            const timeoutId = setTimeout(() => setMessage(""), 5000);
+            setMessageTimeout(timeoutId);
+        }
+    };
 
+    const deleteProduct = async (productId: string) => {
+        try {
+            await deleteDoc(doc(db, "products", productId));
+            setProducts((prevProducts) => prevProducts.filter((product) => product.id !== productId));
+            setMessage("Product deleted successfully.");
+
+            if (messageTimeout) clearTimeout(messageTimeout);
+            const timeoutId = setTimeout(() => setMessage(""), 5000);
+            setMessageTimeout(timeoutId);
+        } catch (error) {
+            console.error("Error deleting product:", error);
+            setMessage("Error deleting product.");
+            if (messageTimeout) clearTimeout(messageTimeout);
+            const timeoutId = setTimeout(() => setMessage(""), 5000);
+            setMessageTimeout(timeoutId);
+        }
+    };
+
+    const editProduct = async (productId: string, updatedProduct: Partial<Omit<Product, 'id' | 'sellerId'>>) => {
+        try {
+            await updateDoc(doc(db, "products", productId), {
+                ...updatedProduct,
+                lastDateUpdated: Date.now()
+            });
+
+            setProducts((prevProducts) =>
+                prevProducts.map((product) =>
+                    product.id === productId ? { ...product, ...updatedProduct } : product
+                )
+            );
+
+            setMessage("Product updated successfully.");
+            if (messageTimeout) clearTimeout(messageTimeout);
+            const timeoutId = setTimeout(() => setMessage(""), 5000);
+            setMessageTimeout(timeoutId);
+        } catch (error) {
+            console.error("Error updating product:", error);
+            setMessage("Error updating product.");
             if (messageTimeout) clearTimeout(messageTimeout);
             const timeoutId = setTimeout(() => setMessage(""), 5000);
             setMessageTimeout(timeoutId);
@@ -99,11 +142,16 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
     };
 
     useEffect(() => {
-        fetchProducts();
-    }, [businessName, fetchProducts]);
+        const storedProducts = sessionStorage.getItem("products");
+        if (storedProducts) {
+            setProducts(JSON.parse(storedProducts));
+        } else {
+            fetchProducts();
+        }
+    }, [fetchProducts]);
 
     return (
-        <ProductContext.Provider value={{ products, addProduct, fetchProducts, message }}>
+        <ProductContext.Provider value={{ products, addProduct, fetchProducts, deleteProduct, editProduct, message }}>
             {children}
         </ProductContext.Provider>
     );

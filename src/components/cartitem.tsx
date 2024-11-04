@@ -10,7 +10,7 @@ type CartItemProps = {
 }
 
 const CartItem =({id, quantity} : CartItemProps) => {
-  const { removeItemFromCart } = useShoppingCart(); // Replace with the actual function from your shopping cart library
+  const { removeItemFromCart } = useShoppingCart(); 
 
   const item = storeItems.find(i => i.id === id) 
   if (item === undefined) return null
