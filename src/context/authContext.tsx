@@ -1,82 +1,79 @@
-import { createContext,  useState, ReactNode, useEffect, SetStateAction, Dispatch, useContext } from "react";
-// import { auth } from "../firebase";
-// import { onAuthStateChanged, User } from "firebase/auth";
+import { createContext, useState, useEffect, ReactNode, Dispatch, SetStateAction, useContext } from "react";
+import { auth } from "../firebase";
+import { onAuthStateChanged, User } from "firebase/auth";
 
 type AuthContextType = {
-    
-    currentEmail: string;
-    setCurrentEmail: Dispatch<SetStateAction<string>>;
-    currentFirstName: string;
-    setCurrentFirstName: Dispatch<SetStateAction<string>>;
-    currentLastName: string;
-    setCurrentLastName: Dispatch<SetStateAction<string>>;
-    accountType: string;
-    setAccountType: Dispatch<SetStateAction<string>>;
-    businessName: string 
-    setBusinessName: Dispatch<SetStateAction<string>>;
-    location: string 
-    setLocation: Dispatch<SetStateAction<string>>;
-}
+  currentEmail: string;
+  setCurrentEmail: Dispatch<SetStateAction<string>>;
+  currentFirstName: string;
+  setCurrentFirstName: Dispatch<SetStateAction<string>>;
+  currentLastName: string;
+  setCurrentLastName: Dispatch<SetStateAction<string>>;
+  accountType: string;
+  setAccountType: Dispatch<SetStateAction<string>>;
+  businessName: string;
+  setBusinessName: Dispatch<SetStateAction<string>>;
+  location: string;
+  setLocation: Dispatch<SetStateAction<string>>;
+};
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-   
-    const [currentEmail, setCurrentEmail] = useState("");
-    const [currentFirstName, setCurrentFirstName] = useState("");
-    const [currentLastName, setCurrentLastName] = useState("");
-    const [accountType, setAccountType] = useState("");
-    const [businessName, setBusinessName] = useState("");
-    const [location, setLocation] = useState("");
+  const [currentEmail, setCurrentEmail] = useState<string>(sessionStorage.getItem("email") || "");
+  const [currentFirstName, setCurrentFirstName] = useState<string>(sessionStorage.getItem("firstName") || "");
+  const [currentLastName, setCurrentLastName] = useState<string>(sessionStorage.getItem("lastName") || "");
+  const [accountType, setAccountType] = useState<string>(sessionStorage.getItem("accountType") || "");
+  const [businessName, setBusinessName] = useState<string>(sessionStorage.getItem("businessName") || "");
+  const [location, setLocation] = useState<string>(sessionStorage.getItem("userLocation") || "");
 
-    useEffect(() => {
-        const savedFirstName = sessionStorage.getItem("firstName");
-        if (savedFirstName) setCurrentFirstName(savedFirstName);
-    
-        const savedLastName = sessionStorage.getItem("lastName");
-        if (savedLastName) setCurrentLastName(savedLastName);
-    
-        const savedAccountType = sessionStorage.getItem("accountType");
-        if (savedAccountType) setAccountType(savedAccountType);
-    
-        const savedBusinessName = sessionStorage.getItem("businessName");
-        if (savedBusinessName) setBusinessName(savedBusinessName);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user: User | null) => {
+      if (user) {
+        const email = user.email || "";
+        setCurrentEmail(email);
+        sessionStorage.setItem("email", email);
 
-        const savedLocation = sessionStorage.getItem("userLocation");
-        if (savedLocation) setLocation(savedLocation);
+        // Fetch additional user profile data from Firestore and save to context
+        // Code for fetching additional profile data goes here
+      }
+    });
+  }, []);
 
-        sessionStorage.setItem("userLocation", location);
-   
-        sessionStorage.setItem("firstName", currentFirstName);
-    
-        sessionStorage.setItem("lastName", currentLastName);
-    
-        sessionStorage.setItem("accountType", accountType);
-   
-        sessionStorage.setItem("businessName", businessName);
-    }, [accountType, businessName, currentFirstName, currentLastName, location]);
-    
-    
-    return (
-        <AuthContext.Provider value={{ 
-          
-          
-            currentFirstName, setCurrentFirstName,
-            currentLastName, setCurrentLastName,
-            accountType, setAccountType,
-            businessName, setBusinessName,
-            currentEmail, setCurrentEmail,
-            location, setLocation
-        }}>
-            {children}
-        </AuthContext.Provider>
-    );
-}
+  useEffect(() => {
+    sessionStorage.setItem("firstName", currentFirstName);
+    sessionStorage.setItem("lastName", currentLastName);
+    sessionStorage.setItem("accountType", accountType);
+    sessionStorage.setItem("businessName", businessName);
+    sessionStorage.setItem("userLocation", location);
+  }, [currentFirstName, currentLastName, accountType, businessName, location]);
+
+  return (
+    <AuthContext.Provider
+      value={{
+        currentEmail,
+        setCurrentEmail,
+        currentFirstName,
+        setCurrentFirstName,
+        currentLastName,
+        setCurrentLastName,
+        accountType,
+        setAccountType,
+        businessName,
+        setBusinessName,
+        location,
+        setLocation,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+};
 
 export const useAuth = () => {
-    const context = useContext(AuthContext);
-    if (!context) {
-        throw new Error("useAuth must be used within a AuthProvider");
-    }
-    return context;
-}
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};
