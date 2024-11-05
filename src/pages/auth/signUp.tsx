@@ -131,7 +131,7 @@ const SignUp = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex flex-col p-6 items-center justify-center bg-gray-100">
       <Link to="/">
                 <div className="bg-black p-3 mb-5 rounded-md flex items-center justify-center text-xl font-bold lg:col-span-1">
                     <img src={Logo} className="mr-3 w-10 h-10" alt="Alaba Market Logo" />
