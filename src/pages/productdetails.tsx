@@ -7,6 +7,8 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { useEffect, useState } from "react";
+import { ClipLoader } from "react-spinners";
 
 type ProductDetails = {
   id: number;
@@ -23,6 +25,7 @@ type ProductDetailsProps = {
 
 const ProductDetails: React.FC<ProductDetailsProps> = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true); 
   const { id } = useParams();
 
   const {
@@ -34,11 +37,25 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
 
   const product = storeItems.find((item) => item.id === Number(id));
 
-  if (!product) {
-    return <div>Product Not Found</div>;
-  }
+  
 
   const quantity = getItemQuantity(Number(id));
+
+  useEffect(() => {
+    setLoading(false); 
+}, [product]);
+
+if (loading) {
+    return (
+        <div className="flex justify-center items-center h-screen">
+            <ClipLoader color="#2ECF5A" size={50} /> 
+        </div>
+    );
+}
+
+if (!product) {
+  return <div>Product Not Found</div>;
+}
 
   return (
     <div>

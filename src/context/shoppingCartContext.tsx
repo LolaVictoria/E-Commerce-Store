@@ -43,7 +43,9 @@ export const ShoppingCartProvider = ({ children }: { children: React.ReactNode }
         const cartDocRef = doc(db, "carts", currentEmail);
         const cartDoc = await getDoc(cartDocRef);
         if (cartDoc.exists()) {
+         // cartItemsResponse = cartDoc.data().items
           setCartItems(cartDoc.data().items || []);
+          sessionStorage.setItem("cartItems", JSON.stringify(cartItems));
         }
       }
       setLoading(false);
@@ -54,7 +56,7 @@ export const ShoppingCartProvider = ({ children }: { children: React.ReactNode }
     } else {
       setLoading(false);
     }
-  }, [currentEmail]);
+  }, [cartItems, currentEmail]);
 
   const updateCartInFirestore = async (updatedItems: CartItemType[]) => {
     if (currentEmail) {

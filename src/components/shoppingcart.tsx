@@ -9,17 +9,17 @@ import { ClipLoader } from "react-spinners";
 
 const ShoppingCart = () => {
     const { cartItems, clearCart } = useShoppingCart();
-    const [loading, setLoading] = useState(true); // Loading state
+    const [loading, setLoading] = useState(true); 
     const navigate = useNavigate();
 
     useEffect(() => {
-        setLoading(false); // Ensure loading state is updated even if the cart is empty
+        setLoading(false); 
     }, [cartItems]);
 
     if (loading) {
         return (
             <div className="flex justify-center items-center h-screen">
-                <ClipLoader color="#2ECF5A" size={50} /> {/* Spinner */}
+                <ClipLoader color="#2ECF5A" size={50} /> 
             </div>
         );
     }
@@ -37,7 +37,7 @@ const ShoppingCart = () => {
                     <span className="ml-3">Back</span>
                 </p>
 
-                <h3 className="text-[#2ECF5A] text-4xl font-bold text-center mt-8 tracking-wider">
+                <h3 className="text-[#2ECF5A] text-4xl font-bold text-center mt-8 mb-4 tracking-wider">
                     Cart
                 </h3>
             </div>

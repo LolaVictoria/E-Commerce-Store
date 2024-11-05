@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { doc, getDoc } from "firebase/firestore";
 import { useAuth } from "../../context/authContext";
+import Logo from "/assets/img/alaba-market-logo.png";
 
 interface FormValues {
   email: string;
@@ -124,7 +125,16 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex flex-col  items-center justify-center bg-gray-100">
+      <Link to="/">
+        <div className="bg-black p-3 mb-5 rounded-md flex items-center justify-center text-xl font-bold lg:col-span-1">
+                    <img src={Logo} className="mr-3 w-10 h-10" alt="Alaba Market Logo" />
+                    <div>
+                        <span className="text-[#2ECF5A]">Alaba </span>
+                        <span className="text-[#fff]">Market</span>
+                    </div>
+                </div>
+                </Link>
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h1 className="text-2xl font-bold mb-6 text-center" style={{ color: "#2ECF5A" }}>Login</h1>
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
@@ -152,11 +162,33 @@ const Login = () => {
             </Form>
           )}
         </Formik>
-        <button onClick={onGoogleSignIn} disabled={isSigningIn} className="flex items-center justify-center w-full mt-4 py-2 px-4 rounded-lg bg-white border">
-          <FaGoogle className="mr-2" /> {isSigningIn ? "Signing in..." : "Sign in with Google"}
-        </button>
-        <Link to="/signup" className="text-center text-blue-500 mt-4">Don’t have an account? Sign up</Link>
+
+
+        <div className="flex items-center my-4">
+          <hr className="w-full"/>
+               <p className="text-[#2ecf5a] text-base mx-1.5">or</p>
+            <hr className="w-full"/> 
+        </div>
+
+        <div className="flex flex-col">
+          <button 
+            onClick={onGoogleSignIn} 
+            disabled={isSigningIn} 
+            className={`px-4 py-2 rounded-lg text-white flex items-center justify-center ${
+              isSigningIn ? "bg-gray-400" : "bg-[#2ECF5A]"
+            }`}>
+              <FaGoogle size={15}/>
+              <span className="ml-2">
+                 {isSigningIn ? "Signing in..." : "Sign in with Google"}
+              </span>
+          </button>
+        </div>
+
+        <div className="text-center mt-4">
+          <span className="text-gray-700">Don’t have an account? </span>
+        <Link to="/signup" className="text-[#2ECF5A] font-bold">Sign up</Link>
       </div>
+    </div>
     </div>
   );
 };

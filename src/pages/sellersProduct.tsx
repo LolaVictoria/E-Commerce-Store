@@ -1,6 +1,6 @@
 import { useProduct } from "../context/productContext";
 import Logo from "/assets/img/alaba-market-logo.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Product } from "../utilities/types";
 import { FaTrashAlt } from "react-icons/fa";
 import { GoPencil } from "react-icons/go";
@@ -8,10 +8,13 @@ import { Overlay } from "../utilities/overlay";
 import { AiOutlineClose } from "react-icons/ai";
 import useScrollLock from "../hooks/useScrollLock"; 
 import Message from "../utilities/message";
+import { ClipLoader } from "react-spinners";
+import { Link } from "react-router-dom";
 
 const SellersProduct = () => {
     const { products, deleteProduct, editProduct } = useProduct();
     const [isEditing, setIsEditing] = useState(false);
+    const [loading, setLoading] = useState(true); 
     const [currentProduct, setCurrentProduct] = useState<Product | null>(null);
     const [message, setMessage] = useState("");
     useScrollLock(isEditing);
@@ -47,14 +50,27 @@ const SellersProduct = () => {
         }
     };
 
+    useEffect(() => {
+        setLoading(false); 
+    }, [products]);
+
     
     const isError = (message: string) => {
         return message.toLowerCase().includes("error") || message.toLowerCase().includes("failed");
     };
 
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <ClipLoader color="#2ECF5A" size={50} /> 
+            </div>
+        );
+    }
+
     return (
         <div>
             <div className='bg-[#181818] py-4 lg:py-7 px-6 text-[#fff] lg:grid lg:grid-cols-3 '>
+                <Link to="/">
                 <div className="flex items-center justify-center text-xl font-bold lg:col-span-1">
                     <img src={Logo} className="mr-3 w-10 h-10" alt="Alaba Market Logo" />
                     <div>
@@ -62,6 +78,7 @@ const SellersProduct = () => {
                         <span className="text-[#fff]">Market</span>
                     </div>
                 </div>
+                </Link>
                 <h2 className="text-2xl font-bold text-center lg:text-justify mt-3 lg:mt-0 col-span-2">Manage Products</h2>
             </div>
 
