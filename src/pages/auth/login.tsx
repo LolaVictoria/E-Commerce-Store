@@ -74,6 +74,10 @@ const Login = () => {
     try {
       const userCredential = await doSignInWithEmailAndPassword(values.email, values.password);
       const user = userCredential.user;
+      if (!user.emailVerified) {
+        setErrorMessage("Email not verified!");
+        return;
+      }
 
       const profileData = await fetchUserProfile(user.email as string);
       if (profileData) {

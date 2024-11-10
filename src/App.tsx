@@ -16,11 +16,12 @@ import SignUp from "./pages/auth/signUp";
 import Login from "./pages/auth/login";
 import { AuthProvider } from "./context/authContext";
 import CompleteProfile from "./pages/auth/completeProfile";
-import SellerDashboard from "./pages/sellerDashoard";
+import SellerDashboard from "./pages/sellersDashboard";
 import { ProductProvider } from "./context/productContext";
 import SellersProduct from "./pages/sellersProduct";
 import ForgotPassword from "./pages/ForgotPassword/forgotPassword";
 import ResetPassword from "./pages/ForgotPassword/resetPassword";
+import VerifyEmail from "./pages/ForgotPassword/verifyEmail";
 
 const App = () => {
   return ( 
@@ -48,6 +49,7 @@ const App = () => {
           <Route path="/sellersproduct" element={<SellersProduct/> } /> 
           <Route path="/forgot-password" element={<ForgotPassword/> } /> 
           <Route path="/reset-password" element={<ResetPassword/> } /> 
+          <Route path="/verifyemail" element={<VerifyEmail/> } /> 
         </Routes>
       </div>
     </ShoppingCartProvider>

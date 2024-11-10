@@ -25,7 +25,7 @@ const SignUp = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Function to map Firebase error codes to user-friendly messages
+  
   const getErrorMessage = (errorCode: string) => {
     switch (errorCode) {
       case "auth/email-already-in-use":
@@ -39,7 +39,7 @@ const SignUp = () => {
     }
   };
 
-  // Handler for manual sign-up
+  
   const handleManualSignUp = async (
     values: SignUpFormValues,
     { setSubmitting }: FormikHelpers<SignUpFormValues>
@@ -47,7 +47,7 @@ const SignUp = () => {
     const { firstName, lastName, email, password } = values;
     setIsProcessing(true);
     try {
-      // Create user with email and password
+      
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -55,7 +55,7 @@ const SignUp = () => {
       );
       const user = userCredential.user;
 
-      // Update user profile with display name
+      
       await updateProfile(user, {
         displayName: `${firstName} ${lastName}`,
       });
@@ -64,7 +64,7 @@ const SignUp = () => {
       navigate("/complete-profile", {
         state: { email: user.email, firstName, lastName },
       });
-    } catch (error: any) { // Explicitly typing 'error' as 'any'
+    } catch (error: any) { 
       console.error("Sign Up error:", error);
       setErrorMessage(getErrorMessage(error.code));
       setSubmitting(false);
@@ -72,7 +72,7 @@ const SignUp = () => {
     }
   };
 
-  // Handler for Google Sign-In
+  
   const handleGoogleSignIn = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setIsProcessing(true);
@@ -81,7 +81,7 @@ const SignUp = () => {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
-      // Extract first and last name from displayName if available
+      
       let firstName = "";
       let lastName = "";
       if (user.displayName) {
@@ -90,23 +90,23 @@ const SignUp = () => {
         lastName = last.join(" ");
       }
 
-      // Update profile with split names
+      
       await updateProfile(user, {
         displayName: `${firstName} ${lastName}`,
       });
 
-      // Navigate to CompleteProfile page
+      
       navigate("/complete-profile", {
         state: { email: user.email, firstName, lastName },
       });
-    } catch (error: any) { // Explicitly typing 'error' as 'any'
+    } catch (error: any) { 
       console.error("Google Sign-In error:", error);
       setErrorMessage(getErrorMessage(error.code));
       setIsProcessing(false);
     }
   };
 
-  // Initial form values for manual sign-up
+ 
   const initialValues: SignUpFormValues = {
     firstName: "",
     lastName: "",
@@ -115,7 +115,7 @@ const SignUp = () => {
     confirmPassword: "",
   };
 
-  // Validation schema for manual sign-up
+  
   const validationSchema = Yup.object({
     firstName: Yup.string().required("First name is required"),
     lastName: Yup.string().required("Last name is required"),

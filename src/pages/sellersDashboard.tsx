@@ -66,14 +66,17 @@ const SellerDashboard = () => {
 
     return (
         <div className="min-h-screen bg-gray-100">
-            <div className="bg-[#181818] py-4 lg:py-7 px-6 text-[#fff] lg:grid lg:grid-cols-3 ">
-                <Link to="/">
-                    <div className="flex items-center justify-center text-xl font-bold lg:col-span-1">
-                        <img src={Logo} className="mr-3 w-10 h-10" alt="Alaba Market Logo" />
-                        <h1 className="text-lg text-[#fff]">Alaba Market</h1>
+            <div className="bg-[#181818] py-4 lg:py-7 px-2 sm:px-6 text-[#fff] lg:grid lg:grid-cols-3 ">
+               <Link to="/">
+                <div className="flex items-center justify-center text-xl font-bold lg:col-span-1">
+                    <img src={Logo} className="mr-3 w-10 h-10" alt="Alaba Market Logo" />
+                    <div>
+                        <span className="text-[#2ECF5A]">Alaba </span>
+                        <span className="text-[#fff]">Market</span>
                     </div>
+                </div>
                 </Link>
-                <div className="flex items-center justify-center text-lg lg:col-span-1">Welcome {currentFirstName} {currentLastName}</div>
+                <h2 className="text-2xl font-bold sm:text-center lg:text-justify mt-3 lg:mt-0 sm:col-span-2">Welcome, {currentFirstName} {currentLastName}</h2>
                
             </div>
 
@@ -95,7 +98,7 @@ const SellerDashboard = () => {
                 <form onSubmit={(e) => {
                     e.preventDefault();
                     handleAddProduct();
-                }} className="bg-white p-6 rounded-lg w-2/4 mx-auto shadow-md space-y-4">
+                }} className="bg-white p-6 rounded-lg sm:w-2/4 mx-auto shadow-md space-y-4">
                     <div className="flex flex-col">
                         <label htmlFor="name" className="font-semibold">Product Name</label>
                         <input
@@ -160,7 +163,7 @@ const SellerDashboard = () => {
                     </div>
                     <button
                         type="submit"
-                        className="w-2/5 mx-auto bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
+                        className="w-auto sm:w-2/5 mx-auto bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
                     >
                         Add Product
                     </button>
