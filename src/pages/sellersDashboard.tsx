@@ -88,12 +88,15 @@ const SellerDashboard = () => {
                 </div>
 
                 <h2 className="text-3xl font-bold mb-4 text-center">Add Product</h2>
+                <div className="sm:w-2/4 mx-auto">
+
                 {addProductMessage && (
                     <Message message={addProductMessage} type={isError(addProductMessage) ? "error" : "success"} />
                 )}
                 {editProductMessage && (
                     <Message message={editProductMessage} type={isError(editProductMessage) ? "error" : "success"} />
                 )}
+                </div>
                 
                 <form onSubmit={(e) => {
                     e.preventDefault();
@@ -161,12 +164,16 @@ const SellerDashboard = () => {
                             className="border border-gray-300 rounded-md p-2"
                         />
                     </div>
+
+                    <div className="flex justify-center">
+
                     <button
                         type="submit"
                         className="w-auto sm:w-2/5 mx-auto bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
                     >
                         Add Product
                     </button>
+                        </div>
                 </form>
             </div>
         </div>
