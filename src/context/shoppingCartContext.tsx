@@ -4,7 +4,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useAuth } from "./authContext";
 
 type CartItemType = {
-  id: number;
+  id: string; // Changed to string
   name: string;
   price: number;
   img: string;
@@ -15,10 +15,10 @@ type CartItemType = {
 type ShoppingCartContextType = {
   cartItems: CartItemType[];
   increaseCartQuantity: (item: CartItemType) => void;
-  decreaseCartQuantity: (id: number) => void;
-  removeItemFromCart: (id: number) => void;
+  decreaseCartQuantity: (id: string) => void;
+  removeItemFromCart: (id: string) => void;
   clearCart: () => void;
-  getItemQuantity: (id: number) => number;
+  getItemQuantity: (id: string) => number; 
 };
 
 const ShoppingCartContext = createContext({} as ShoppingCartContextType);
@@ -32,8 +32,8 @@ export const ShoppingCartProvider = ({ children }: { children: React.ReactNode }
   const [cartItems, setCartItems] = useState<CartItemType[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const getItemQuantity = (id: number): number => {
-    const item = cartItems.find(item => item.id === id);
+  const getItemQuantity = (id: string): number => {
+    const item = cartItems.find((item) => item.id === id);
     return item ? item.quantity : 0;
   };
 
@@ -43,9 +43,9 @@ export const ShoppingCartProvider = ({ children }: { children: React.ReactNode }
         const cartDocRef = doc(db, "carts", currentEmail);
         const cartDoc = await getDoc(cartDocRef);
         if (cartDoc.exists()) {
-         // cartItemsResponse = cartDoc.data().items
-          setCartItems(cartDoc.data().items || []);
-          sessionStorage.setItem("cartItems", JSON.stringify(cartItems));
+          const items = cartDoc.data().items || [];
+          setCartItems(items);
+          sessionStorage.setItem("cartItems", JSON.stringify(items));
         }
       }
       setLoading(false);
@@ -56,7 +56,7 @@ export const ShoppingCartProvider = ({ children }: { children: React.ReactNode }
     } else {
       setLoading(false);
     }
-  }, [cartItems, currentEmail]);
+  }, [currentEmail]);
 
   const updateCartInFirestore = async (updatedItems: CartItemType[]) => {
     if (currentEmail) {
@@ -66,7 +66,6 @@ export const ShoppingCartProvider = ({ children }: { children: React.ReactNode }
     }
   };
 
-  
   useEffect(() => {
     const storedItems = sessionStorage.getItem("cartItems");
     if (storedItems) {
@@ -88,7 +87,7 @@ export const ShoppingCartProvider = ({ children }: { children: React.ReactNode }
     await updateCartInFirestore(newCartItems);
   };
 
-  const decreaseCartQuantity = async (id: number) => {
+  const decreaseCartQuantity = async (id: string) => {
     const existingItem = cartItems.find((i) => i.id === id);
     if (existingItem && existingItem.quantity > 1) {
       const newCartItems = cartItems.map((i) =>
@@ -101,7 +100,7 @@ export const ShoppingCartProvider = ({ children }: { children: React.ReactNode }
     }
   };
 
-  const removeItemFromCart = async (id: number) => {
+  const removeItemFromCart = async (id: string) => {
     const newCartItems = cartItems.filter((item) => item.id !== id);
     setCartItems(newCartItems);
     await updateCartInFirestore(newCartItems);

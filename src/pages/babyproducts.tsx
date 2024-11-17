@@ -1,10 +1,10 @@
 import Navbar from "../components/navbar";
 //import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import storeItems from "../database/products.json"
 import Products from "../components/products";
 import Footer from "../components/footer";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { useProduct } from "../context/productContext";
 
 
 
@@ -14,7 +14,7 @@ type Product = {
   price: number;
   img: string;
   category: string
-  // Add other properties as needed
+ 
 };
 
 type ProductDisplayProps = {
@@ -23,6 +23,7 @@ type ProductDisplayProps = {
 
 const BabyProducts: React.FC<ProductDisplayProps> = () => {
   const navigate = useNavigate()
+  const {products} = useProduct()
   
   return (
     <>
@@ -40,7 +41,7 @@ const BabyProducts: React.FC<ProductDisplayProps> = () => {
           </p>
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-14 place-items-center gap-x-3 lg:gap-x-4 mt-7 mb-24">
-            {storeItems.filter(item => item.category === "Baby Product").map(item =>  
+            {products.filter(item => item.category === "Baby Product").map(item =>  
 
               <div key={item.id} className="">
                 

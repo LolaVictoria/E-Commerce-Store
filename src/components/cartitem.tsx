@@ -1,28 +1,28 @@
 import { FaTrashAlt } from "react-icons/fa"
 import { useShoppingCart } from "../context/shoppingCartContext"
 import { formatCurrency  } from "../utilities/formatCurrency"
-import storeItems from "../database/products.json"
+import { useProduct } from "../context/productContext"
 
 
 type CartItemProps = {
-  id: number
+  id: string
   quantity: number
 }
 
 const CartItem =({id, quantity} : CartItemProps) => {
   const { removeItemFromCart } = useShoppingCart(); 
-
-  const item = storeItems.find(i => i.id === id) 
+  const { products } = useProduct()
+  const item = products.find(i => i.id === id) 
   if (item === undefined) return null
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 ">
-      <img src={item.img} className="w-auto h-36" alt={item.title} />
+      <img src={item.image} className="w-auto h-36" alt={item.name} />
       
       <div className="flex justify-between items-center">
          <div className="mt-5 lg:mt-0">
             <div className="flex items-end">
-              <p className="font-medium text-lg lg:text-2xl mr-1">{item.title}{' '}</p>
+              <p className="font-medium text-lg lg:text-2xl mr-1">{item.name}{' '}</p>
                {quantity > 1 && <span className="text-sm">{quantity}x</span>}
             </div>
 

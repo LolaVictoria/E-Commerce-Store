@@ -2,15 +2,16 @@ import { useState, useEffect } from "react";
 import { useShoppingCart } from "../context/shoppingCartContext";
 import CartItem from "./cartitem";
 import { formatCurrency } from "../utilities/formatCurrency";
-import storeItems from "../database/products.json";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
+import { useProduct } from "../context/productContext";
 
 const ShoppingCart = () => {
     const { cartItems, clearCart } = useShoppingCart();
     const [loading, setLoading] = useState(true); 
     const navigate = useNavigate();
+    const { products } = useProduct()
 
     useEffect(() => {
         setLoading(false); 
@@ -66,7 +67,7 @@ const ShoppingCart = () => {
                         Total {" "}
                         {formatCurrency(
                             cartItems.reduce((total, cartItem) => {
-                                const item = storeItems.find(i => i.id === cartItem.id);
+                                const item = products.find(i => i.id === cartItem.id);
                                 return total + (item?.price || 0) * cartItem.quantity;
                             }, 0)
                         )}

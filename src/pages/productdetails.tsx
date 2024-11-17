@@ -1,6 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useShoppingCart } from "../context/shoppingCartContext";
-import storeItems from "../database/products.json";
 import { formatCurrency } from "../utilities/formatCurrency";
 import FavoriteIcon from "/public/assets/img/icons/favorite-icon.png";
 import { HiOutlineShoppingCart } from "react-icons/hi";
@@ -9,14 +8,16 @@ import Footer from "../components/footer";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
+import { useProduct } from "../context/productContext";
 
 type ProductDetails = {
-  id: number;
-  title: string;
-  price: number;
-  img: string;
+  id: string;
+  name: string;
   category: string;
-  quantity: number;
+  price: number;
+  description: string;
+  image: string; 
+  sellerId: string;
 };
 
 type ProductDetailsProps = {
@@ -25,77 +26,83 @@ type ProductDetailsProps = {
 
 const ProductDetails: React.FC<ProductDetailsProps> = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(true); 
-  const { id } = useParams();
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams<{ id: string }>();
+  const { products } = useProduct();
 
   const {
     getItemQuantity,
     increaseCartQuantity,
     decreaseCartQuantity,
-    removeItemFromCart
+    removeItemFromCart,
   } = useShoppingCart();
 
-  const product = storeItems.find((item) => item.id === Number(id));
-
   
-
-  const quantity = getItemQuantity(Number(id));
+  const product = products?.find((item) => item.id === id);
+  const quantity = id ? getItemQuantity(id) : 0;
 
   useEffect(() => {
-    setLoading(false); 
-}, [product]);
+    setLoading(false);
+  }, [product]);
 
-if (loading) {
+  if (loading) {
     return (
-        <div className="flex justify-center items-center h-screen">
-            <ClipLoader color="#2ECF5A" size={50} /> 
-        </div>
+      <div className="flex justify-center items-center h-screen">
+        <ClipLoader color="#2ECF5A" size={50} />
+      </div>
     );
-}
+  }
 
-if (!product) {
-  return <div>Product Not Found</div>;
-}
+  if (!product) {
+    return <div className="text-center mt-20 text-lg">Product Not Found</div>;
+  }
 
   return (
     <div>
       <Navbar />
       <p
-        className="flex items-center ml-6 lg:ml-12 pt-5 underline hover:text-[#2ECF5A]"
-        onClick={(e) => {
-          e.preventDefault();
-          navigate(-1);
-        }}
+        className="flex items-center ml-6 lg:ml-12 pt-5 underline hover:text-[#2ECF5A] cursor-pointer"
+        onClick={() => navigate(-1)}
       >
         <FaArrowLeftLong size={15} />
         <span className="ml-3">Back</span>
       </p>
 
       <div className="my-16 grid grid-cols-1 lg:grid-cols-2 gap-x-9 gap-y-7 px-10 lg:px-40">
-        <div className="">
-          <img src={product.img} alt={product.title} className="w-full h-full object-fit" />
+        <div>
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-contain"
+          />
         </div>
 
-        <div className="px-3 grid-cols-1 ">
-          <div className="flex justify-between items-center mb-4 ">
-            <p className="font-bold text-2xl">
-              {product.title}
-            </p>
+        <div className="px-3">
+          <div className="flex justify-between items-center mb-4">
+            <p className="font-bold text-2xl">{product.name}</p>
             <img src={FavoriteIcon} alt="Favorite" className="w-6 h-6" />
           </div>
 
-          <div className="flex justify-between items-center mb-4">
-            <p className="text-md font-semibold mr-3">{product.category}</p>
-            <p className="text-md font-semibold ml-3">{product.ratings}</p>
+          <div className="mb-4">
+            <p className="text-md font-semibold">{product.category}</p>
           </div>
           <div>
-            <p className="text-md font-semibold">{formatCurrency(product.price)}</p>
+            <p className="text-lg font-bold">{formatCurrency(product.price)}</p>
           </div>
 
           <div className="flex justify-center items-center mb-4">
             {quantity === 0 ? (
               <button
-                onClick={() => increaseCartQuantity({ id: product.id, name: product.title, price: product.price, quantity: 1, img: product.img, category: product.category })}
+                onClick={() =>
+                  increaseCartQuantity({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    quantity: 1,
+                    img: product.image,
+                    category: product.category,
+                  })
+                }
                 className="bg-[#2ECF5A] lg:w-2/4 mt-14 font-semibold text-center py-2 px-6 flex items-center justify-center rounded-lg"
               >
                 <span className="mr-2">Add to Cart</span>
@@ -111,10 +118,19 @@ if (!product) {
                     -
                   </button>
                   <div className="bg-[#2ECF5A] w-[60%] text-center py-1 flex items-center justify-center">
-                    <span className="mr-1 ">{quantity} </span> <span> in cart</span>
+                    <span className="mr-1">{quantity}</span> <span>in cart</span>
                   </div>
                   <button
-                    onClick={() => increaseCartQuantity({ id: product.id, name: product.title, price: product.price, quantity: quantity + 1,  img: product.img, category: product.category })}
+                    onClick={() =>
+                      increaseCartQuantity({
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        quantity: quantity + 1,
+                        img: product.image,
+                        category: product.category,
+                      })
+                    }
                     className="bg-[#fff] w-[20%] rounded-r-lg"
                   >
                     +

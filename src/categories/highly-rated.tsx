@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Products from "../components/products";
-import storeItems from "../database/products.json";
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
+import { useProduct } from "../context/productContext";
 
 // type Product = {
 //   id: number;
@@ -12,12 +12,35 @@ import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 //   category: string;
 // };
 
+type productObj = {
+  id: string; 
+  name: string; 
+  category: string; 
+  price: number; 
+  description: string; 
+  image: string; 
+  sellerId: string;
+}
+
 const HighlyRated: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const {products} = useProduct()
   const postsPerPage = 4;
 
   
-  const highlyRatedItems = storeItems.filter((item) => (item.ratings || 0) >= 2.5);
+const getRandomProducts = (products: productObj[], count = 18) => {
+ 
+  const shuffledProducts = [...products].sort(() => Math.random() - 0.5);
+  
+ 
+  return shuffledProducts.slice(0, count);
+};
+
+// Usage
+const highlyRatedItems = getRandomProducts(products);
+
+  
+ // const highlyRatedItems = products.filter((item) => (item.ratings || 0) >= 2.5);
 
   // Pagination calculations
   const totalPosts = highlyRatedItems.length;

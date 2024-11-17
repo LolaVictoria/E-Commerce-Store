@@ -169,9 +169,10 @@ const SellerDashboard = () => {
 
                     <button
                         type="submit"
-                        className="w-auto sm:w-2/5 mx-auto bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
+                        disabled={loading}
+                        className={`w-auto sm:w-2/5 mx-auto ${loading ? "bg-blue-200" : "bg-blue-500"}  text-white p-2 rounded-md  transition duration-200`}
                     >
-                        {loading ? "Wait for product to be added" :  "Add Product"}
+                        {loading ? "Wait for product to be added..." :  "Add Product"}
                     </button>
                         </div>
                 </form>
