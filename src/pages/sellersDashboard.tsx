@@ -6,7 +6,7 @@ import Logo from "/assets/img/alaba-market-logo.png";
 import Message from '../utilities/message';
 
 const SellerDashboard = () => {
-    const { addProduct, addProductMessage, editProductMessage } = useProduct();
+    const { addProduct, addProductMessage, editProductMessage, loading } = useProduct();
     const { currentFirstName, currentLastName } = useAuth();
 
     const categories = [
@@ -88,7 +88,7 @@ const SellerDashboard = () => {
                 </div>
 
                 <h2 className="text-3xl font-bold mb-4 text-center">Add Product</h2>
-                <div className="sm:w-2/4 mx-auto">
+                <div className="sm:w-2/4 mx-auto flex justify-start">
 
                 {addProductMessage && (
                     <Message message={addProductMessage} type={isError(addProductMessage) ? "error" : "success"} />
@@ -171,7 +171,7 @@ const SellerDashboard = () => {
                         type="submit"
                         className="w-auto sm:w-2/5 mx-auto bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
                     >
-                        Add Product
+                        {loading ? "Wait for product to be added" :  "Add Product"}
                     </button>
                         </div>
                 </form>
