@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useProduct } from '../context/productContext';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
@@ -27,6 +27,8 @@ const SellerDashboard = () => {
         description: '',
         image: '',
     });
+
+    const imageInputRef = useRef<HTMLInputElement | null>(null);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         setNewProduct({
@@ -58,6 +60,10 @@ const SellerDashboard = () => {
             description: '',
             image: '',
         });
+
+        if (imageInputRef.current) {
+            imageInputRef.current.value = '';
+        }
     };
 
     const isError = (message: string) => {
@@ -120,6 +126,7 @@ const SellerDashboard = () => {
                         <select
                             id="category"
                             name="category"
+                            value={newProduct.category} 
                             onChange={handleInputChange}
                             required
                             className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
@@ -159,6 +166,7 @@ const SellerDashboard = () => {
                         <label htmlFor="image" className="font-semibold">Upload Image</label>
                         <input
                             type="file"
+                            ref={imageInputRef}
                             onChange={handleImageUpload}
                             required
                             className="border border-gray-300 rounded-md p-2"

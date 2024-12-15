@@ -97,11 +97,12 @@ const Navbar: React.FC = () => {
                         {dropdownOpen && (
                             <div className="absolute right-0 mt-2 z-50 bg-[#2ECF5A] text-[#181818] rounded-md shadow-lg p-4 w-48 animate-slide-down">
                                 <ul className="space-y-2">
-                                    {accountType === "seller" ? (
+                                    {accountType ? (
                                         <>
-                                            <Link to="/seller-dashboard" state={{ currentFirstName, currentLastName, businessName }}>
+                                             {accountType === "seller" && 
+                                             <Link to="/seller-dashboard" state={{ currentFirstName, currentLastName, businessName }}>
                                                 <li className="border-b border-[#181818] py-2">Seller's Dashboard</li>
-                                            </Link>
+                                            </Link>}
                                             <Link to="/settings">
                                                 <li className="border-b border-[#181818] py-2">Settings</li>
                                             </Link>

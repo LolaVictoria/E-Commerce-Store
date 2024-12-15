@@ -72,6 +72,10 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
             return;
         }
 
+        if(!newProduct.category && !newProduct.name && !newProduct.description && !newProduct.image && !newProduct.price) {
+            setAddProductMessage("Incomplete Product Details!")
+        }
+
         try {
             setLoading(true)
             const productId = `${newProduct.name}-${Date.now()}`;

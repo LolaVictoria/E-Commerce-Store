@@ -104,7 +104,7 @@ const CompleteProfile = () => {
           onSubmit={onSubmit}
         >
           {({ setFieldValue, isSubmitting }) => (
-            <Form className="flex flex-col space-y-4">
+            <Form className="flex flex-col space-y-4 bg-[#2ECF5A]">
               <label className="flex flex-col">
                 <span className="text-gray-700">Account Type</span>
                 <Field as="select" name="accountType" className="mt-1 px-3 py-2 border rounded-lg">
@@ -166,7 +166,7 @@ const CompleteProfile = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`mt-4 px-4 py-2 rounded-lg text-white ${isSubmitting ? 'bg-gray-400' : 'bg-[#2ECF5A]'}`}
+                className={`mt-4 px-4 py-2 rounded-lg text-white ${isSubmitting ? 'bg-gray-400' : 'bg-[#FFFF]'}`}
               >
                 {isSubmitting ? "Saving..." : "Complete Profile"}
               </button>
