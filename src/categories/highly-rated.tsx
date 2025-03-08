@@ -2,6 +2,7 @@ import { useState } from "react";
 import Products from "../components/products";
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 import { useProduct } from "../context/productContext";
+import SkeletonProduct from "../components/skeletonProduct";
 
 // type Product = {
 //   id: number;
@@ -24,7 +25,7 @@ type productObj = {
 
 const HighlyRated: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const {products} = useProduct()
+  const {products, loading} = useProduct()
   const postsPerPage = 4;
 
   
@@ -100,12 +101,14 @@ const highlyRatedItems = getRandomProducts(products);
       </h3>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-14 place-items-center gap-x-4 my-14">
-        {currentPosts.map((item) => (
-          <div key={item.id}>
-            <Products {...item} />
-          </div>
-        ))}
-      </div>
+      {loading
+        ? Array(4).fill(0).map((_, index) => <SkeletonProduct key={index} />)
+        : currentPosts.map((item, index) => (
+            <div key={`${item.id}-${index}`}>
+              <Products {...item} />
+            </div>
+          ))}
+    </div>
 
       {/* Pagination Controls */}
       <div className="flex justify-center items-center space-x-2 mt-4">

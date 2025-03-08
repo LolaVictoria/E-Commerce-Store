@@ -39,18 +39,23 @@ export const ShoppingCartProvider = ({ children }: { children: React.ReactNode }
 
   useEffect(() => {
     const fetchCartItems = async () => {
-      if (currentEmail) {
+      if (!currentEmail) return; 
+      try {
         const cartDocRef = doc(db, "carts", currentEmail);
         const cartDoc = await getDoc(cartDocRef);
+    
         if (cartDoc.exists()) {
           const items = cartDoc.data().items || [];
           setCartItems(items);
           sessionStorage.setItem("cartItems", JSON.stringify(items));
         }
+      } catch (error) {
+        console.error("Error fetching cart items:", error);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     };
-
+    
     if (currentEmail) {
       fetchCartItems();
     } else {

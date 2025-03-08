@@ -15,8 +15,10 @@ interface Product {
 
 interface ProductContextProps {
     products: Product[];
+    sellerProducts: Product[];
     addProduct: (newProduct: Omit<Product, 'id' | 'sellerId'>) => Promise<void>;
     fetchProducts: () => Promise<void>;
+    fetchSellerProducts: () => Promise<void>;
     deleteProduct: (productId: string) => Promise<void>;
     editProduct: (productId: string, updatedProduct: Partial<Omit<Product, 'id' | 'sellerId'>>) => Promise<void>;
     addProductMessage: string; 
@@ -38,12 +40,39 @@ export const useProduct = () => {
 export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const { businessName, currentEmail } = useAuth();
     const [products, setProducts] = useState<Product[]>([]);
+    const [sellerProducts, setSellerProducts] = useState<Product[]>([]);
     const [addProductMessage, setAddProductMessage] = useState("");
     const [editProductMessage, setEditProductMessage] = useState(""); 
     const [messageTimeout, setMessageTimeout] = useState<NodeJS.Timeout | null>(null);
     const [loading, setLoading] = useState(false)
 
     const fetchProducts = useCallback(async () => {
+        setLoading(true)
+        try {
+            const productsRef = collection(db, "products");
+            const querySnapshot = await getDocs(productsRef); 
+
+            if (querySnapshot.empty) {
+                console.warn("No products found in Firestore.");
+                return;
+            }
+    
+            const productsList: Product[] = querySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...(doc.data() as Omit<Product, "id">),
+            }));
+    
+            setProducts(productsList);
+            setLoading(false)
+            console.log("Fetched products:", productsList);
+    
+            sessionStorage.setItem("products", JSON.stringify(productsList));
+        } catch (error) {
+            console.error("Error fetching products:", error);
+        }
+    }, []);
+    
+    const fetchSellerProducts = useCallback(async () => {
         if (!businessName || !currentEmail) {
             console.warn("Missing businessName or currentEmail for product fetch");
             return;
@@ -59,7 +88,7 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
                 productsList.push({ id: doc.id, ...(doc.data() as Omit<Product, 'id'>) });
             });
 
-            setProducts(productsList);
+            setSellerProducts(productsList);
             sessionStorage.setItem("products", JSON.stringify(productsList));
         } catch (error) {
             console.error("Error fetching products:", error);
@@ -168,7 +197,7 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
 
     return (
         <ProductContext.Provider value={{ 
-            products, addProduct, fetchProducts, deleteProduct, editProduct, addProductMessage, editProductMessage, loading, setLoading }}>
+            products, sellerProducts, addProduct, fetchSellerProducts, fetchProducts, deleteProduct, editProduct, addProductMessage, editProductMessage, loading, setLoading }}>
             {children}
         </ProductContext.Provider>
     );
