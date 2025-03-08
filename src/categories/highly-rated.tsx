@@ -111,7 +111,8 @@ const highlyRatedItems = getRandomProducts(products);
     </div>
 
       {/* Pagination Controls */}
-      <div className="flex justify-center items-center space-x-2 mt-4">
+      {loading ? ""
+      : <div className="flex justify-center items-center space-x-2 mt-4">
         <button
           onClick={handlePreviousPage}
           disabled={currentPage === 1}
@@ -143,7 +144,7 @@ const highlyRatedItems = getRandomProducts(products);
         >
            <AiOutlineDoubleRight size={20} />
         </button>
-      </div>
+      </div>}
     </div>
   );
 };
