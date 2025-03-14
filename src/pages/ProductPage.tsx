@@ -4,6 +4,7 @@ import Products from "../components/products";
 import Footer from "../components/footer";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useProduct } from "../context/productContext";
+import { ClipLoader } from "react-spinners";
 
 type Product = {
   id: number;
@@ -64,7 +65,9 @@ const ProductsPage: React.FC<ProductDisplayProps> = () => {
         </p>
   
         {loading ? (
-          <p className="text-center text-lg mt-10">Loading...</p>
+          <div className="flex justify-center items-center h-screen">
+            <ClipLoader color="#2ECF5A" size={50} /> 
+          </div>
         ) : filteredProducts.length > 0 ? (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-14 place-items-center gap-x-3 lg:gap-x-4 mt-7 mb-24">
             {filteredProducts.map((item) => (

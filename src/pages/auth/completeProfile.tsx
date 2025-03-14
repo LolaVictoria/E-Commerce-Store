@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { doc, setDoc, getDocs, collection, query, where } from "firebase/firestore";
@@ -8,6 +8,7 @@ import { getAuth, sendEmailVerification } from "firebase/auth";
 import { CountryInput, StateInput } from "country-state-input-field";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import Logo from "/assets/img/alaba-market-logo.png";
 
 const CompleteProfile = () => {
   const navigate = useNavigate();
@@ -95,16 +96,25 @@ const CompleteProfile = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+          <Link to="/">
+                  <div className="bg-black p-3 mb-5 rounded-md flex items-center justify-center text-xl font-bold lg:col-span-1">
+                              <img src={Logo} className="mr-3 w-10 h-10" alt="Alaba Market Logo" />
+                              <div>
+                                  <span className="text-[#2ECF5A]">Alaba </span>
+                                  <span className="text-[#fff]">Market</span>
+                              </div>
+                          </div>
+                          </Link>
         <h1 className="text-2xl font-bold mb-6 text-center text-[#2ECF5A]">Complete Your Profile</h1>
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md bg-[#2ECF5A]">
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
         >
           {({ setFieldValue, isSubmitting }) => (
-            <Form className="flex flex-col space-y-4 bg-[#2ECF5A]">
+            <Form className="flex flex-col space-y-4 ">
               <label className="flex flex-col">
                 <span className="text-gray-700">Account Type</span>
                 <Field as="select" name="accountType" className="mt-1 px-3 py-2 border rounded-lg">

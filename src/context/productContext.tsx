@@ -64,8 +64,6 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
     
             setProducts(productsList);
             setLoading(false)
-            console.log("Fetched products:", productsList);
-    
             sessionStorage.setItem("products", JSON.stringify(productsList));
         } catch (error) {
             console.error("Error fetching products:", error);
