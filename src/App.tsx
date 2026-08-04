@@ -1,47 +1,151 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/home-page";
-import ProductDetails from "./pages/productdetails";
-import { ShoppingCartProvider } from "./context/shoppingCartContext"
-import "./index.css"
-import ShoppingCart from "./components/shoppingcart";
-import SignUp from "./pages/auth/signUp";
-import Login from "./pages/auth/login";
-import { AuthProvider } from "./context/authContext";
-import CompleteProfile from "./pages/auth/completeProfile";
-import SellerDashboard from "./pages/sellersDashboard";
-import { ProductProvider } from "./context/productContext";
-import SellersProduct from "./pages/sellersProduct";
-import ForgotPassword from "./pages/ForgotPassword/forgotPassword";
-import ResetPassword from "./pages/ForgotPassword/resetPassword";
-import VerifyEmail from "./pages/ForgotPassword/verifyEmail";
-import ProductsPage from "./pages/ProductPage";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/home/HomePage";
+import ProductDetailsPage from "./pages/products/ProductDetailsPage";
+import { ShoppingCartProvider } from "./contexts/shoppingCartContext";
+import "./index.css";
+import ShoppingCart from "./components/cart/ShoppingCart";
+import SignUp from "./pages/auth/SignUpPage";
+import Login from "./pages/auth/LoginPage";
+import { AuthProvider } from "./contexts/authContext";
+import SellerDashboard from "./pages/seller/SellerDashboardPage";
+import { ProductProvider } from "./contexts/productContext";
+import SellerProductsPage from "./pages/seller/SellerProductsPage";
+import ProductsPage from "./pages/products/ProductsPage";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
+import RoleProtectedRoute from "./components/auth/RoleProtectedRoute";
+import Orders from "./pages/seller/OrdersPage";
+import SellerOrders from "./pages/seller/SellerOrdersPage";
+import NotFound from "./pages/errors/NotFoundPage";
+import Purchases from "./pages/account/PurchasesPage";
+import SellerProfileForm from "./pages/seller/SellerProfileFormPage";
+import SellerProfile from "./pages/seller/SellerProfilePage";
 
 const App = () => {
-  return ( 
-    <Router>
+  return (
       <AuthProvider>
-      <ProductProvider>
-      <ShoppingCartProvider>
-      <div>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/signup" element={<SignUp/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/complete-profile" element={<CompleteProfile/>}/>
-          <Route path="/seller-dashboard" element={<SellerDashboard/>}/>
-          <Route path="/shoppingcart" element={<ShoppingCart/>}/>
-          <Route path="/products" element={<ProductsPage />} />
-          <Route path="/productdetails/:id" element={<ProductDetails/> } />     
-          <Route path="/sellersproduct" element={<SellersProduct/> } /> 
-          <Route path="/forgot-password" element={<ForgotPassword/> } /> 
-          <Route path="/reset-password" element={<ResetPassword/> } /> 
-          <Route path="/verifyemail" element={<VerifyEmail/> } /> 
-        </Routes>
-      </div>
-    </ShoppingCartProvider>
-    </ProductProvider>
+        <ProductProvider>
+          <ShoppingCartProvider>
+            <Routes>
+
+              {/* Public Routes */}
+              <Route path="/" element={<HomePage />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/products" element={<ProductsPage />} />
+              <Route path="/productdetails/:id" element={<ProductDetailsPage />} />
+              
+
+              {/* Protected Routes */}
+              
+              <Route
+                path="/seller-profile-form"
+                element={
+                  <ProtectedRoute>
+                    <SellerProfileForm />
+                  </ProtectedRoute>
+                }
+              />
+
+
+
+              <Route
+                  path="/seller-dashboard"
+                  element={
+                      <RoleProtectedRoute allowedRoles={["SELLER"]}>
+                          <SellerDashboard />
+                      </RoleProtectedRoute>
+                  }
+              />
+
+              <Route
+                path="/shoppingcart"
+                element={
+                  <ProtectedRoute>
+                    <ShoppingCart />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                  path="/sellersproduct"
+                  element={
+                      <RoleProtectedRoute allowedRoles={["SELLER"]}>
+                          <SellerProductsPage />
+                      </RoleProtectedRoute>
+                  }
+              />
+
+              <Route
+                  path="/seller-profile"
+                  element={
+                      <RoleProtectedRoute allowedRoles={["SELLER"]}>
+                          <SellerProfile />
+                      </RoleProtectedRoute>
+                  }
+              />
+
+              <Route
+                path="/orders"
+                element={
+                  <ProtectedRoute>
+                    <Orders />
+                  </ProtectedRoute>
+                }
+              />
+
+
+
+              {/* <Route
+                path="/orders/:id"
+                element={
+                  <ProtectedRoute>
+                    <OrderDetails />
+                  </ProtectedRoute>
+                }
+              /> */}
+
+              <Route
+                path="/purchases"
+                element={
+                  <ProtectedRoute>
+                    <Purchases />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/seller/orders"
+                element={
+                    <RoleProtectedRoute allowedRoles={["SELLER"]}>
+                        <SellerOrders />
+                    </RoleProtectedRoute>
+                }
+            />
+
+            
+
+            <Route path="*" element={<NotFound />} />
+              {/* <Route
+                  path="/checkout"
+                  element={
+                      <RoleProtectedRoute allowedRoles={["BUYER"]}>
+                          <Checkout />
+                      </RoleProtectedRoute>
+                  }
+              /> */}
+
+              {/* <Route
+                  path="/admin"
+                  element={
+                      <RoleProtectedRoute allowedRoles={["ADMIN"]}>
+                          <AdminDashboard />
+                      </RoleProtectedRoute>
+                  }
+              /> */}
+            </Routes>
+          </ShoppingCartProvider>
+        </ProductProvider>
       </AuthProvider>
-    </Router>
   );
 };
 
