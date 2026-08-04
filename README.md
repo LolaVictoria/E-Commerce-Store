@@ -1,27 +1,107 @@
-# React + TypeScript + Vite
+# Alaba Commerce UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React + TypeScript frontend with Spring Boot + Java integration for the Alaba Commerce e-commerce platform.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## Expanding the ESLint configuration
+Alaba Commerce allows buyers to browse products and sellers to manage inventory through a secure dashboard.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The frontend communicates with a Spring Boot REST API.
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+## Features
+
+### Authentication
+
+- JWT Login
+- Registration
+- Protected Routes
+- Buyer & Seller Roles
+
+### Buyers
+
+- Browse products
+- Product Details
+- Category Filtering
+- Search Products
+- Shopping Cart
+- Pagination
+- Sorting
+
+### Sellers
+
+- Seller Dashboard
+- Create Product
+- Edit Product
+- Delete Product
+- Upload Product Images
+- Manage Inventory
+
+---
+
+## Tech Stack
+
+- React
+- TypeScript
+- React Router
+- Axios
+- Tailwind CSS
+- React Context API
+- Cloudinary
+- Vite
+
+---
+
+## Architecture
+
+```
+React UI
+     │
+     ▼
+Context API
+     │
+     ▼
+Axios Services
+     │
+     ▼
+Spring Boot REST API
+     │
+     ▼
+PostgreSQL
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Images
+
+```
+React
+   │
+   ▼
+Cloudinary
+   │
+Returns URL
+   │
+   ▼
+Spring Boot
+```
+---
+
+## Backend
+
+The frontend consumes the REST API built with Spring Boot.
+
+Repository:
+
+```
+[https://github.com/your-backend](https://github.com/LolaVictoria/E-Commerce-Backend)
+```
+
+---
+
+
+
+## Author
+
+Damilola Oniyide
