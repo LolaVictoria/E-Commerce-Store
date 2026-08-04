@@ -1,27 +1,172 @@
-# React + TypeScript + Vite
+# 🛒 Alaba Commerce UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **React + TypeScript** frontend for the **Alaba Commerce** e-commerce platform, built with **Vite**, **Tailwind CSS**, and **React Context API**. It integrates seamlessly with a **Spring Boot REST API** to provide a secure and scalable online marketplace for buyers and sellers.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## Expanding the ESLint configuration
+Alaba Commerce is a full-stack e-commerce platform that enables:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Buyers to discover, search, filter, and purchase products.
+- Sellers to manage their inventory through a dedicated dashboard.
+- Secure authentication and authorization using JWT.
+- Image hosting via Cloudinary.
 
-- Configure the top-level `parserOptions` property like this:
+The frontend communicates with a Spring Boot backend through RESTful APIs.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+---
+
+# ✨ Features
+
+## Authentication
+
+- JWT Authentication
+- User Registration
+- Login
+- Protected Routes
+- Buyer & Seller Roles
+- Persistent Authentication
+
+---
+
+## Buyer Features
+
+- Browse Products
+- Product Details
+- Category Filtering
+- Product Search
+- Shopping Cart
+- Pagination
+- Product Sorting
+- Responsive Design
+
+---
+
+## Seller Features
+
+- Seller Dashboard
+- Create Products
+- Edit Products
+- Delete Products
+- Upload Product Images
+- Inventory Management
+
+---
+
+#  Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| React | UI Library |
+| TypeScript | Type Safety |
+| Vite | Build Tool |
+| React Router | Routing |
+| Axios | API Communication |
+| Tailwind CSS | Styling |
+| React Context API | Global State Management |
+| Cloudinary | Image Hosting |
+
+---
+
+# 🏗 System Architecture
+
+```mermaid
+flowchart LR
+
+A[React UI]
+-->B[React Context API]
+
+B
+-->C[Axios Services]
+
+C
+-->D[Spring Boot REST API]
+
+D
+-->E[(PostgreSQL Database)]
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+---
+
+# 🖼 Image Upload Flow
+
+```mermaid
+sequenceDiagram
+
+participant Seller
+participant React
+participant Cloudinary
+participant SpringBoot
+participant Database
+
+Seller->>React: Upload Product Image
+React->>Cloudinary: Upload Image
+Cloudinary-->>React: Image URL
+React->>SpringBoot: Submit Product + Image URL
+SpringBoot->>Database: Save Product
+Database-->>SpringBoot: Product Saved
+SpringBoot-->>React: Success Response
+```
+
+---
+
+# 🖥 Main Screens
+
+- Home Page
+- Product Listing
+- Product Details
+- Login
+- Register
+- Shopping Cart
+- Seller Dashboard
+- Add Product
+- Edit Product
+- Manage Products
+
+---
+
+# Backend
+
+The frontend consumes a REST API built with Spring Boot.
+
+**Backend Repository:**
+
+👉 https://github.com/LolaVictoria/E-Commerce-Backend
+
+---
+
+# 🚀 Getting Started
+
+Clone the repository
+
+```bash
+git clone https://github.com/LolaVictoria/E-Commerce-Store.git
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start the development server
+
+```bash
+npm run dev
+```
+
+---
+
+# 🌍 Environment Variables
+
+Create a `.env` file in the project root.
+
+Example:
+
+```env
+VITE_API_BASE_URL=http://localhost:8080
+VITE_CLOUDINARY_CLOUD_NAME=your_cloud_name
+```
+
+---
