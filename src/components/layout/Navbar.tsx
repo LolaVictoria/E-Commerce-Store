@@ -125,11 +125,11 @@ const Navbar: React.FC = () => {
                                                 </li>
                                             </Link>
 
-                                            <Link to="/settings">
+                                            {/* <Link to="/settings">
                                                 <li className="border-b border-[#181818] py-2">
                                                     Settings
                                                 </li>
-                                            </Link>
+                                            </Link> */}
 
                                             <li
                                                 className="py-2 cursor-pointer"

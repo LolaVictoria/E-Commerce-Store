@@ -82,12 +82,16 @@ const Login = () => {
             <Form className="flex flex-col space-y-4">
               {errorMessage && <span className="text-red-600 font-bold">{errorMessage}</span>}
               <label className="flex flex-col">
-                <span className="text-gray-700">Email</span>
+                <span className="text-gray-700">
+                  Email: (for visitors/testers, use 
+                  <span className="text-green-900 font-bold"> alabamarketecommerce@gmail.com </span>)</span>
                 <Field type="email" name="email" autoComplete="email" className="mt-1 px-3 py-2 border rounded-lg" />
                 <ErrorMessage name="email" component="div" className="text-red-600 font-bold" />
               </label>
               <label className="flex flex-col">
-                <span className="text-gray-700">Password</span>
+                <span className="text-gray-700">
+                  Password: (for visitors/testers, use 
+                  <span className="text-green-900 font-bold "> alabamarket </span>)</span>
                 <div className="relative">
                   <Field type={showPassword ? "text" : "password"} name="password" autoComplete="current-password" className="mt-1 px-3 py-2 border rounded-lg w-full" />
                   <button type="button" onClick={togglePasswordVisibility} className="absolute inset-y-0 right-0 px-3 flex items-center">

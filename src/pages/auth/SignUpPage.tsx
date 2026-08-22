@@ -90,6 +90,10 @@ const SignUp = () => {
         >
           Create Account
         </h1>
+        <p className="text-green-900 font-bold mb-2">
+          Note: To avoid creating multiple account there is a default login details on  
+          <Link to="/login" className="text-decoration underline text-black text-md"> login page</Link>
+        </p>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}

@@ -60,79 +60,114 @@ const SellerProfileForm = () => {
         Become a Seller
       </h2>
 
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-5"
-      >
-        <input
-          required
-          name="businessName"
-          placeholder="Business Name"
-          value={form.businessName}
-          onChange={handleChange}
-          className="w-full border rounded p-3"
-        />
+      <form onSubmit={handleSubmit} className="space-y-5">
 
-        <textarea
-          name="businessDescription"
-          placeholder="Business Description"
-          value={form.businessDescription}
-          onChange={handleChange}
-          className="w-full border rounded p-3"
-        />
+        <div>
+          <label htmlFor="businessName" className="block text-sm font-medium mb-2">
+            Business Name
+          </label>
+          <input
+            id="businessName"
+            required
+            name="businessName"
+            placeholder="e.g. Dami's Fashion Store"
+            value={form.businessName}
+            onChange={handleChange}
+            className="w-full border rounded p-3"
+          />
+        </div>
 
-        <input
-          name="phoneNumber"
-          placeholder="Phone Number"
-          value={form.phoneNumber}
-          onChange={handleChange}
-          className="w-full border rounded p-3"
-          required
-        />
+        <div>
+          <label htmlFor="businessDescription" className="block text-sm font-medium mb-2">
+            Business Description
+          </label>
+          <textarea
+            id="businessDescription"
+            name="businessDescription"
+            placeholder="Tell customers a little about your business"
+            value={form.businessDescription}
+            onChange={handleChange}
+            className="w-full border rounded p-3"
+            rows={4}
+          />
+        </div>
 
-        <input
-          name="address"
-          placeholder="Business Address"
-          value={form.address}
-          onChange={handleChange}
-          className="w-full border rounded p-3"
-          required
-        />
+        <div>
+          <label htmlFor="phoneNumber" className="block text-sm font-medium mb-2">
+            Phone Number
+          </label>
+          <input
+            id="phoneNumber"
+            name="phoneNumber"
+            type="tel"
+            placeholder="e.g. 08012345678"
+            value={form.phoneNumber}
+            onChange={handleChange}
+            className="w-full border rounded p-3"
+            required
+          />
+        </div>
 
-        <input
-          name="city"
-          placeholder="City"
-          value={form.city}
-          onChange={handleChange}
-          className="w-full border rounded p-3"
-          required
-        />
+        <div>
+          <label htmlFor="address" className="block text-sm font-medium mb-2">
+            Business Address
+          </label>
+          <input
+            id="address"
+            name="address"
+            placeholder="e.g. 12 Allen Avenue"
+            value={form.address}
+            onChange={handleChange}
+            className="w-full border rounded p-3"
+            required
+          />
+        </div>
 
-        <select
-          name="state"
-          value={form.state}
-          onChange={handleChange}
-          className="w-full border rounded p-3"
-        >
-          <option value="">
-            Select State
-          </option>
+        <div>
+          <label htmlFor="city" className="block text-sm font-medium mb-2">
+            City
+          </label>
+          <input
+            id="city"
+            name="city"
+            placeholder="e.g. Lagos"
+            value={form.city}
+            onChange={handleChange}
+            className="w-full border rounded p-3"
+            required
+          />
+        </div>
 
-          {NIGERIAN_STATES.map((state) => (
-            <option
-              key={state}
-              value={state}
-            >
-              {state.replace(/_/g, " ")}
-            </option>
-          ))}
-        </select>
+        <div>
+          <label htmlFor="state" className="block text-sm font-medium mb-2">
+            State
+          </label>
+          <select
+            id="state"
+            name="state"
+            value={form.state}
+            onChange={handleChange}
+            className="w-full border rounded p-3"
+            required
+          >
+            <option value="">Select your state</option>
+
+            {NIGERIAN_STATES.map((state) => (
+              <option key={state} value={state}>
+                {state.replace(/_/g, " ")}
+              </option>
+            ))}
+          </select>
+        </div>
 
         <button
-            disabled={loading}
-            className="bg-[#2ECF5A] text-black px-6 py-3 rounded w-full">
-            {loading ? "Creating..." : "Become a Seller"}
+          type="submit"
+          disabled={loading}
+          className="bg-[#2ECF5A] text-black px-6 py-3 rounded w-full"
+        >
+          {loading ? "Creating..." : "Become a Seller"}
         </button>
+
       </form>
     </div>
   );
