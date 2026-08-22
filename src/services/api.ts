@@ -1,6 +1,6 @@
 import axios from "axios";
 const api = axios.create({
-    baseURL: "https://e-commerce-backend-production-2580.up.railway.app",
+    baseURL: "https://alaba-commerce-api.onrender.com",
     headers: {
         "Content-Type": "application/json",
     },
